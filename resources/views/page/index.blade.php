@@ -8,8 +8,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="mt-16">
+<body class="relative">
     @include('components.navbar')
+    <div class="mt-16">
+        <div>
+            kamu nanya
+        </div>
+    </div>
 </body>
 
 </html>
