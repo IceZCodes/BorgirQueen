@@ -9,9 +9,7 @@
 </head>
 
 <body>
-    <nav class="mt-16">
-        @include('components.navbar')
-    </nav>
+    @include('components.navbar')
     @yield('content')
 </body>
 
