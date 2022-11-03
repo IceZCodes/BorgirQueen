@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('master.master')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-
-<body class="mt-16">
-    @include('components.navbar')
-</body>
-
-</html>
+@section('content')
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto illum velit, eaque iste obcaecati
+        placeat laborum quod
+        quam quia nesciunt quas illo dignissimos corrupti odio? Unde modi qui tenetur provident? </p>
+@endsection
