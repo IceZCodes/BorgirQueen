@@ -9,7 +9,7 @@
             <div class="mt-4 font-light text-xl">
                 The best borgir for all
             </div>
-            <button>
+            <button class="mt-8 bg-[#005BAA] font-bold text-[#FEFDFB] text-3xl p-4 rounded-xl">
                 Order Now
             </button>
         </div>
