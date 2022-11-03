@@ -8,5 +8,7 @@
         <a href="#" class="hover:text-[#007AC2]">Deals</a>
         <a href="#" class="hover:text-[#007AC2]">Cart</a>
         <a href="#" class="hover:text-[#007AC2]">Order Now</a>
+        <a href="{{ route('login') }}" class="hover:text-[#007AC2]">Login</a>
+        <a href="{{ route('register') }}" class="hover:text-[#007AC2]">Register</a>
     </ul>
 </div>

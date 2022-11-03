@@ -24,3 +24,11 @@ Route::get('/index', function () {
 Route::get('/menu', function () {
     return view('page.menu');
 })->name('menu');
+
+Route::get('/login', function () {
+    return view('page.login');
+})->name('login');
+
+Route::get('/register', function () {
+    return view('page.register');
+})->name('register');
