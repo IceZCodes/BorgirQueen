@@ -1,0 +1,11 @@
+.landing {
+    background-image: url("../assets/4486939.jpg");
+    background-size: cover;
+}
+
+.tagline {
+    height: 20rem;
+    width: 35rem;
+    top: 16rem;
+    left: 9rem;
+}
