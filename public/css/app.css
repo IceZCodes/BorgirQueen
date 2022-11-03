@@ -587,6 +587,10 @@ video {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
 .pt-12 {
   padding-top: 3rem;
 }
@@ -648,6 +652,10 @@ video {
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+.text-\[\#fff\] {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .opacity-100 {
   opacity: 1;

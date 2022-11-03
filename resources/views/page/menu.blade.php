@@ -1,6 +1,7 @@
 @extends('master.master')
 
 @section('content')
+    <div class="px-52 pt-12"></div>
     <div class="flex gap-24 justify-center">
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
             <img class="w-full" src="{{ asset('assets/4486939.jpg') }}" alt="Sunset in the mountains">
@@ -14,11 +15,7 @@
             </div>
             <div class="px-6 pt-4 pb-2">
                 <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#cheeseburger</span>
-                <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#delicious</span>
-                <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#savory</span>
+                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2">Order</span>
             </div>
         </div>
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
@@ -33,11 +30,7 @@
             </div>
             <div class="px-6 pt-4 pb-2">
                 <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#cheeseburger</span>
-                <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#delicious</span>
-                <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#savory</span>
+                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2">Order</span>
             </div>
         </div>
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
@@ -52,11 +45,7 @@
             </div>
             <div class="px-6 pt-4 pb-2">
                 <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#cheeseburger</span>
-                <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#delicious</span>
-                <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#savory</span>
+                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2">Order</span>
             </div>
         </div>
     </div>
@@ -73,11 +62,7 @@
             </div>
             <div class="px-6 pt-4 pb-2">
                 <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#cheeseburger</span>
-                <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#delicious</span>
-                <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#savory</span>
+                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2">Order</span>
             </div>
         </div>
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
@@ -92,11 +77,7 @@
             </div>
             <div class="px-6 pt-4 pb-2">
                 <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#cheeseburger</span>
-                <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#delicious</span>
-                <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#savory</span>
+                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2">Order</span>
             </div>
         </div>
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
@@ -111,12 +92,9 @@
             </div>
             <div class="px-6 pt-4 pb-2">
                 <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#cheeseburger</span>
-                <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#delicious</span>
-                <span
-                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#savory</span>
+                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2">Order</span>
             </div>
         </div>
+    </div>
     </div>
 @endsection
