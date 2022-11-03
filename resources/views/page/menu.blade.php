@@ -55,7 +55,7 @@
             </div>
         </div>
     </div>
-    <div class="flex gap-24 justify-center mt-12">
+    <div class="flex gap-24 justify-center mt-12 mb-12">
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
             <img class="w-full" src="{{ asset('assets/4486939.jpg') }}" alt="Sunset in the mountains">
             <div class="px-6 py-4">

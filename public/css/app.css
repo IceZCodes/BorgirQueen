@@ -511,6 +511,9 @@ video {
 .mb-4 {
   margin-bottom: 1rem;
 }
+.mb-12 {
+  margin-bottom: 3rem;
+}
 .block {
   display: block;
 }
