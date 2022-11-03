@@ -1,4 +1,4 @@
-<div class="fixed h-16 w-full flex flex-row justify-between items-center bg-[#FEFDFB] drop-shadow-md px-36">
+<div class="h-16 w-full flex flex-row justify-between items-center bg-[#FEFDFB] drop-shadow-md px-36">
     <div class="text-[#EE3E42]">
         Borgir<span class="text-[#F9AA53]">Queen</span>
     </div>

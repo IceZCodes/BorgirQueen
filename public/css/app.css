@@ -469,6 +469,9 @@ video {
 .fixed {
   position: fixed;
 }
+.relative {
+  position: relative;
+}
 .mt-16 {
   margin-top: 4rem;
 }
@@ -523,6 +526,9 @@ video {
 .px-36 {
   padding-left: 9rem;
   padding-right: 9rem;
+}
+.pt-16 {
+  padding-top: 4rem;
 }
 .align-middle {
   vertical-align: middle;
