@@ -4,7 +4,7 @@
     </div>
     <ul class="flex flex-row font-semibold text-[#2B3437] gap-x-3">
         <li class="text-[#007AC2]">Home</li>
-        <a href="#" class="hover:text-[#007AC2]">Menu</a>
+        <a href="{{ route('menu') }}" class="hover:text-[#007AC2]">Menu</a>
         <a href="#" class="hover:text-[#007AC2]">Deals</a>
         <a href="#" class="hover:text-[#007AC2]">Cart</a>
         <a href="#" class="hover:text-[#007AC2]">Order Now</a>

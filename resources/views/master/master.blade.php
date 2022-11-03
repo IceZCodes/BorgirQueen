@@ -10,7 +10,9 @@
 
 <body>
     @include('components.navbar')
-    @yield('content')
+    <div class="px-52 pt-12">
+        @yield('content')
+    </div>
 </body>
 
 </html>
