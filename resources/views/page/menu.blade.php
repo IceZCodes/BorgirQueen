@@ -14,8 +14,10 @@
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
-                <span
-                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2">Order</span>
+                <button
+                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2 hover:bg-[#09457a]"
+                    type="button">Order
+                </button>
             </div>
         </div>
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
@@ -29,8 +31,10 @@
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
-                <span
-                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2">Order</span>
+                <button
+                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2 hover:bg-[#09457a]"
+                    type="button">Order
+                </button>
             </div>
         </div>
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
@@ -44,8 +48,10 @@
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
-                <span
-                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2">Order</span>
+                <button
+                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2 hover:bg-[#09457a]"
+                    type="button">Order
+                </button>
             </div>
         </div>
     </div>
@@ -61,8 +67,10 @@
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
-                <span
-                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2">Order</span>
+                <button
+                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2 hover:bg-[#09457a]"
+                    type="button">Order
+                </button>
             </div>
         </div>
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
@@ -76,8 +84,10 @@
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
-                <span
-                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2">Order</span>
+                <button
+                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2 hover:bg-[#09457a]"
+                    type="button">Order
+                </button>
             </div>
         </div>
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
@@ -91,8 +101,10 @@
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
-                <span
-                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2">Order</span>
+                <button
+                    class="inline-block bg-[#005BAA] rounded-xl px-10 py-1 text-base font-semibold text-[#fff] mr-2 mb-2 hover:bg-[#09457a]"
+                    type="button">Order
+                </button>
             </div>
         </div>
     </div>
