@@ -20,11 +20,17 @@ Route::get('/', function () {
 });
 
 Route::get('/index', function () {
-    return view('page.index');
+    return view('page.index', [
+        'title' => 'Home',
+        'active' => 'home',
+    ]);
 })->name('index');
 
 Route::get('/menu', function () {
-    return view('page.menu');
+    return view('page.menu', [
+        'title' => 'Menu',
+        'active' => 'menu',
+    ]);
 })->name('menu');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
