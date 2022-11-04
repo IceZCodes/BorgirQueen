@@ -63,7 +63,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="w-full text-white bg-[#005BAA] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create an account</button>
+                    <button type="submit" class="w-full text-white bg-[#005BAA] hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create an account</button>
                     
                 </form>
                 <p class="text-sm font-light text-gray-500">
