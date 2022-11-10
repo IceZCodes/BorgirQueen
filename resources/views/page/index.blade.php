@@ -1,7 +1,7 @@
 @extends('master.master')
 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 @section('content')
-    <div class="px-52 relative landing h-screen text-[#2B3437] opacity-100">
+    <div class="relative landing h-screen text-[#2B3437] opacity-100 px-24 lg:px-52">
         <div class="tagline absolute bg-[#FFFFFFE5]  rounded-tl-[4rem] rounded-br-[4rem] p-10">
             <div class="font-bold text-5xl">
                 Super Borgir Queen™
@@ -17,8 +17,8 @@
 
         </div>
     </div>
-    <div class="px-52 py-12">
-        <div class="promo grid grid-cols-4 lg:grid-cols-6 grid-flow-row gap-8">
+    <div class="px-12 md:px-24 lg:px-52 py-12">
+        <div class="promo grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 grid-flow-row gap-8">
             @for ($i = 0; $i < 6; $i++)
             <div class="card col-span-2 rounded-xl shadow-lg px-8 py-4">
                 <h3 class="font-semibold text-xl">Free Borgir</h3>

@@ -47,3 +47,14 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::middleware([])->group(function() {
+    Route::prefix('/admin')->group(function() {
+        Route::get('/', function() {
+            return view('page.admin.dashboard', [
+                'title' => 'Admin',
+                'active' => 'admin'
+            ]);
+        });
+    });
+});
