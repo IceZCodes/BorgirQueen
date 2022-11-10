@@ -5,7 +5,6 @@
 
 .tagline {
     height: 20rem;
-    width: 35rem;
-    top: 16rem;
-    left: 9rem;
+    max-width: 30rem;
+    bottom: 6rem;
 }
