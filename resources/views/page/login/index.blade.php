@@ -14,8 +14,8 @@
                     @csrf
 
                     <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 @error('email') is-invalid @enderror" placeholder="kobokanaeru@gmail.com" required autocomplete="email" autofocus>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
+                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 @error('email') is-invalid @enderror" placeholder="armaniferrante@gmail.com" required autocomplete="email" autofocus>
 
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
                         <a href="#" class="text-sm font-medium text-blue-500 hover:underline">Forgot password?</a>
                     </div>
                     
-                    <button type="submit" class="w-full text-white bg-[#005BAA] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
+                    <button type="submit" class="w-full text-white bg-[#005BAA] hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
 
                     <p class="text-sm font-light text-gray-500">
                         Don’t have an account yet? <a href="/register" class="font-medium text-blue-500 hover:underline">Sign up</a>

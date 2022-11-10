@@ -15,7 +15,7 @@
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Your Name</label>
 
-                        <input type="text" name="name" id="name" class="form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 @error('name') is-invalid @enderror" placeholder="Kobo Kanaeru" required autocomplete="name" value="{{ old('name') }}" autofocus>
+                        <input type="text" name="name" id="name" class="form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 @error('name') is-invalid @enderror" placeholder="Armani Ferrante" required autocomplete="name" value="{{ old('name') }}" autofocus>
 
                         @error('name')
                             <span class="invalid-feedback block mb-2 text-sm font-medium text-red-600">
@@ -25,9 +25,9 @@
                     </div>
 
                     <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
 
-                        <input type="email" name="email" id="email" class="form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 @error('email') is-invalid @enderror" placeholder="kobokanaeru@gmail.com" required autocomplete="email" value="{{ old('email') }}">
+                        <input type="email" name="email" id="email" class="form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 @error('email') is-invalid @enderror" placeholder="armaniferrante@gmail.com" required autocomplete="email" value="{{ old('email') }}">
 
                         @error('email')
                             <span class="invalid-feedback block mb-2 text-sm font-medium text-red-600">
@@ -49,7 +49,7 @@
                     </div>
 
                     <div>
-                        <label for="password-confirm" class="block mb-2 text-sm font-medium text-gray-900">Confirm password</label>
+                        <label for="password-confirm" class="block mb-2 text-sm font-medium text-gray-900">Confirm Password</label>
 
                         <input type="password" name="password_confirmation" id="password-confirm" placeholder="••••••••" class="form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required autocomplete="new-password">
                     </div>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="w-full text-white bg-[#005BAA] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create an account</button>
+                    <button type="submit" class="w-full text-white bg-[#005BAA] hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create an account</button>
                     
                 </form>
                 <p class="text-sm font-light text-gray-500">

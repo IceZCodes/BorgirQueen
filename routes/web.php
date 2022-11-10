@@ -20,11 +20,17 @@ Route::get('/', function () {
 });
 
 Route::get('/index', function () {
-    return view('page.index');
+    return view('page.index', [
+        'title' => 'Home',
+        'active' => 'home',
+    ]);
 })->name('index');
 
 Route::get('/menu', function () {
-    return view('page.menu');
+    return view('page.menu', [
+        'title' => 'Menu',
+        'active' => 'menu',
+    ]);
 })->name('menu');
 
 Route::get('/cart', function () {
@@ -37,7 +43,7 @@ Route::get('/orders', function () {
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
