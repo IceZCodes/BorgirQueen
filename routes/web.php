@@ -33,6 +33,13 @@ Route::get('/menu', function () {
     ]);
 })->name('menu');
 
+Route::get('/about', function () {
+    return view('page.about', [
+        'title' => 'About Us',
+        'active' => 'about',
+    ]);
+})->name('about');
+
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
