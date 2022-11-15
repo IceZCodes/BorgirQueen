@@ -33,6 +33,20 @@ Route::get('/menu', function () {
     ]);
 })->name('menu');
 
+Route::get('/cart', function () {
+    return view('page.cart', [
+        'title' => 'Cart',
+        'active' => 'cart'
+    ]);
+})->name('cart');
+
+Route::get('/orders', function () {
+    return view('page.order', [
+        'title' => 'Order',
+        'active' => 'order'
+    ]);
+})->name('orders');
+
 Route::get('/about', function () {
     return view('page.about', [
         'title' => 'About Us',
@@ -46,3 +60,14 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::middleware([])->group(function() {
+    Route::prefix('/admin')->group(function() {
+        Route::get('/', function() {
+            return view('page.admin.dashboard', [
+                'title' => 'Admin',
+                'active' => 'admin'
+            ]);
+        });
+    });
+});
