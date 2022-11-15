@@ -34,11 +34,17 @@ Route::get('/menu', function () {
 })->name('menu');
 
 Route::get('/cart', function () {
-    return view('page.cart');
+    return view('page.cart', [
+        'title' => 'Cart',
+        'active' => 'cart'
+    ]);
 })->name('cart');
 
 Route::get('/orders', function () {
-    return view('page.userorder');
+    return view('page.order', [
+        'title' => 'Order',
+        'active' => 'order'
+    ]);
 })->name('orders');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
