@@ -56,9 +56,6 @@
                     <a href="{{ route('menu') }}" class="{{ ($active === "menu") ? 'text-blue-600' : '' }} block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Menu</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Deals</a>
-                </li>
-                <li>
                     <a href="{{ route('about') }}" class="{{ ($active === "about") ? 'text-blue-600' : '' }} block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">About Us</a>
                 </li>
             </ul>
