@@ -16,10 +16,6 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('page.welcome');
-});
-
-Route::get('/index', function () {
     return view('page.index', [
         'title' => 'Home',
         'active' => 'home',
