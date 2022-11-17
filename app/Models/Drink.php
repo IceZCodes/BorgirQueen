@@ -22,4 +22,7 @@ class Drink extends Model
     public function category() {
         return $this->belongsTo(Category::class);
     }
+    public function drinkOrder() {
+        return $this->hasMany(Drink::class);
+    }
 }
