@@ -4,7 +4,7 @@
     {{-- Our Story --}}
     <div class="flex bg-[#FEFAF5]">
         <div class="w-full">
-            <img class="w-full h-full" src="{{ asset('assets/AboutBurgerTop.png') }}" alt="">
+            <img class="w-full h-full" src="{{ asset('assets/about/about-burger-1.png') }}" alt="">
         </div>
 
         <div class="w-full">
@@ -40,7 +40,7 @@
                 SIMPLY TASTY!
             </div>
             
-            <div class="flex text-white font-bold pt-3 w-full h-full ml-9 mr-12">
+            <div class="flex text-white font-bold pt-2 w-full h-full ml-9 mr-12">
                 <div class="pl-6">
                     <button class="bg-[#F9AB55] rounded-3xl px-5 py-2">
                         View Menu
@@ -57,7 +57,7 @@
         </div>  
         
         <div class="w-full">
-            <img class="w-full h-full" src="{{ asset('assets/AboutBurgerBottom.png') }}" alt="">
+            <img class="w-full h-full" src="{{ asset('assets/about/about-burger-2.png') }}" alt="">
         </div>
     </div>
 
