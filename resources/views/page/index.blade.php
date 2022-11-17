@@ -2,9 +2,9 @@
 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 @section('content')
 <div class="grid grid-cols-3 text-[#2B3437] px-24 lg:px-52">
-    <div class="col-span-3 flex flex-row justify-between mt-24">
-        <div>
-            <h1 class="text-[#EE3E42] font-bold text-7xl whitespace-pre-line">
+    <div class="col-span-3 flex flex-col-reverse md:flex-row items-center md:items-start md:justify-between mt-24">
+        <div class="flex flex-col justify-center md:justify-start items-stretch md:items-center ">
+            <h1 class="text-[#EE3E42] font-bold text-5xl md:text-7xl whitespace-normal md:whitespace-pre-line">
                 The Tastiest &
                 Mind-Blowing
                 <span class="text-[#F9AA54]">Bites</span>
@@ -14,7 +14,7 @@
             </button>
         </div>
 
-        <div class="w-2/5 h-2/5">
+        <div class="w-2/5 md:h-2/5">
             <img  src="{{ asset('assets/landing/borgir-hasbulla.png') }}" alt="borgir">
         </div>
     </div>
