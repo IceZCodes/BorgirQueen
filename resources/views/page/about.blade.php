@@ -24,7 +24,7 @@
     </div>
 
     {{-- Our Philosophy --}}
-    <div class="flex bg-[#FEFAF5]">
+    <div class="flex">
         <div class="w-full">
             <div class="pt-14 ml-9 mr-12">
                 <div class="font-bold text-4xl">
