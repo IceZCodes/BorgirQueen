@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBurgersTable extends Migration
+class CreateFoodCart extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateBurgersTable extends Migration
      */
     public function up()
     {
-        Schema::create('burgers', function (Blueprint $table) {
+        Schema::create('food_cart', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignId('category_id')->references('id')->on('categories');
-            $table->string('description');
-            $table->string('image');
-            $table->decimal('price', 8, 2);
+            $table->foreignId('food_id')->references('id')->on('foods');
+            $table->foreignId('cart_id')->references('id')->on('carts');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateBurgersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('burgers');
+        Schema::dropIfExists('food_cart');
     }
 }

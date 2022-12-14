@@ -20,17 +20,12 @@ class Order extends Model
         'total_price'
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-
-    public function burgers() {
-        return $this->hasMany(Burger::class);
-    }
-    public function drinks() {
-        return $this->hasMany(Drink::class);
-    }
-    public function extras() {
-        return $this->hasMany(Extra::class);
+    public function foods()
+    {
+        return $this->belongsToMany(Food::class);
     }
 }
