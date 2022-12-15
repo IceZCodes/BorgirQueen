@@ -34,9 +34,9 @@
                         since we first opened in Bandung, every day we have a unique menu according
                         to the schedule, and we provide quality ingredients in each of our dishes
                     </p>
-                    <button class="font-black tracking-wide rounded-full bg-[#005BAA] text-[#FFFFFF] mt-8 px-8 py-2">
+                    <a href="/about" class="font-black tracking-wide rounded-full bg-[#005BAA] text-[#FFFFFF] mt-8 px-8 py-2">
                         Read More
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
