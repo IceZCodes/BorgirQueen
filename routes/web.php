@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\FoodController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,9 +58,9 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::middleware([])->group(function() {
-    Route::prefix('/admin')->group(function() {
-        Route::get('/', function() {
+Route::middleware([])->group(function () {
+    Route::prefix('/admin')->group(function () {
+        Route::get('/', function () {
             return view('page.admin.dashboard', [
                 'title' => 'Admin',
                 'active' => 'admin'
@@ -67,3 +68,6 @@ Route::middleware([])->group(function() {
         });
     });
 });
+
+//routes cart
+Route::post('cart/{id}', [FoodController::class, 'store'])->name('addCart');

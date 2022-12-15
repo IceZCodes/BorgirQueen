@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
+use App\Models\FoodCart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FoodController extends Controller
 {
@@ -31,9 +34,14 @@ class FoodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+        $cart = Cart::where('user_id', Auth::user()->id)->first();
+        FoodCart::create([
+            'food_id' => $id,
+            'cart_id' => $cart->id,
+        ]);
+        return back();
     }
 
     /**
@@ -42,7 +50,7 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFoodCart extends Migration
+class CreateFoodCartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFoodCart extends Migration
      */
     public function up()
     {
-        Schema::create('food_cart', function (Blueprint $table) {
+        Schema::create('food_carts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('food_id')->references('id')->on('foods');
             $table->foreignId('cart_id')->references('id')->on('carts');
@@ -28,6 +28,6 @@ class CreateFoodCart extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('food_cart');
+        Schema::dropIfExists('food_carts');
     }
 }
