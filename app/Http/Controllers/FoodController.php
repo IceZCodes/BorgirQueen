@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Food;
 use App\Models\FoodCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,11 @@ class FoodController extends Controller
      */
     public function index()
     {
-        //
+        $foods = Food::all();
+        return view('page.menu', [
+            'title' => 'Menu',
+            'active' => 'menu',
+        ], compact('foods'));
     }
 
     /**
@@ -52,7 +57,12 @@ class FoodController extends Controller
      */
     public function show()
     {
-        //
+        $carts = Cart::where('user_id', Auth::user()->id)->first();
+        $carts = $carts->foods;
+        return view('page.cart', [
+            'title' => 'Cart',
+            'active' => 'cart'
+        ], compact('carts'));
     }
 
     /**

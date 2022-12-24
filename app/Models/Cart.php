@@ -9,6 +9,8 @@ class Cart extends Model
 {
     use HasFactory;
 
+    protected $table = 'carts';
+
     protected $guarded = ['id'];
 
     protected $fillable = [
@@ -21,6 +23,6 @@ class Cart extends Model
     }
     public function foods()
     {
-        return $this->hasMany(Food::class);
+        return $this->belongsToMany(Food::class, 'food_carts',);
     }
 }

@@ -23,20 +23,6 @@ Route::get('/', function () {
     ]);
 })->name('index');
 
-Route::get('/menu', function () {
-    return view('page.menu', [
-        'title' => 'Menu',
-        'active' => 'menu',
-    ]);
-})->name('menu');
-
-Route::get('/cart', function () {
-    return view('page.cart', [
-        'title' => 'Cart',
-        'active' => 'cart'
-    ]);
-})->name('cart');
-
 Route::get('/orders', function () {
     return view('page.order', [
         'title' => 'Order',
@@ -70,4 +56,6 @@ Route::middleware([])->group(function () {
 });
 
 //routes cart
-Route::post('cart/{id}', [FoodController::class, 'store'])->name('addCart');
+Route::get('/menu', [FoodController::class, 'index'])->name('menu')->middleware('auth');
+Route::post('/cart/{id}', [FoodController::class, 'store'])->name('addCart')->middleware('auth');
+Route::get('/cart', [FoodController::class, 'show'])->name('cart')->middleware('auth');

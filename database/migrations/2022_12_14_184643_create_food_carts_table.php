@@ -15,8 +15,8 @@ class CreateFoodCartsTable extends Migration
     {
         Schema::create('food_carts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('food_id')->references('id')->on('foods');
-            $table->foreignId('cart_id')->references('id')->on('carts');
+            $table->foreignId('food_id')->references('id')->on('foods')->onDelete('cascade');
+            $table->foreignId('cart_id')->references('id')->on('carts')->onDelete('cascade');
             $table->timestamps();
         });
     }
