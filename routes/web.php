@@ -52,6 +52,13 @@ Route::middleware([])->group(function () {
                 'active' => 'admin'
             ]);
         });
+
+        Route::get('/allCustomer', function () {
+            return view('page.admin.allCustomer', [
+                'title' => 'Admin',
+                'active' => 'admin'
+            ]);
+        });
     });
 });
 
