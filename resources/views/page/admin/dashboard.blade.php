@@ -5,17 +5,24 @@
             @include('page.admin.components.sidebar')
         </div>
         <div class="col-start-3 px-8 py-12" style="grid-column-end: 13">
+            @if (Session::has('success'))
+            {{-- Success --}}
+            <div id="modalPopup" class="w-3/5 text-green-600 bg-green-100 p-4 rounded-lg border border-2 border-green-600 mb-4" role="alert">
+                {{Session::get('success')}}
+                <button type="button" class="btn-close float-right text-black" onclick="getElementById('modalPopup').style.display = 'none'">X</button>
+            </div>
+            @endif
             <div class="bg-[#FFFFFF] p-4 rounded-lg border border-[1px] border-[#E5E7EB]">
                 <div class="flex justify-between">
                     <div class="font-semibold">All Products</div>
-                    <button class="font-semibold bg-[#6FCF97] text-[#F2F2F2] flex flex-row items-center rounded-lg border border-[1px] border-[#E5E7EB] py-1 px-3">
+                    <a href="{{route('addFood')}}" class="font-semibold bg-[#6FCF97] text-[#F2F2F2] flex flex-row items-center rounded-lg border border-[1px] border-[#E5E7EB] py-1 px-3">
                         <span class="text-3xl">
                             <svg class="svg-icon mr-2" style="width: 1.25rem; height: 1em;vertical-align: middle;fill: #F2F2F2;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M836 476H548V188c0-19.8-16.2-36-36-36s-36 16.2-36 36v288H188c-19.8 0-36 16.2-36 36s16.2 36 36 36h288v288c0 19.8 16.2 36 36 36s36-16.2 36-36V548h288c19.8 0 36-16.2 36-36s-16.2-36-36-36z"  />
                             </svg>
                         </span>
                         New product
-                    </button>
+                    </a>
                 </div>
                 <form class="w-fit flex flex-row align-content-center items-center rounded-xl ">
                     <img type="submit" src="{{ asset('assets/admin/search.png')}}" alt="">
@@ -49,7 +56,7 @@
                                         <tbody>
                                             @foreach ($foods as $food)
                                             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><img class="w-12" src="{{ asset('assets/landing/LoadedA1USDuo.png') }}" alt=""></td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><img class="w-12" src="{{ asset('storage/images/'.$food->image) }}" alt=""></td>
                                                 <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                                     {{$food->name}}
                                                 </td>
@@ -63,10 +70,12 @@
                                                     {{$food->price}}
                                                 </td>
                                                 <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex flex-row gap-2 text-[#F2F2F2]">
+                                                    <form id="deleteFood" action="/admin/food/delete/{{$food->id}}" method="POST" class="flex flex-row gap-2 text-[#F2F2F2]">
+                                                        @csrf
+                                                        @method('DELETE')
                                                         <button class="font-semibold bg-[#2D9CDB] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Edit</button>
-                                                        <button class="font-semibold bg-[#EB5757] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Delete</button>
-                                                    </div>
+                                                        <button onclick="deleteFood({{$food->id}})" class="font-semibold bg-[#EB5757] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Delete</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -83,6 +92,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function deleteFood(id) {
+            var deleteFood = document.getElementById('deleteFood');
+            if (confirm('Are you sure you want to delete this food?')) {
+                deleteFood.action = '/admin/food/delete/' + id;
+            }
+        }
+    </script>
+
 @endsection
 
 <style>

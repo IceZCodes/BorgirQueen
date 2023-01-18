@@ -48,6 +48,17 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::middleware([])->group(function () {
     Route::prefix('/admin')->group(function () {
         Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
+        Route::get('/food/add', [AdminController::class, 'addFoodPage'])->name('addFood');
+        Route::post('/food/add', [AdminController::class, 'createFood'])->name('createFood');
+        Route::get('/food/edit', [AdminController::class, 'editFoodPage'])->name('editFood');
+        Route::post('/food/edit/{id}', [AdminController::class, 'updateFood'])->name('updateFood');
+        Route::delete('/food/delete/{id}', [AdminController::class, 'deletefood'])->name('deleteFood');
+        Route::get('/allCustomer', function () {
+            return view('page.admin.allCustomer', [
+                'title' => 'Admin',
+                'active' => 'admin'
+            ]);
+        });
 
         Route::get('/allCustomer', [AdminController::class, 'allCustomer'])->name('allCustomer');
 
