@@ -69,7 +69,7 @@
                                                 </td>
                                                 <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap ">
                                                     <div class="flex flex-row gap-2 text-[#F2F2F2] ">
-                                                        <button class="font-semibold bg-[#9B51E0] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Transaction Details</button>
+                                                        <button class="font-semibold bg-[#9B51E0] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2" data-modal-target="staticModal" data-modal-toggle="staticModal">Transaction Details</button>
                                                     </div>
                                                 </td>
                                                 <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap ">
@@ -89,7 +89,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+
+    
 @endsection

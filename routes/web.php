@@ -49,12 +49,8 @@ Route::middleware([])->group(function () {
     Route::prefix('/admin')->group(function () {
         Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
 
-        Route::get('/allCustomer', function () {
-            return view('page.admin.allCustomer', [
-                'title' => 'Admin',
-                'active' => 'admin'
-            ]);
-        });
+        Route::get('/allCustomer', [AdminController::class, 'allCustomer'])->name('allCustomer');
+
 
         Route::get('/customerOrder', function () {
             return view('page.admin.customerOrder', [
