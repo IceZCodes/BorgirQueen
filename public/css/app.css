@@ -1440,6 +1440,11 @@ video {
     margin-right: -1.5rem;
   }
 
+  .sm\:-mx-8 {
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
+
   .sm\:h-9 {
     height: 2.25rem;
   }
@@ -1603,6 +1608,11 @@ video {
   .lg\:-mx-8 {
     margin-left: -2rem;
     margin-right: -2rem;
+  }
+
+  .lg\:-mx-10 {
+    margin-left: -2.5rem;
+    margin-right: -2.5rem;
   }
 
   .lg\:mt-0 {

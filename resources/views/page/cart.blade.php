@@ -6,9 +6,10 @@
         <div class="container mx-auto mt-10">
             <div class="flex shadow-md my-10">
                 <div class="w-full bg-white px-10 py-10">
-                    <div class="flex justify-between border-b pb-8">
+                    <div  class="flex justify-between border-b pb-8">
                         <h1 class="font-semibold text-4xl">My Cart</h1>
-                        <h2 class="font-extralight text-xl mt-5">3 Items</h2>
+                        <h2 class="font-extralight text-xl mt-5"></h2>
+                        <div class="hidden">{{ $sumPrice = 0, $sumQty = 0 }}</div>
                     </div>
                     @foreach ($carts as $food)
                         <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
@@ -19,28 +20,33 @@
                                 <div class="flex flex-col justify-between ml-4 flex-grow">
                                     <span class="font-semibold text-4xl">{{ $food->name }}</span>
                                     <span
-                                        class="text-black font-semibold text-sm">{{ Str::limit($food->description, 50) }}</span>
-                                    <a href="#"
-                                        class="font-semibold hover:text-red-500 text-gray-800 text-xs mt-2">Remove</a>
+                                        class="text-black font-semibold text-sm">{{ Str::limit($food->description, 100) }}</span>
+
+                                        <form action="{{ route('addCart', $food->id) }}" method="POST">
+                                            @csrf
+                                            <a href="#"
+                                            class="font-semibold hover:text-red-500 text-gray-800 text-xs mt-2">Remove</a>
+                                        </form>
+
+
                                 </div>
                             </div>
+                            <a href=""></a>
                             <div class="flex justify-center w-1/5">
-                                <img class="fill-current text-gray-600 w-3" src="{{ asset('assets/MinusLogo.svg') }}"
-                                    alt="">
+                                {{-- <img class="fill-current text-gray-600 w-3" src="{{ asset('assets/MinusLogo.svg') }}"
+                                    alt=""> --}}
 
                                 <input class="mx-2 border text-center w-8" type="text" value="1">
 
-                                <img class="fill-current text-gray-600 w-4" src="{{ asset('assets/PlusLogo.svg') }}"
-                                    alt="">
+                                {{-- <img class="fill-current text-gray-600 w-4" src="{{ asset('assets/PlusLogo.svg') }}"
+                                    alt=""> --}}
                             </div>
+                            <div class="hidden">{{ $sumPrice += $food->price }}</div>
                             <span class="text-center w-1/5 font-semibold text-lg">${{ $food->price }}</span>
                         </div>
                     @endforeach
 
                     <a href="{{ route('menu') }}" class="flex font-semibold text-indigo-600 text-sm mt-10">
-                        <button type="button"
-                            class="text-white bg-[#005BAA] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Continue
-                            Shopping</button>
                         <button data-collapse-toggle="navbar-cta" type="button"
                             class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
                             aria-controls="navbar-cta" aria-expanded="false">
@@ -65,16 +71,20 @@
                             <option>Pick Up</option>
                         </select>
                     </div>
-                    <div class="py-10">
-                        <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
-                        <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full">
+                    <div class="py-5">
+                        <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Address</label>
+                        <input type="text" id="promo" placeholder="Enter your address...." class="p-2 text-sm w-full">
+                    </div>
+                    <div class="mb-5">
+                        <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Notes</label>
+                        <input type="text" id="promo" placeholder="Enter your notes...." class="p-2 text-sm w-full">
                     </div>
                     <button type="button"
                         class="text-white bg-[#005BAA] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Apply</button>
                     <div class="border-t mt-8">
                         <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                             <span>Total cost</span>
-                            <span>$39.97</span>
+                            <span>${{ $sumPrice }}</span>
                         </div>
                         <button
                             class=" bg-[#005BAA] font-bold hover:bg-blue-800 py-3 text-xl text-white uppercase w-full rounded-lg ">Checkout</button>

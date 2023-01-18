@@ -1,81 +1,101 @@
 @extends('master.master')
-
 @section('content')
-<body class="bg-gray-100">
-    <div class="container mx-auto mt-10">
-        <div class="flex shadow-md my-10">
-          <div class="w-full bg-white px-10 py-10">
-            <div class="flex justify-between border-b pb-8">
-                <h1 class="font-semibold text-4xl">My Orders</h1>
+    <div class="grid grid-cols-12 bg-[#F9FAFB]">
+        <div class="bg-[#FFFFFF] col-span-2 border">
+            @include('page.admin.components.sidebarCustomer')
+        </div>
+        <div class="col-start-3 px-8 py-12" style="grid-column-end: 13">
+            <div class="bg-[#FFFFFF] p-4 rounded-lg border border-[1px] border-[#E5E7EB]">
+                <div class="flex justify-between">
+                    <div class="font-semibold text-lg">My Orders</div>
+                </div>
+                <div class="flex justify-end mr-8">
+                    <button class="mr-2 text-gray-700" type="button" id="button-addon2">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                          <path fill="#d1d5db"  d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+                        </svg>
+                    </button>
+                    <input class="text-sm" type="text" placeholder="Search by name" style="outline: none">
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex flex-col">
+                        <div class="overflow-x-auto sm:-mx-8 lg:-mx-10">
+                            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                                <div class="">
+                                    <table class="min-w-full">
+                                        <thead class="bg-white border-b">
+                                            <tr>
+                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                    Name
+                                                </th>
+                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                    Email
+                                                </th>
+                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                    Phone Number
+                                                </th>
+                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                    Address
+                                                </th>
+                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                    Date/Time
+                                                </th>
+                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                  Order
+                                                </th>
+                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                  Total Price
+                                                </th>
+                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                  Notes
+                                                </th>
+                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                  Status
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @for ($i = 0; $i < 20; $i++)
+                                            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+
+                                                <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                                  David Martinez
+                                                </td>
+                                                <td class="max-w-xs text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap overflow-x-hidden">
+                                                  davidmartinez@gmail.com
+                                                </td>
+                                                <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                                  +62817882677
+                                                </td>
+                                                <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                                  Jl. Sunter Indah XII 4 Blok A No.5
+                                                </td>
+                                                <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                                  2022-10-12/10.20
+                                                </td>
+                                                <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                                  The Great Chicken Burger 1x, Fries 2x
+                                                </td>
+                                                <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                                  $ 24.59
+                                                </td>
+                                                <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                                  No mayo
+                                                </td>
+                                                <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                                  Completed
+                                                </td>
+                                            </tr>
+                                            @endfor
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex pt-6 border-b pb-8">
-                <h1 class="font-semibold text-lg ml-10 py-0.5">Status</h1>
-                <div class="ml-20 mt-1"> <button type="button" class="text-indigo-600 bg-indigo-200 font-medium rounded-3xl text-xs px-4 py-1 text-center mr-3 md:mr-0 outline-none outline-offset-0 outline-indigo-600">All</button></div>
-                <div class="ml-10 mt-1"> <button type="button" class="text-[#949393] bg-transparent hover:text-[#000000] font-medium rounded-3xl text-xs px-4 py-1 text-center mr-3 md:mr-0 outline-none outline-offset-0 outline-[#949393]">Active</button></div>
-                <div class="ml-10 mt-1"> <button type="button" class="text-[#949393] bg-transparent hover:text-[#000000] font-medium rounded-3xl text-xs px-4 py-1 text-center mr-3 md:mr-0 outline-none outline-offset-0 outline-[#949393]">Complete</button></div>
-                <div class="ml-10 mt-1"> <button type="button" class="text-[#949393] bg-transparent hover:text-[#000000] font-medium rounded-3xl text-xs px-4 py-1 text-center mr-3 md:mr-0 outline-none outline-offset-0 outline-[#949393]">Failed</button></div>
-            </div>
-            <div class="flex mt-10 mb-5 ml-10">
-                <h3 class="font-semibold text-gray-600 text-xs uppercase w-1/5">Date</h3>
-                <h3 class="font-semibold  text-gray-600 text-xs uppercase w-1/5 ">TransactionID</h3>
-                <h3 class="font-semibold  text-gray-600 text-xs uppercase w-1/5 ">Price</h3>
-                <h3 class="font-semibold  text-gray-600 text-xs uppercase w-1/5 ">Payment</h3>
-              </div>
-              <div class="flex mt-10 mb-5 ml-10">
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5">02/06/2022</h3>
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">TR1258126</h3>
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">$ 39.99</h3>
-                <img class="h-2.5 w-2.5 rounded-full mt-2" src="{{ asset('assets/yellow.png') }}" alt="">
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">Not Paid</h3>
-                    
-                
-                <button type="button" class="text-white font-medium rounded-3xl text-xs px-4 py-1 text-center mr-3 md:mr-0 outline-none outline-offset-0 w-1/5 bg-[#005BAA] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Transaction Details</button>
-              </div>
-              <div class="flex mt-10 mb-5 ml-10">
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5">22/10/2022</h3>
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">TR1252345</h3>
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">$ 28.99</h3>
-                <img class="h-2.5 w-2.5 rounded-full mt-2" src="{{ asset('assets/green.png') }}" alt="">
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">Paid</h3>
-                <button type="button" class="text-white font-medium rounded-3xl text-xs px-4 py-1 text-center mr-3 md:mr-0 outline-none outline-offset-0 w-1/5 bg-[#005BAA] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Transaction Details</button>
-              </div>
-              <div class="flex mt-10 mb-5 ml-10">
-                <h3 class="font-semibold text-black text-lg uppercase w-1/5">05/11/2022</h3>
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">TR1252422</h3>
-                <h3 class="font-semibold text-black text-lg uppercase w-1/5 ">$ 18.00</h3>
-                <img class="h-2.5 w-2.5 rounded-full mt-2" src="{{ asset('assets/red.svg') }}" alt="">
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">Failed</h3>
-                <button type="button" class="text-white font-medium rounded-3xl text-xs px-4 py-1 text-center mr-3 md:mr-0 outline-none outline-offset-0 w-1/5 bg-[#005BAA] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Transaction Details</button>
-              </div>
-              <div class="flex mt-10 mb-5 ml-10">
-                <h3 class="font-semibold text-black text-lg uppercase w-1/5">10/12/2022</h3>
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">TR1252122</h3>
-                <h3 class="font-semibold text-black text-lg uppercase w-1/5 ">$ 12.00</h3>
-                <img class="h-2.5 w-2.5 rounded-full mt-2" src="{{ asset('assets/Yellow.png') }}" alt="">
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">Not Paid</h3>
-                <button type="button" class="text-white font-medium rounded-3xl text-xs px-4 py-1 text-center mr-3 md:mr-0 outline-none outline-offset-0 w-1/5 bg-[#005BAA] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Transaction Details</button>
-              </div>
-              <div class="flex mt-10 mb-5 ml-10">
-                <h3 class="font-semibold text-black text-lg uppercase w-1/5">05/11/2022</h3>
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">TR1252422</h3>
-                <h3 class="font-semibold text-black text-lg uppercase w-1/5 ">$ 18.00</h3>
-                <img class="h-2.5 w-2.5 rounded-full mt-2" src="{{ asset('assets/green.png') }}" alt="">
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">Paid</h3>
-                <button type="button" class="text-white font-medium rounded-3xl text-xs px-4 py-1 text-center mr-3 md:mr-0 outline-none outline-offset-0 w-1/5 bg-[#005BAA] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Transaction Details</button>
-              </div>
-              <div class="flex mt-10 mb-5 ml-10">
-                <h3 class="font-semibold text-black text-lg uppercase w-1/5">08/11/2022</h3>
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">TR1252426</h3>
-                <h3 class="font-semibold text-black text-lg uppercase w-1/5 ">$ 23.00</h3>
-                <img class="h-2.5 w-2.5 rounded-full mt-2" src="{{ asset('assets/green.png') }}" alt="">
-                <h3 class="font-semibold  text-black text-lg uppercase w-1/5 ">Paid</h3>
-                <button type="button" class="text-white font-medium rounded-3xl text-xs px-4 py-1 text-center mr-3 md:mr-0 outline-none outline-offset-0 w-1/5 bg-[#005BAA] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Transaction Details</button>
-              </div>
-          </div>
+
         </div>
     </div>
-
-
-
-
 @endsection
