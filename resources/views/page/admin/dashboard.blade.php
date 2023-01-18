@@ -78,7 +78,9 @@
                     </div>
                 </div>
             </div>
-
+            <div class="d-flex float-right mt-2">
+                {{$foods->links('pagination::bootstrap-4')}}
+            </div>
         </div>
     </div>
 @endsection
