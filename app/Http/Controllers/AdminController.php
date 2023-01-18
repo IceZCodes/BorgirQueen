@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Food;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -78,5 +79,24 @@ class AdminController extends Controller
         Storage::delete('public/images/'.$foods->image);
         $foods->delete();
         return redirect()->route('admin')->with('success', 'Product deleted successfully');
+    }
+    public function allCustomer(Request $request){
+        $search = $request->search;
+        if ($search) {
+            $customers = User::where('name', 'like', "%$search%")->where('is_admin', 0)->paginate(10);
+            $customers->appends(['search' => $search]);
+            return view('page.admin.allCustomer', [
+                'title' => 'All Customer',
+                'active' => 'allCustomer',
+                'customers' => $customers,
+            ]);
+        }
+
+        $customers = User::where('is_admin', 0)->paginate(10);
+        return view('page.admin.allCustomer', [
+            'title' => 'All Customer',
+            'active' => 'allCustomer',
+            'customers' => $customers,
+        ]);
     }
 }

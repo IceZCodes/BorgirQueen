@@ -60,6 +60,9 @@ Route::middleware([])->group(function () {
             ]);
         });
 
+        Route::get('/allCustomer', [AdminController::class, 'allCustomer'])->name('allCustomer');
+
+
         Route::get('/customerOrder', function () {
             return view('page.admin.customerOrder', [
                 'title' => 'Admin',
