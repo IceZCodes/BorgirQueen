@@ -15,75 +15,78 @@
                     </span>
                 </a>
             </li>
-            @auth
-                <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
-                    class="flex items-center text-sm font-medium rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:mr-0"
-                    type="button">
-                    <span class="sr-only">Open user menu</span>
-                    <img class="mr-2 w-8 h-8 rounded-full" src="{{ asset('assets/anon.png') }}" alt="user photo">
-                    {{ auth()->user()->name }}
-                </button>
+        @endauth
+        @auth
+            <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
+                class="flex items-center text-sm font-medium rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:mr-0"
+                type="button">
+                <span class="sr-only">Open user menu</span>
+                <img class="mr-2 w-8 h-8 rounded-full" src="{{ asset('assets/anon.png') }}" alt="user photo">
+                {{ auth()->user()->name }}
+            </button>
 
-                <!-- Dropdown menu -->
-                <div id="dropdownAvatarName"
-                    class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
-                    style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 310px);"
-                    data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
-                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                        aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+            <!-- Dropdown menu -->
+            <div id="dropdownAvatarName"
+                class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+                style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 310px);"
+                data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
+                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                    aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                    @if (auth()->user()->is_admin == 1)
                         <li>
-                            <a href="#"
+                            <a href="/admin"
                                 class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
                         </li>
-                        {{-- <li>
+                    @endif
+                    {{-- <li>
                         <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
                     </li> --}}
-                    </ul>
-                    <div class="py-1">
-                        <form action="/logout" method="post">
-                            @csrf
-                            <a href="/logout"
-                                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                out</a>
-                        </form>
-                    </div>
+                </ul>
+                <div class="py-1">
+                    <form action="/logout" method="post">
+                        @csrf
+                        <a href="/logout"
+                            class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                            out</a>
+                    </form>
                 </div>
-            @else
-                <a href="{{ route('login') }}">
-                    <button type="button"
-                        class="bg-[#005BAA] text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">SIGN
-                        IN</button>
-                    <button data-collapse-toggle="navbar-cta" type="button"
-                        class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-                        aria-controls="navbar-cta" aria-expanded="false">
-                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </a>
-            @endauth
-        </div>
-
-        <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-            <ul
-                class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
-                <li>
-                    <a href="{{ route('index') }}"
-                        class="{{ $active === 'home' ? 'text-blue-600' : '' }} block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Home</a>
-                </li>
-                <li>
-                    <a href="{{ route('menu') }}"
-                        class="{{ $active === 'menu' ? 'text-blue-600' : '' }} block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Menu</a>
-                </li>
-                <li>
-                    <a href="{{ route('about') }}"
-                        class="{{ $active === 'about' ? 'text-blue-600' : '' }} block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">About
-                        Us</a>
-                </li>
-            </ul>
-        </div>
+            </div>
+        @else
+            <a href="{{ route('login') }}">
+                <button type="button"
+                    class="bg-[#005BAA] text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">SIGN
+                    IN</button>
+                <button data-collapse-toggle="navbar-cta" type="button"
+                    class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                    aria-controls="navbar-cta" aria-expanded="false">
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </a>
+        @endauth
     </div>
+
+    <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+        <ul
+            class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
+            <li>
+                <a href="{{ route('index') }}"
+                    class="{{ $active === 'home' ? 'text-blue-600' : '' }} block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Home</a>
+            </li>
+            <li>
+                <a href="{{ route('menu') }}"
+                    class="{{ $active === 'menu' ? 'text-blue-600' : '' }} block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Menu</a>
+            </li>
+            <li>
+                <a href="{{ route('about') }}"
+                    class="{{ $active === 'about' ? 'text-blue-600' : '' }} block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">About
+                    Us</a>
+            </li>
+        </ul>
+    </div>
+</div>
 </nav>
