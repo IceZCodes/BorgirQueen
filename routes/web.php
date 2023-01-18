@@ -65,7 +65,12 @@ Route::middleware([])->group(function () {
     });
 });
 
-//routes cart
+//routes menu
 Route::get('/menu', [FoodController::class, 'index'])->name('menu')->middleware('auth');
+Route::get('/menu/drink', [FoodController::class, 'drink'])->name('drink')->middleware('auth');
+Route::get('/menu/extra', [FoodController::class, 'extra'])->name('extra')->middleware('auth');
+Route::get('/menu/{id}', [FoodController::class, 'item'])->name('item')->middleware('auth');
+
+//routes cart
 Route::post('/cart/{id}', [FoodController::class, 'store'])->name('addCart')->middleware('auth');
 Route::get('/cart', [FoodController::class, 'show'])->name('cart')->middleware('auth');

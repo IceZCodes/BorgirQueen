@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.2.2 | MIT License | https://tailwindcss.com
+! tailwindcss v3.2.1 | MIT License | https://tailwindcss.com
 *//*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -24,7 +24,6 @@
 2. Prevent adjustments of font size after orientation changes in iOS.
 3. Use a more readable tab size.
 4. Use the user's configured `sans` font-family by default.
-5. Use the user's configured `sans` font-feature-settings by default.
 */
 
 html {
@@ -34,7 +33,6 @@ html {
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
-  font-feature-settings: normal; /* 5 */
 }
 
 /*
@@ -533,6 +531,12 @@ video {
 .top-24 {
   top: 6rem;
 }
+.top-1\/2 {
+  top: 50%;
+}
+.left-1\/2 {
+  left: 50%;
+}
 .z-10 {
   z-index: 10;
 }
@@ -634,6 +638,9 @@ video {
 .mt-48 {
   margin-top: 12rem;
 }
+.mt-20 {
+  margin-top: 5rem;
+}
 .mt-12 {
   margin-top: 3rem;
 }
@@ -648,6 +655,15 @@ video {
 }
 .mb-1 {
   margin-bottom: 0.25rem;
+}
+.ml-44 {
+  margin-left: 11rem;
+}
+.mr-44 {
+  margin-right: 11rem;
+}
+.mb-36 {
+  margin-bottom: 9rem;
 }
 .block {
   display: block;
@@ -690,6 +706,15 @@ video {
 }
 .h-20 {
   height: 5rem;
+}
+.h-14 {
+  height: 3.5rem;
+}
+.h-1\/2 {
+  height: 50%;
+}
+.h-\[800px\] {
+  height: 800px;
 }
 .w-5 {
   width: 1.25rem;
@@ -734,6 +759,27 @@ video {
 .w-12 {
   width: 3rem;
 }
+.w-\[800px\] {
+  width: 800px;
+}
+.w-96 {
+  width: 24rem;
+}
+.w-\[680px\] {
+  width: 680px;
+}
+.w-60 {
+  width: 15rem;
+}
+.w-14 {
+  width: 3.5rem;
+}
+.w-32 {
+  width: 8rem;
+}
+.w-36 {
+  width: 9rem;
+}
 .min-w-full {
   min-width: 100%;
 }
@@ -760,6 +806,9 @@ video {
 }
 .grid-cols-12 {
   grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;
@@ -802,6 +851,18 @@ video {
 }
 .gap-2 {
   gap: 0.5rem;
+}
+.gap-40 {
+  gap: 10rem;
+}
+.gap-8 {
+  gap: 2rem;
+}
+.gap-16 {
+  gap: 4rem;
+}
+.gap-9 {
+  gap: 2.25rem;
 }
 .space-x-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -944,6 +1005,25 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(245 243 255 / var(--tw-bg-opacity));
 }
+.bg-\[\#9ED4D4\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(158 212 212 / var(--tw-bg-opacity));
+}
+.bg-\[\#D72300\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(215 35 0 / var(--tw-bg-opacity));
+}
+.bg-\[\#FF8906\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 137 6 / var(--tw-bg-opacity));
+}
+.bg-\[\] {
+  background-color: ;
+}
+.bg-\[\#F3F0E7\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 240 231 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -1026,10 +1106,6 @@ video {
   padding-left: 3rem;
   padding-right: 3rem;
 }
-.px-52 {
-  padding-left: 13rem;
-  padding-right: 13rem;
-}
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -1041,6 +1117,18 @@ video {
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+}
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+.py-36 {
+  padding-top: 9rem;
+  padding-bottom: 9rem;
+}
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 .pr-4 {
   padding-right: 1rem;
@@ -1066,14 +1154,20 @@ video {
 .pb-8 {
   padding-bottom: 2rem;
 }
-.pt-12 {
-  padding-top: 3rem;
-}
 .pb-2 {
   padding-bottom: 0.5rem;
 }
 .pr-2 {
   padding-right: 0.5rem;
+}
+.pb-4 {
+  padding-bottom: 1rem;
+}
+.pt-3 {
+  padding-top: 0.75rem;
+}
+.pb-36 {
+  padding-bottom: 9rem;
 }
 .text-left {
   text-align: left;
@@ -1247,6 +1341,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(124 58 237 / var(--tw-text-opacity));
 }
+.text-\[\#FF8906\] {
+  --tw-text-opacity: 1;
+  color: rgb(255 137 6 / var(--tw-text-opacity));
+}
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -1297,6 +1395,13 @@ video {
 .hover\:bg-\[\#F5F3FF\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(245 243 255 / var(--tw-bg-opacity));
+}
+.hover\:bg-cyan-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(8 145 178 / var(--tw-bg-opacity));
+}
+.hover\:font-bold:hover {
+  font-weight: 700;
 }
 .hover\:text-gray-700:hover {
   --tw-text-opacity: 1;

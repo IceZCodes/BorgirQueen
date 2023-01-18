@@ -28,41 +28,57 @@ class DatabaseSeeder extends Seeder
             'slug' => '',
         ]);
 
+        Category::create([
+            'name' => 'Drink',
+            'slug' => '',
+        ]);
+
+        Category::create([
+            'name' => 'Extra',
+            'slug' => '',
+        ]);
+
         Food::create([
             'name' => 'The Cheese Burger',
             'category_id' => 1,
-            'description' => "You can't go wrong with our cheeseburger, a signature flame-grilled beef patty topped with a simple
-            layer of melted American cheese, crinkle cut pickles, yellow mustard, and ketchup on a toasted sesame
-            seed bun",
+            'description' => "The Two Cheese Deluxe 1/3 lb.* double Signature Stackburger has two 100% seasoned real beef patties, topped with perfectly melted Sharp American** and White Cheddar**, tomato, onion, lettuce, pickles, ketchup and mayo on a soft and toasted bun. Are you in the mood to get a little cheesy? Because we are in the mood to compose the cheesiest love song you’ve ever heard about the amazing flavors of the DQ® Two Cheese Deluxe 1/3 lb*. double.",
             'image' => 'cheeseBurger.jpg',
-            'price' => '10000',
+            'price' => '500',
         ]);
         Food::create([
             'name' => 'The Cheese Burger',
             'category_id' => 1,
-            'description' => "You can't go wrong with our cheeseburger, a signature flame-grilled beef patty topped with a simple
-            layer of melted American cheese, crinkle cut pickles, yellow mustard, and ketchup on a toasted sesame
-            seed bun",
+            'description' => "The Two Cheese Deluxe 1/3 lb.* double Signature Stackburger has two 100% seasoned real beef patties, topped with perfectly melted Sharp American** and White Cheddar**, tomato, onion, lettuce, pickles, ketchup and mayo on a soft and toasted bun. Are you in the mood to get a little cheesy? Because we are in the mood to compose the cheesiest love song you’ve ever heard about the amazing flavors of the DQ® Two Cheese Deluxe 1/3 lb*. double.",
             'image' => 'cheeseBurger.jpg',
-            'price' => '10000',
+            'price' => '500',
         ]);
         Food::create([
             'name' => 'The Cheese Burger',
             'category_id' => 1,
-            'description' => "You can't go wrong with our cheeseburger, a signature flame-grilled beef patty topped with a simple
-            layer of melted American cheese, crinkle cut pickles, yellow mustard, and ketchup on a toasted sesame
-            seed bun",
+            'description' => "The Two Cheese Deluxe 1/3 lb.* double Signature Stackburger has two 100% seasoned real beef patties, topped with perfectly melted Sharp American** and White Cheddar**, tomato, onion, lettuce, pickles, ketchup and mayo on a soft and toasted bun. Are you in the mood to get a little cheesy? Because we are in the mood to compose the cheesiest love song you’ve ever heard about the amazing flavors of the DQ® Two Cheese Deluxe 1/3 lb*. double.",
             'image' => 'cheeseBurger.jpg',
-            'price' => '10000',
+            'price' => '500',
         ]);
         Food::create([
             'name' => 'The Cheese Burger',
             'category_id' => 1,
-            'description' => "You can't go wrong with our cheeseburger, a signature flame-grilled beef patty topped with a simple
-            layer of melted American cheese, crinkle cut pickles, yellow mustard, and ketchup on a toasted sesame
-            seed bun",
+            'description' => "The Two Cheese Deluxe 1/3 lb.* double Signature Stackburger has two 100% seasoned real beef patties, topped with perfectly melted Sharp American** and White Cheddar**, tomato, onion, lettuce, pickles, ketchup and mayo on a soft and toasted bun. Are you in the mood to get a little cheesy? Because we are in the mood to compose the cheesiest love song you’ve ever heard about the amazing flavors of the DQ® Two Cheese Deluxe 1/3 lb*. double.",
             'image' => 'cheeseBurger.jpg',
-            'price' => '10000',
+            'price' => '500',
+        ]);
+        Food::create([
+            'name' => 'The Cheese Burger',
+            'category_id' => 1,
+            'description' => "The Two Cheese Deluxe 1/3 lb.* double Signature Stackburger has two 100% seasoned real beef patties, topped with perfectly melted Sharp American** and White Cheddar**, tomato, onion, lettuce, pickles, ketchup and mayo on a soft and toasted bun. Are you in the mood to get a little cheesy? Because we are in the mood to compose the cheesiest love song you’ve ever heard about the amazing flavors of the DQ® Two Cheese Deluxe 1/3 lb*. double.",
+            'image' => 'cheeseBurger.jpg',
+            'price' => '500',
+        ]);
+        Food::create([
+            'name' => 'The Cheese Burger',
+            'category_id' => 1,
+            'description' => "The Two Cheese Deluxe 1/3 lb.* double Signature Stackburger has two 100% seasoned real beef patties, topped with perfectly melted Sharp American** and White Cheddar**, tomato, onion, lettuce, pickles, ketchup and mayo on a soft and toasted bun. Are you in the mood to get a little cheesy? Because we are in the mood to compose the cheesiest love song you’ve ever heard about the amazing flavors of the DQ® Two Cheese Deluxe 1/3 lb*. double.",
+            'image' => 'cheeseBurger.jpg',
+            'price' => '500',
         ]);
     }
 }

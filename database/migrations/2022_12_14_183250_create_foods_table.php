@@ -17,7 +17,7 @@ class CreateFoodsTable extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->string('description');
+            $table->longText('description');
             $table->string('image');
             $table->decimal('price', 8, 2);
             $table->timestamps();
