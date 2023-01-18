@@ -78,9 +78,39 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex float-right mt-2">
-                {{$foods->links('pagination::bootstrap-4')}}
+            <div class="float-right mt-2">
+                {{$foods->links('pagination::default')}}
             </div>
         </div>
     </div>
 @endsection
+
+<style>
+    .pagination {
+        display: flex;
+    }
+
+    .pagination li {
+        background: #FFFFFF;
+        list-style: none;
+        padding: 0.5rem;
+    }
+
+    .pagination li a {
+        text-decoration: none;
+        color: #6B7280;
+    }
+
+    .pagination li.active a {
+        color: #2D9CDB;
+    }
+
+    .pagination li.active span {
+        color: #2D9CDB;
+    }
+
+    .pagination li a:hover {
+        color: #2D9CDB;
+    }
+
+</style>
