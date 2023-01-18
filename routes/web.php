@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -46,12 +47,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::middleware([])->group(function () {
     Route::prefix('/admin')->group(function () {
-        Route::get('/', function () {
-            return view('page.admin.dashboard', [
-                'title' => 'Admin',
-                'active' => 'admin'
-            ]);
-        });
+        Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
 
         Route::get('/allCustomer', function () {
             return view('page.admin.allCustomer', [

@@ -2,27 +2,7 @@
 @section('content')
     <div class="grid grid-cols-12 bg-[#F9FAFB]">
         <div class="bg-[#FFFFFF] col-span-2 border">
-            <div class="mt-8 px-4">
-                <div class="flex items-center text-base font-medium rounded-full md:mr-0 mb-4">
-                    <img class="mr-2 w-8 h-8 rounded-full" src="{{ asset('assets/anon.png') }}" alt="user photo">
-                        {{ auth()->user()->name }}
-                </div>
-                <a class="flex items-center text-sm font-normal cursor-pointer py-2" href="/admin">
-                    Home
-                </a>
-                <a class="flex items-center text-sm font-normal cursor-pointer py-2">
-                    Products
-                </a>
-                <a class="flex items-center text-sm font-normal cursor-pointer py-2">
-                    My Orders
-                </a>
-                <a class="flex items-center text-sm font-normal cursor-pointer py-2" href="/admin/allCustomer">
-                    All Customers
-                </a>
-                <a class="flex items-center text-sm font-normal cursor-pointer py-2" href="/admin/customerOrder">
-                    Customer Orders
-                </a>
-            </div>
+            @include('page.admin.components.sidebar')
         </div>
         <div class="col-start-3 px-8 py-12" style="grid-column-end: 13">
             <div class="bg-[#FFFFFF] p-4 rounded-lg border border-[1px] border-[#E5E7EB]">
@@ -65,7 +45,7 @@
                                         <tbody>
                                             @for ($i = 0; $i < 10; $i++)
                                             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                                
+
                                                 <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                                     Customer Name
                                                 </td>

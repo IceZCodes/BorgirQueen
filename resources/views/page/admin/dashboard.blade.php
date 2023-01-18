@@ -2,27 +2,7 @@
 @section('content')
     <div class="grid grid-cols-12 bg-[#F9FAFB]">
         <div class="bg-[#FFFFFF] col-span-2 border">
-            <div class="mt-8 px-4">
-                <div class="flex items-center text-base font-medium rounded-full md:mr-0 mb-4">
-                    <img class="mr-2 w-8 h-8 rounded-full" src="{{ asset('assets/anon.png') }}" alt="user photo">
-                        {{ auth()->user()->name }}
-                </div>
-                <a class="flex items-center text-sm font-normal cursor-pointer py-2">
-                    Home
-                </a>
-                <a class="flex items-center text-sm font-normal cursor-pointer py-2">
-                    Products
-                </a>
-                <a class="flex items-center text-sm font-normal cursor-pointer py-2">
-                    My Orders
-                </a>
-                <a class="flex items-center text-sm font-normal cursor-pointer py-2">
-                    All Customers
-                </a>
-                <a class="flex items-center text-sm font-normal cursor-pointer py-2">
-                    Customer Orders
-                </a>
-            </div>
+            @include('page.admin.components.sidebar')
         </div>
         <div class="col-start-3 px-8 py-12" style="grid-column-end: 13">
             <div class="bg-[#FFFFFF] p-4 rounded-lg border border-[1px] border-[#E5E7EB]">
@@ -37,9 +17,10 @@
                         New product
                     </button>
                 </div>
-                <div class="">
-                    <input class="text-sm" type="text" placeholder="Search by products">
-                </div>
+                <form class="w-fit flex flex-row align-content-center items-center rounded-xl ">
+                    <img type="submit" src="{{ asset('assets/admin/search.png')}}" alt="">
+                    <input class="text-sm font-normal p-2 rounded-xl" id="search" name="search" type="search" placeholder="Search by products" value="{{request('search')}}" style="outline: none">
+                </form>
                 <div class="flex flex-col">
                     <div class="flex flex-col">
                         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -66,20 +47,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @for ($i = 0; $i < 10; $i++)
+                                            @foreach ($foods as $food)
                                             <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><img class="w-12" src="{{ asset('assets/landing/LoadedA1USDuo.png') }}" alt=""></td>
                                                 <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
-                                                    Loaded Burger
+                                                    {{$food->name}}
                                                 </td>
                                                 <td class="max-w-xs text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap overflow-x-hidden">
-                                                    Burger yang berisi daging dan saus spesial asli US dengan tambahan daging.
+                                                    {{$food->description}}
                                                 </td>
                                                 <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
-                                                    Burger
+                                                    {{$food->category->name}}
                                                 </td>
                                                 <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
-                                                    5
+                                                    {{$food->price}}
                                                 </td>
                                                 <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                                     <div class="flex flex-row gap-2 text-[#F2F2F2]">
@@ -88,7 +69,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            @endfor
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
