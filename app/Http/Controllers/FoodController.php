@@ -17,11 +17,41 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $foods = Food::all();
-        return view('page.menu', [
+        $foods = Food::where('category_id', '=', 1)->paginate(12);
+        return view('page.menu.menu', [
             'title' => 'Menu',
             'active' => 'menu',
+            'food' => 'food'
         ], compact('foods'));
+    }
+
+    public function drink()
+    {
+        $foods = Food::where('category_id', '=', 2)->paginate(12);
+        return view('page.menu.menu', [
+            'title' => 'Menu',
+            'active' => 'menu',
+            'food' => 'drink'
+        ], compact('foods'));
+    }
+
+    public function extra()
+    {
+        $foods = Food::where('category_id', '=', 3)->paginate(12);
+        return view('page.menu.menu', [
+            'title' => 'Menu',
+            'active' => 'menu',
+            'food' => 'extra'
+        ], compact('foods'));
+    }
+
+    public function item($id)
+    {
+        $item = Food::findOrFail($id);
+        return view('page.menu.item', [
+            'title' => $item->name,
+            'active' => 'menu',
+        ], compact('item'));
     }
 
     /**
@@ -39,12 +69,13 @@ class FoodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id)
+    public function store($id, Request $req)
     {
         $cart = Cart::where('user_id', Auth::user()->id)->first();
         FoodCart::create([
             'food_id' => $id,
             'cart_id' => $cart->id,
+            'qty' => $req->foodQty
         ]);
         return back();
     }

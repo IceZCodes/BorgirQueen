@@ -6,7 +6,7 @@
         <div class="container mx-auto mt-10">
             <div class="flex shadow-md my-10">
                 <div class="w-full bg-white px-10 py-10">
-                    <div  class="flex justify-between border-b pb-8">
+                    <div class="flex justify-between border-b pb-8">
                         <h1 class="font-semibold text-4xl">My Cart</h1>
                         <h2 class="font-extralight text-xl mt-5"></h2>
                         <div class="hidden">{{ $sumPrice = 0, $sumQty = 0 }}</div>
@@ -22,11 +22,11 @@
                                     <span
                                         class="text-black font-semibold text-sm">{{ Str::limit($food->description, 100) }}</span>
 
-                                        <form action="{{ route('addCart', $food->id) }}" method="POST">
-                                            @csrf
-                                            <a href="#"
+                                    <form action="{{ route('addCart', $food->id) }}" method="POST">
+                                        @csrf
+                                        <a href="#"
                                             class="font-semibold hover:text-red-500 text-gray-800 text-xs mt-2">Remove</a>
-                                        </form>
+                                    </form>
 
 
                                 </div>
@@ -73,7 +73,8 @@
                     </div>
                     <div class="py-5">
                         <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Address</label>
-                        <input type="text" id="promo" placeholder="Enter your address...." class="p-2 text-sm w-full">
+                        <input type="text" id="promo" placeholder="Enter your address...."
+                            class="p-2 text-sm w-full">
                     </div>
                     <div class="mb-5">
                         <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Notes</label>
