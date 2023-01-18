@@ -15,7 +15,7 @@
             @enderror
             <div class="p-4 flex flex-col bg-[#F9FAFB] rounded-lg border border-[#E5E7EB] mb-2">
                 <label class="text-sm font-semibold" for="description">Description<span class="text-[#F43F5E]">*</span></label>
-                <textarea class="bg-[#F9FAFB]" rows="5" type="text" id="description" name="description" value="{{old('description')}}" placeholder="the slice of cheese is placed on top of the meat patty" style="outline: none" required>{{old('description')}}</textarea>
+                <textarea class="bg-[#F9FAFB]" rows="5" type="text" id="description" name="description" placeholder="the slice of cheese is placed on top of the meat patty" style="outline: none" required>{{old('description')}}</textarea>
             </div>
             @error('description')
                 <span class="text-red-600">

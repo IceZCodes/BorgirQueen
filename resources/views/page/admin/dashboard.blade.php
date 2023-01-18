@@ -73,7 +73,7 @@
                                                     <form id="deleteFood" action="/admin/food/delete/{{$food->id}}" method="POST" class="flex flex-row gap-2 text-[#F2F2F2]">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="font-semibold bg-[#2D9CDB] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Edit</button>
+                                                        <a href="admin/food/edit/{{$food->id}}" class="font-semibold bg-[#2D9CDB] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Edit</a>
                                                         <button onclick="deleteFood({{$food->id}})" class="font-semibold bg-[#EB5757] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Delete</button>
                                                     </form>
                                                 </td>

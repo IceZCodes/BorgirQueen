@@ -50,7 +50,7 @@ Route::middleware([])->group(function () {
         Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
         Route::get('/food/add', [AdminController::class, 'addFoodPage'])->name('addFood');
         Route::post('/food/add', [AdminController::class, 'createFood'])->name('createFood');
-        Route::get('/food/edit', [AdminController::class, 'editFoodPage'])->name('editFood');
+        Route::get('/food/edit/{id}', [AdminController::class, 'editFoodPage'])->name('editFood');
         Route::post('/food/edit/{id}', [AdminController::class, 'updateFood'])->name('updateFood');
         Route::delete('/food/delete/{id}', [AdminController::class, 'deletefood'])->name('deleteFood');
         Route::get('/allCustomer', function () {

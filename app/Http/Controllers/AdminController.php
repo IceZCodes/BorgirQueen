@@ -42,7 +42,7 @@ class AdminController extends Controller
     public function createFood(Request $request) {
         $request->validate([
             'name' => 'required',
-            'price' => 'required|numeric|min:0',
+            'price' => 'required|numeric|min:0|max:99999999',
             'category' => 'required',
             'description' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -51,6 +51,7 @@ class AdminController extends Controller
             'price.required' => 'Price is required',
             'price.numeric' => 'Price is not valid',
             'price.min' => 'Price is not valid',
+            'price.max' => 'Price exceeded price limit',
             'category.required' => 'Category is required',
             'description.required' => 'Description is required',
             'image.required' => 'Image is required',
@@ -63,15 +64,71 @@ class AdminController extends Controller
         $imageName = time().'-'.$image->getClientOriginalName();
         $image->storeAs('public/images', $imageName);
 
-        Food::create([
-            'name' => $request->input('name'),
-            'price' => $request->input('price'),
-            'category_id' => $request->input('category'),
-            'description' => $request->input('description'),
+        $food = Food::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'category_id' => $request->category,
+            'description' => $request->description,
             'image' => $imageName,
         ]);
 
         return redirect()->route('admin')->with('success', 'Food created successfully');
+    }
+
+    public function editFoodPage($id) {
+        $categories = Category::all();
+        $food = Food::find($id);
+        return view('page.admin.edit-food', [
+            'title' => 'Edit Food',
+            'active' => 'editFood',
+            'food' => $food,
+            'categories' => $categories,
+        ]);
+    }
+
+    public function updateFood(Request $request, $id) {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric|min:0|max:99999999',
+            'category' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ], [
+            'name.required' => 'Name is required',
+            'price.required' => 'Price is required',
+            'price.numeric' => 'Price is not valid',
+            'price.min' => 'Price is not valid',
+            'category.required' => 'Category is required',
+            'description.required' => 'Description is required',
+            'image.image' => 'Image is not valid',
+            'image.mimes' => 'Image is not valid',
+            'image.max' => 'Image is too large',
+        ]);
+
+        $food = Food::find($id);
+        if($request->file('image')) {
+            Storage::delete('public/images/'.$food->image);
+            $image = $request->file('image');
+            $imageName = time().'-'.$image->getClientOriginalName();
+            $image->storeAs('public/images', $imageName);
+
+            $food->update([
+                'name' => $request->name,
+                'price' => $request->price,
+                'category_id' => $request->category,
+                'description' => $request->description,
+                'image' => $imageName,
+            ]);
+        } else {
+            $food->update([
+                'name' => $request->name,
+                'price' => $request->price,
+                'category_id' => $request->category,
+                'description' => $request->description,
+            ]);
+        }
+
+        return redirect()->route('admin')->with('success', 'Product updated successfully');
     }
 
     public function deleteFood($id) {
