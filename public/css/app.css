@@ -714,6 +714,12 @@ video {
 .h-20 {
   height: 5rem;
 }
+.h-\[400px\] {
+  height: 400px;
+}
+.h-\[200px\] {
+  height: 200px;
+}
 .w-5 {
   width: 1.25rem;
 }
@@ -852,6 +858,9 @@ video {
 }
 .gap-40 {
   gap: 10rem;
+}
+.gap-4 {
+  gap: 1rem;
 }
 .space-x-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;

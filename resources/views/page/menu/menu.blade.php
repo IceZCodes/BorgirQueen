@@ -20,7 +20,11 @@
         <div class="ml-44 mr-44 gap-24 justify-center mt-12 mb-12 grid grid-cols-4">
             @forelse ($foods as $food)
                 <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                    <img class="w-full" src="{{ asset('assets/menu/' . $food->image) }}" alt="Sunset in the mountains">
+                    @if ($food->image == 'cheeseBurger.jpg')
+                        <img class="w-full" src="{{ asset('assets/menu/' . $food->image) }}" alt="BorgirQueen Item">
+                    @else
+                        <img class="w-full h-[200px]" src="{{ asset('storage/images/' . $food->image) }}" alt="BorgirQueen Item">
+                    @endif
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2">{{ $food->name }}</div>
                         <p class="text-gray-700 text-base">

@@ -53,30 +53,23 @@ Route::middleware([])->group(function () {
         Route::get('/food/edit/{id}', [AdminController::class, 'editFoodPage'])->name('editFood');
         Route::post('/food/edit/{id}', [AdminController::class, 'updateFood'])->name('updateFood');
         Route::delete('/food/delete/{id}', [AdminController::class, 'deletefood'])->name('deleteFood');
-        Route::get('/allCustomer', function () {
-            return view('page.admin.allCustomer', [
-                'title' => 'Admin',
-                'active' => 'admin'
-            ]);
-        });
-
-        Route::get('/allCustomer', [AdminController::class, 'allCustomer'])->name('allCustomer');
+        Route::get('/customers', [AdminController::class, 'allCustomer'])->name('allCustomer');
 
 
-        Route::get('/customerOrder', function () {
+        Route::get('/orders', function () {
             return view('page.admin.customerOrder', [
-                'title' => 'Admin',
-                'active' => 'admin'
+                'title' => 'Orders',
+                'active' => 'orders'
             ]);
         });
     });
 });
 
 //routes menu
-Route::get('/menu', [FoodController::class, 'index'])->name('menu')->middleware('auth');
-Route::get('/menu/drink', [FoodController::class, 'drink'])->name('drink')->middleware('auth');
-Route::get('/menu/extra', [FoodController::class, 'extra'])->name('extra')->middleware('auth');
-Route::get('/menu/{id}', [FoodController::class, 'item'])->name('item')->middleware('auth');
+Route::get('/menu', [FoodController::class, 'index'])->name('menu');
+Route::get('/menu/drink', [FoodController::class, 'drink'])->name('drink');
+Route::get('/menu/extra', [FoodController::class, 'extra'])->name('extra');
+Route::get('/menu/{id}', [FoodController::class, 'item'])->name('item');
 
 //routes cart
 Route::get('/cart', [FoodController::class, 'show'])->name('cart')->middleware('auth');
