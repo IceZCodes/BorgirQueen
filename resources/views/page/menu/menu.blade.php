@@ -23,7 +23,8 @@
                     @if ($food->image == 'cheeseBurger.jpg')
                         <img class="w-full" src="{{ asset('assets/menu/' . $food->image) }}" alt="BorgirQueen Item">
                     @else
-                        <img class="w-full h-[200px]" src="{{ asset('storage/images/' . $food->image) }}" alt="BorgirQueen Item">
+                        <img class="w-full h-[200px]" src="{{ asset('storage/images/' . $food->image) }}"
+                            alt="BorgirQueen Item">
                     @endif
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2">{{ $food->name }}</div>

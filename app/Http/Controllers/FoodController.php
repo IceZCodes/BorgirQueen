@@ -82,6 +82,9 @@ class FoodController extends Controller
 
     public function update($id, Request $req)
     {
+        $req->validate([
+            'food_Qty' => ['required', 'integer'],
+        ]);
         $cart = Cart::where('user_id', Auth::user()->id)->first();
 
         $itemsPrice = Food::findOrFail($id)->price * $req->foodQty;
