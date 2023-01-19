@@ -5,16 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Food;
 use App\Models\FoodCart;
+use App\Models\FoodOrder;
+use App\Models\Order;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class FoodController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $foods = Food::where('category_id', '=', 1)->paginate(12);
@@ -54,21 +53,6 @@ class FoodController extends Controller
         ], compact('item'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($id)
-    {
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store($id, Request $req)
     {
         $cart = Cart::where('user_id', Auth::user()->id)->first();
@@ -110,12 +94,7 @@ class FoodController extends Controller
         FoodCart::where('cart_id', $cart->id)->where('food_id', $id)->delete();
         return back();
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show()
     {
         $carts = Cart::where('user_id', Auth::user()->id)->first();
@@ -125,5 +104,38 @@ class FoodController extends Controller
             'title' => 'Cart',
             'active' => 'cart'
         ], compact('cartItems'));
+    }
+
+    public function orderUser(Request $req)
+    {
+        $user = Auth::user();
+        $carts = Cart::where('user_id', Auth::user()->id)->first();
+        $cartItems = $carts->foods;
+
+        $sumPrice = 0;
+
+        foreach ($cartItems as $item) {
+            $sumPrice = $sumPrice + $item->pivot->price + $req->shipping;
+        }
+
+        $order = Order::create([
+            'user_id' => $user->id,
+            'date' => Carbon::today()->toDateString(),
+            'time' => Carbon::now(),
+            'address' => $req->address,
+            'shipping' => $req->shipping,
+            'status' => 'Preparing',
+            'total_price' => $sumPrice,
+        ]);
+
+        foreach ($cartItems as $item) {
+            FoodOrder::create([
+                'food_id' => $item->id,
+                'order_id' => $order->id,
+                'qty' => $item->pivot->qty,
+                'price' => $item->pivot->price
+            ]);
+        }
+        return back();
     }
 }

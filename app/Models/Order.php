@@ -18,6 +18,7 @@ class Order extends Model
         'date',
         'time',
         'address',
+        'shipping',
         'status',
         'total_price'
     ];
@@ -28,6 +29,6 @@ class Order extends Model
     }
     public function foods()
     {
-        return $this->belongsToMany(Food::class);
+        return $this->belongsToMany(Food::class, 'food_orders');
     }
 }

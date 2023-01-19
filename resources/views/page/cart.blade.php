@@ -9,9 +9,9 @@
                     <div class="flex justify-between border-b pb-8">
                         <h1 class="font-semibold text-4xl">My Cart</h1>
                         <h2 class="font-extralight text-xl mt-5"></h2>
-                        <div class="hidden">{{ $sumPrice = 0, $sumQty = 0 }}</div>
+                        <div class="hidden">{{ $sumPrice = 0 }}</div>
                     </div>
-                    @foreach ($cartItems as $food)
+                    @forelse ($cartItems as $food)
                         <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
                             <div class="flex w-full">
                                 <div class="w-48">
@@ -41,7 +41,9 @@
                             <div class="hidden">{{ $sumPrice += $food->pivot->price }}</div>
                             <span class="text-center w-1/5 font-semibold text-lg">${{ $food->pivot->price }}</span>
                         </div>
-                    @endforeach
+                    @empty
+                        <h1 class="mt-2 font-black text-3xl"> No item(s) in Cart</h1>
+                    @endforelse
 
                     <a href="{{ route('menu') }}" class="flex font-semibold text-indigo-600 text-sm mt-10">
                         <button data-collapse-toggle="navbar-cta" type="button"
@@ -57,38 +59,41 @@
                 </div>
 
                 <div class="sticky w-1/4 px-8 py-10">
-                    <h1 class="sticky font-semibold text-2xl border-b pb-8">Order Summary</h1>
-                    <div class="flex justify-between mt-10 mb-5">
-                    </div>
-                    <div>
-                        <label class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-                        <select class="block p-2 text-gray-600 w-full text-sm">
-                            <option>Gojek - $3.99</option>
-                            <option>Grab - $2.99</option>
-                            <option>Pick Up</option>
-                        </select>
-                    </div>
-                    <div class="py-5">
-                        <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Address</label>
-                        <input type="text" id="promo" placeholder="Enter your address...."
-                            class="p-2 text-sm w-full">
-                    </div>
-                    <div class="mb-5">
-                        <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Notes</label>
-                        <input type="text" id="promo" placeholder="Enter your notes...." class="p-2 text-sm w-full">
-                    </div>
-                    <button type="button"
-                        class="text-white bg-[#005BAA] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Apply</button>
-                    <div class="border-t mt-8">
-                        <div class="flex font-semibold justify-between py-6 text-sm uppercase">
-                            <span>Total cost</span>
-                            <span>${{ $sumPrice }}</span>
-                        </div>
-                        <button
-                            class=" bg-[#005BAA] font-bold hover:bg-blue-800 py-3 text-xl text-white uppercase w-full rounded-lg ">Checkout</button>
-                    </div>
-                </div>
+                    <form method="POST" action="{{ route('orderCart') }}">
+                        @csrf
 
+                        <h1 class="sticky font-semibold text-2xl border-b pb-8">Order Summary</h1>
+                        <div class="flex justify-between mt-10 mb-5">
+                        </div>
+                        <div>
+                            <label class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
+                            <select name="shipping" class="block p-2 text-gray-600 w-full text-sm">
+                                <option value="3.99">Gojek - $3.99</option>
+                                <option value="2.99">Grab - $2.99</option>
+                                <option value="0">Pick Up</option>
+                            </select>
+                        </div>
+                        <div class="py-5">
+                            <label for="address" class="font-semibold inline-block mb-3 text-sm uppercase">Address</label>
+                            <input type="text" id="address" name="address" placeholder="Enter your address...."
+                                class="p-2 text-sm w-full">
+                        </div>
+                        <div class="mb-5">
+                            <label for="notes" class="font-semibold inline-block mb-3 text-sm uppercase">Notes</label>
+                            <input type="text" id="notes" name="notes" placeholder="Enter your notes...."
+                                class="p-2 text-sm w-full">
+                        </div>
+                        <div class="border-t mt-8">
+                            <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+                                <span>Total cost</span>
+                                <span name="sumPrice">${{ $sumPrice }}</span>
+                            </div>
+                            <button
+                                class=" bg-[#005BAA] font-bold hover:bg-blue-800 py-3 text-xl text-white uppercase w-full rounded-lg"
+                                type="submit">Checkout</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     @endsection

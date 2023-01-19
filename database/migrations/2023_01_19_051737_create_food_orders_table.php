@@ -15,6 +15,10 @@ class CreateFoodOrdersTable extends Migration
     {
         Schema::create('food_orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('food_id')->references('id')->on('foods')->onDelete('cascade');
+            $table->foreignId('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->integer('qty');
+            $table->decimal('price', 8, 2);
             $table->timestamps();
         });
     }
