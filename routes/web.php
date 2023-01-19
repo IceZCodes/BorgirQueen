@@ -66,10 +66,10 @@ Route::middleware([])->group(function () {
 });
 
 //routes menu
-Route::get('/menu', [FoodController::class, 'index'])->name('menu')->middleware('auth');
-Route::get('/menu/drink', [FoodController::class, 'drink'])->name('drink')->middleware('auth');
-Route::get('/menu/extra', [FoodController::class, 'extra'])->name('extra')->middleware('auth');
-Route::get('/menu/{id}', [FoodController::class, 'item'])->name('item')->middleware('auth');
+Route::get('/menu', [FoodController::class, 'index'])->name('menu');
+Route::get('/menu/drink', [FoodController::class, 'drink'])->name('drink');
+Route::get('/menu/extra', [FoodController::class, 'extra'])->name('extra');
+Route::get('/menu/{id}', [FoodController::class, 'item'])->name('item');
 
 //routes cart
 Route::post('/cart/{id}', [FoodController::class, 'store'])->name('addCart')->middleware('auth');
