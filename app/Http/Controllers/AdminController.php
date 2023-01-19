@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Food;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
-    public function dashboard(Request $request) {
+    public function dashboard(Request $request)
+    {
         $search = $request->input('search');
         $foods = Food::with('category')->paginate(10);
         if ($search) {
@@ -30,7 +32,8 @@ class AdminController extends Controller
         ]);
     }
 
-    public function addFoodPage() {
+    public function addFoodPage()
+    {
         $categories = Category::all();
         return view('page.admin.add-food', [
             'title' => 'Add Food',
@@ -39,7 +42,8 @@ class AdminController extends Controller
         ]);
     }
 
-    public function createFood(Request $request) {
+    public function createFood(Request $request)
+    {
         $request->validate([
             'name' => 'required',
             'price' => 'required|numeric|min:0|max:99999999',
@@ -61,7 +65,7 @@ class AdminController extends Controller
         ]);
 
         $image = $request->file('image');
-        $imageName = time().'-'.$image->getClientOriginalName();
+        $imageName = time() . '-' . $image->getClientOriginalName();
         $image->storeAs('public/images', $imageName);
 
         $food = Food::create([
@@ -75,7 +79,8 @@ class AdminController extends Controller
         return redirect()->route('admin')->with('success', 'Food created successfully');
     }
 
-    public function editFoodPage($id) {
+    public function editFoodPage($id)
+    {
         $categories = Category::all();
         $food = Food::find($id);
         return view('page.admin.edit-food', [
@@ -86,7 +91,8 @@ class AdminController extends Controller
         ]);
     }
 
-    public function updateFood(Request $request, $id) {
+    public function updateFood(Request $request, $id)
+    {
         $request->validate([
             'name' => 'required',
             'price' => 'required|numeric|min:0|max:99999999',
@@ -106,10 +112,10 @@ class AdminController extends Controller
         ]);
 
         $food = Food::find($id);
-        if($request->file('image')) {
-            Storage::delete('public/images/'.$food->image);
+        if ($request->file('image')) {
+            Storage::delete('public/images/' . $food->image);
             $image = $request->file('image');
-            $imageName = time().'-'.$image->getClientOriginalName();
+            $imageName = time() . '-' . $image->getClientOriginalName();
             $image->storeAs('public/images', $imageName);
 
             $food->update([
@@ -131,13 +137,16 @@ class AdminController extends Controller
         return redirect()->route('admin')->with('success', 'Product updated successfully');
     }
 
-    public function deleteFood($id) {
+    public function deleteFood($id)
+    {
         $foods = Food::find($id);
-        Storage::delete('public/images/'.$foods->image);
+        Storage::delete('public/images/' . $foods->image);
         $foods->delete();
         return redirect()->route('admin')->with('success', 'Product deleted successfully');
     }
-    public function allCustomer(Request $request){
+
+    public function allCustomer(Request $request)
+    {
         $search = $request->search;
         if ($search) {
             $customers = User::where('name', 'like', "%$search%")->where('is_admin', 0)->paginate(10);
@@ -154,6 +163,17 @@ class AdminController extends Controller
             'title' => 'Customers',
             'active' => 'customers',
             'customers' => $customers,
+        ]);
+    }
+
+    public function customerOrders()
+    {
+        $order = Order::all();
+        dd($order);
+
+        return view('page.admin.customerOrder', [
+            'title' => 'Orders',
+            'active' => 'orders'
         ]);
     }
 }

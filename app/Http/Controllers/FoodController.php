@@ -136,6 +136,7 @@ class FoodController extends Controller
                 'price' => $item->pivot->price
             ]);
         }
+        FoodCart::where('cart_id', $carts->id)->delete();
         return back();
     }
 }

@@ -54,14 +54,7 @@ Route::middleware([])->group(function () {
         Route::post('/food/edit/{id}', [AdminController::class, 'updateFood'])->name('updateFood');
         Route::delete('/food/delete/{id}', [AdminController::class, 'deletefood'])->name('deleteFood');
         Route::get('/customers', [AdminController::class, 'allCustomer'])->name('allCustomer');
-
-
-        Route::get('/orders', function () {
-            return view('page.admin.customerOrder', [
-                'title' => 'Orders',
-                'active' => 'orders'
-            ]);
-        });
+        Route::get('/orders', [AdminController::class, 'customerOrders'])->name('customerOrder');
     });
 });
 
