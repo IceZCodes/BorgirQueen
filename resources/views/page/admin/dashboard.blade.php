@@ -109,6 +109,25 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <div class="flex justify-between pt-6">
+                                    <div class="text-sm" style="">
+                                        @if ($foods->firstItem())
+                                        {{$foods->firstItem()}}
+                                        -
+                                        {{$foods->lastItem()}}
+                                        of
+                                        @endif
+                                        {{$foods->total()}}
+                                        results
+                                    </div>
+                                    <div class="flex text-sm">
+                                        <div class="mr-10">
+                                            {{$foods->currentPage()}}
+                                            of
+                                            {{$foods->lastPage()}}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
