@@ -14,6 +14,7 @@ class FoodCart extends Model
     protected $fillable = [
         'food_id',
         'cart_id',
-        'qty'
+        'qty',
+        'price'
     ];
 }

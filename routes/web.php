@@ -81,3 +81,5 @@ Route::get('/menu/{id}', [FoodController::class, 'item'])->name('item')->middlew
 //routes cart
 Route::post('/cart/{id}', [FoodController::class, 'store'])->name('addCart')->middleware('auth');
 Route::get('/cart', [FoodController::class, 'show'])->name('cart')->middleware('auth');
+Route::post('/cart/update/{id}', [FoodController::class, 'update'])->name('updateCart')->middleware('auth');
+Route::delete('/cart/delete/{id}', [FoodController::class, 'delete'])->name('deleteCart')->middleware('auth');

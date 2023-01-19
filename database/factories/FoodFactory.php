@@ -16,7 +16,7 @@ class FoodFactory extends Factory
         $name = $this->faker->sentence(2);
         return [
             'name' => $name,
-            'category_id' => 1,
+            'category_id' => random_int(1, 3),
             'description' => $this->faker->paragraph(3),
             'image' => 'cheeseBurger.jpg',
             'price' => $this->faker->randomFloat(2, 10000, 50000),

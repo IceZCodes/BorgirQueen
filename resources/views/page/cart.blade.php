@@ -11,7 +11,7 @@
                         <h2 class="font-extralight text-xl mt-5"></h2>
                         <div class="hidden">{{ $sumPrice = 0, $sumQty = 0 }}</div>
                     </div>
-                    @foreach ($carts as $food)
+                    @foreach ($cartItems as $food)
                         <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
                             <div class="flex w-full">
                                 <div class="w-48">
@@ -22,27 +22,24 @@
                                     <span
                                         class="text-black font-semibold text-sm">{{ Str::limit($food->description, 100) }}</span>
 
-                                    <form action="{{ route('addCart', $food->id) }}" method="POST">
+                                    <form action="{{ route('deleteCart', $food->id) }}" method="POST">
                                         @csrf
-                                        <a href="#"
-                                            class="font-semibold hover:text-red-500 text-gray-800 text-xs mt-2">Remove</a>
+                                        @method('DELETE')
+                                        <button
+                                            class="font-semibold hover:text-red-500 text-gray-800 text-xs mt-2">Remove</button>
                                     </form>
-
-
                                 </div>
                             </div>
                             <a href=""></a>
-                            <div class="flex justify-center w-1/5">
-                                {{-- <img class="fill-current text-gray-600 w-3" src="{{ asset('assets/MinusLogo.svg') }}"
-                                    alt=""> --}}
-
-                                <input class="mx-2 border text-center w-8" type="text" value="1">
-
-                                {{-- <img class="fill-current text-gray-600 w-4" src="{{ asset('assets/PlusLogo.svg') }}"
-                                    alt=""> --}}
-                            </div>
-                            <div class="hidden">{{ $sumPrice += $food->price }}</div>
-                            <span class="text-center w-1/5 font-semibold text-lg">${{ $food->price }}</span>
+                            <form action="{{ route('updateCart', $food->id) }}" method="POST">
+                                @csrf
+                                <div class="flex justify-center w-1/5">
+                                    <input class="mx-2 border text-center w-8" name="foodQty" type="text"
+                                        value="{{ $food->pivot->qty }}">
+                                </div>
+                            </form>
+                            <div class="hidden">{{ $sumPrice += $food->pivot->price }}</div>
+                            <span class="text-center w-1/5 font-semibold text-lg">${{ $food->pivot->price }}</span>
                         </div>
                     @endforeach
 

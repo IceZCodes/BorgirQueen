@@ -72,14 +72,44 @@ class FoodController extends Controller
     public function store($id, Request $req)
     {
         $cart = Cart::where('user_id', Auth::user()->id)->first();
-        FoodCart::create([
-            'food_id' => $id,
-            'cart_id' => $cart->id,
-            'qty' => $req->foodQty
+
+        $itemsPrice = Food::findOrFail($id)->price * $req->foodQty;
+        $checkIfExist = FoodCart::where('cart_id', $cart->id)->where('food_id', $id)->first();
+
+        if ($checkIfExist) {
+            $checkIfExist->update([
+                'qty' => $checkIfExist->qty + $req->foodQty,
+                'price' => $checkIfExist->price + $itemsPrice,
+            ]);
+        } else {
+            FoodCart::create([
+                'food_id' => $id,
+                'cart_id' => $cart->id,
+                'qty' => $req->foodQty,
+                'price' => $itemsPrice,
+            ]);
+        }
+        return back();
+    }
+
+    public function update($id, Request $req)
+    {
+        $cart = Cart::where('user_id', Auth::user()->id)->first();
+
+        $itemsPrice = Food::findOrFail($id)->price * $req->foodQty;
+        FoodCart::where('cart_id', $cart->id)->where('food_id', $id)->update([
+            'qty' => $req->foodQty,
+            'price' => $itemsPrice,
         ]);
         return back();
     }
 
+    public function delete($id)
+    {
+        $cart = Cart::where('user_id', Auth::user()->id)->first();
+        FoodCart::where('cart_id', $cart->id)->where('food_id', $id)->delete();
+        return back();
+    }
     /**
      * Display the specified resource.
      *
@@ -89,44 +119,11 @@ class FoodController extends Controller
     public function show()
     {
         $carts = Cart::where('user_id', Auth::user()->id)->first();
-        $carts = $carts->foods;
+        $cartItems = $carts->foods;
+
         return view('page.cart', [
             'title' => 'Cart',
             'active' => 'cart'
-        ], compact('carts'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        ], compact('cartItems'));
     }
 }
