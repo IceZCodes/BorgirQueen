@@ -49,6 +49,11 @@
             <div class="flex flex-col">
                 <h2 class="text-lg font-semibold">Image</h2>
                 <input class="mt-2" type="file" type="image" name="image">
+                @error('image')
+                    <span class="text-red-600">
+                        {{ $message }}
+                    </span>
+                @enderror
                 <button type="submit" class="bg-[#2F80ED] text-[#FFFFFF] rounded-lg self-end px-12 py-1">Save</button>
             </div>
         </form>

@@ -45,7 +45,7 @@ class AdminController extends Controller
             'price' => 'required|numeric|min:0|max:99999999',
             'category' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:10000',
         ], [
             'name.required' => 'Name is required',
             'price.required' => 'Price is required',
@@ -92,7 +92,7 @@ class AdminController extends Controller
             'price' => 'required|numeric|min:0|max:99999999',
             'category' => 'required',
             'description' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg|max:10000',
         ], [
             'name.required' => 'Name is required',
             'price.required' => 'Price is required',
