@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Food;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Database\Factories\FoodFactory;
+use Database\Factories\UserFactory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -78,6 +80,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'Extra',
             'slug' => '',
         ]);
-        FoodFactory::times(100)->create();
+        FoodFactory::times(200)->create();
+        UserFactory::times(100)->create();
+
+        /* Initiate Cart */
+        foreach (User::all() as $user) {
+            Cart::create([
+                'user_id' => $user->id,
+            ]);
+        }
     }
 }
