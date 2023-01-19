@@ -143,16 +143,16 @@ class AdminController extends Controller
             $customers = User::where('name', 'like', "%$search%")->where('is_admin', 0)->paginate(10);
             $customers->appends(['search' => $search]);
             return view('page.admin.allCustomer', [
-                'title' => 'All Customer',
-                'active' => 'allCustomer',
+                'title' => 'Customers',
+                'active' => 'customers',
                 'customers' => $customers,
             ]);
         }
 
         $customers = User::where('is_admin', 0)->paginate(10);
         return view('page.admin.allCustomer', [
-            'title' => 'All Customer',
-            'active' => 'allCustomer',
+            'title' => 'Customers',
+            'active' => 'customers',
             'customers' => $customers,
         ]);
     }

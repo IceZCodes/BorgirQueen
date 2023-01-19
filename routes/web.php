@@ -53,20 +53,13 @@ Route::middleware([])->group(function () {
         Route::get('/food/edit/{id}', [AdminController::class, 'editFoodPage'])->name('editFood');
         Route::post('/food/edit/{id}', [AdminController::class, 'updateFood'])->name('updateFood');
         Route::delete('/food/delete/{id}', [AdminController::class, 'deletefood'])->name('deleteFood');
-        Route::get('/allCustomer', function () {
-            return view('page.admin.allCustomer', [
-                'title' => 'Admin',
-                'active' => 'admin'
-            ]);
-        });
-
-        Route::get('/allCustomer', [AdminController::class, 'allCustomer'])->name('allCustomer');
+        Route::get('/customers', [AdminController::class, 'allCustomer'])->name('allCustomer');
 
 
-        Route::get('/customerOrder', function () {
+        Route::get('/orders', function () {
             return view('page.admin.customerOrder', [
-                'title' => 'Admin',
-                'active' => 'admin'
+                'title' => 'Orders',
+                'active' => 'orders'
             ]);
         });
     });
