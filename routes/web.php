@@ -45,7 +45,7 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::middleware([])->group(function () {
+Route::middleware(['auth', 'admin'])->group(function () {
     Route::prefix('/admin')->group(function () {
         Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
         Route::get('/food/add', [AdminController::class, 'addFoodPage'])->name('addFood');
