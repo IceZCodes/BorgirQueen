@@ -168,12 +168,11 @@ class AdminController extends Controller
 
     public function customerOrders()
     {
-        $order = Order::all();
-        dd($order);
+        $orders = Order::all();
 
         return view('page.admin.customerOrder', [
             'title' => 'Orders',
             'active' => 'orders'
-        ]);
+        ], compact('orders'));
     }
 }

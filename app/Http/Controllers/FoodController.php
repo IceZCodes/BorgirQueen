@@ -60,6 +60,10 @@ class FoodController extends Controller
         $itemsPrice = Food::findOrFail($id)->price * $req->foodQty;
         $checkIfExist = FoodCart::where('cart_id', $cart->id)->where('food_id', $id)->first();
 
+        $req->validate([
+            'food_Qty' => ['required', 'integer'],
+        ]);
+
         if ($checkIfExist) {
             $checkIfExist->update([
                 'qty' => $checkIfExist->qty + $req->foodQty,

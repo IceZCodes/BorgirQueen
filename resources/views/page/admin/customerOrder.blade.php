@@ -31,7 +31,7 @@
                                                 </th>
                                                 <th scope="col"
                                                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                                    Transaction ID
+                                                    User
                                                 </th>
                                                 <th scope="col"
                                                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
@@ -39,46 +39,38 @@
                                                 </th>
                                                 <th scope="col"
                                                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                                    Payment
-                                                </th>
-                                                <th scope="col"
-                                                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                     Status
                                                 </th>
                                                 <th scope="col"
                                                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                                    Transaction Details
-                                                </th>
-                                                <th scope="col"
-                                                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                                    Actions
+                                                    Address
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @for ($i = 0; $i < 10; $i++)
+                                            @forelse ($orders as $item)
                                                 <tr
                                                     class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
 
                                                     <td
                                                         class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
-                                                        02/06/2022
-                                                    </td>
-                                                    <td
-                                                        class="max-w-xs text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap overflow-x-hidden">
-                                                        TR123456
+                                                        {{ $item->date }}
                                                     </td>
                                                     <td
                                                         class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
-                                                        $ 39
+                                                        {{ $item->user->name }}
                                                     </td>
-                                                    <td class="text-sm text-[#4ADE80] font-normal px-6 py-4 whitespace-nowrap"
+                                                    <td
+                                                        class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                                        ${{ $item->total_price }}
+                                                    </td>
+                                                    {{-- <td class="text-sm text-[#4ADE80] font-normal px-6 py-4 whitespace-nowrap"
                                                         style="list-style-type: disc;">
                                                         <li><span class="text-gray-900">PAID</span></li>
-                                                    </td>
+                                                    </td> --}}
                                                     <td
                                                         class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
-                                                        Completed
+                                                        {{ $item->status }}
                                                     </td>
                                                     <td
                                                         class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap ">
@@ -86,10 +78,10 @@
                                                             <button
                                                                 class="font-semibold bg-[#9B51E0] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2"
                                                                 data-modal-target="staticModal"
-                                                                data-modal-toggle="staticModal">Transaction Details</button>
+                                                                data-modal-toggle="staticModal">{{ $item->address }}</button>
                                                         </div>
                                                     </td>
-                                                    <td
+                                                    {{-- <td
                                                         class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap ">
                                                         <div class="flex flex-row gap-2 text-[#F2F2F2]">
                                                             <button
@@ -99,9 +91,18 @@
                                                             <button
                                                                 class="font-semibold bg-[#6FCF97] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Completed</button>
                                                         </div>
-                                                    </td>
+                                                    </td> --}}
                                                 </tr>
-                                            @endfor
+                                            @empty
+                                                <tr
+                                                    class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+
+                                                    <td
+                                                        class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                                        No Orders
+                                                    </td>
+                                                </tr @endforelse
+                                                </tr>
                                         </tbody>
                                     </table>
                                 </div>
