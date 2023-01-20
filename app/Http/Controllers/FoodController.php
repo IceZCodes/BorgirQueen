@@ -44,9 +44,9 @@ class FoodController extends Controller
         ], compact('foods'));
     }
 
-    public function item($id)
+    public function item($slug)
     {
-        $item = Food::findOrFail($id);
+        $item = Food::where('slug', $slug)->first();
         return view('page.menu.item', [
             'title' => $item->name,
             'active' => 'menu',

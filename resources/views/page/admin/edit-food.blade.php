@@ -1,6 +1,6 @@
 @extends('master.master')
 @section('content')
-    <div class="grid grid-cols-12 bg-[#F9FAFB]">
+    <div class="grid grid-cols-12 bg-[#FFFFFF]">
         <form method="POST" action="/admin/food/edit/{{$food->id}}" class="col-start-4 col-end-10 min-h-screen my-4" enctype="multipart/form-data">
             @csrf
             <h1 class="font-semibold text-2xl my-4">Edit Product</h1>
@@ -14,6 +14,12 @@
                     {{ $message }}
                 </span>
                 @enderror
+            </div>
+            <div class="mb-2">
+                <div class="p-4 flex flex-col bg-[#F9FAFB] rounded-lg border border-[#E5E7EB]">
+                    <label class="text-sm font-semibold text-[#6B7280]" for="slug">Slug<span class="text-[#F43F5E]">*</span></label>
+                    <input class="bg-[#F9FAFB] text-[#6B7280]" type="text" id="slug" name="slug" value="{{$food->slug}}" placeholder="Cheeseburger Deluxe" style="outline: none" disabled>
+                </div>
             </div>
             <div class="mb-2">
                 <div class="p-4 flex flex-col bg-[#F9FAFB] rounded-lg border border-[#E5E7EB]">
@@ -57,13 +63,13 @@
                 <div class="flex flex-col">
                     <h2 class="text-lg font-semibold">Image</h2>
                     <label id="label_image" for="image" class="font-semibold text-center border border-[#E5E7EB] py-2 rounded-lg">{{$food->image}}</label>
-                    <input id="image" class="mt-2 hidden"type="file" type="image" name="image" onchange="getImage(this);" required>
+                    <input id="image" class="mt-2 hidden"type="file" type="image" name="image" onchange="getImage(this);">
                     @error('image')
                         <span class="text-red-600">
                             {{ $message }}
                         </span>
                     @enderror
-                    @if($food->image == "cheeseBurger.jpg")
+                    @if(str_contains($food->image, 'placeholder'))
                     <img id="preview_image" class="w-2/3 h-2/3 mt-2" src="{{ asset('assets/placeholder/'.$food->image) }}" alt="preview_image">
                     @else
                     <img id="preview_image" class="w-2/3 h-2/3 mt-2" src="{{ asset('storage/images/' . $food->image) }}" alt="preview_image">

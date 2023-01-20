@@ -50,8 +50,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
         Route::get('/food/add', [AdminController::class, 'addFoodPage'])->name('addFood');
         Route::post('/food/add', [AdminController::class, 'createFood'])->name('createFood');
-        Route::get('/food/edit/{id}', [AdminController::class, 'editFoodPage'])->name('editFood');
-        Route::post('/food/edit/{id}', [AdminController::class, 'updateFood'])->name('updateFood');
+        Route::get('/food/edit/{slug}', [AdminController::class, 'editFoodPage'])->name('editFood');
+        Route::post('/food/edit/{slug}', [AdminController::class, 'updateFood'])->name('updateFood');
         Route::delete('/food/delete/{id}', [AdminController::class, 'deletefood'])->name('deleteFood');
         Route::get('/customers', [AdminController::class, 'allCustomer'])->name('allCustomer');
         Route::get('/orders', [AdminController::class, 'customerOrders'])->name('customerOrder');
@@ -62,7 +62,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::get('/menu', [FoodController::class, 'index'])->name('menu');
 Route::get('/menu/drink', [FoodController::class, 'drink'])->name('drink');
 Route::get('/menu/extra', [FoodController::class, 'extra'])->name('extra');
-Route::get('/menu/{id}', [FoodController::class, 'item'])->name('item');
+Route::get('/menu/{slug}', [FoodController::class, 'item'])->name('item');
 
 //routes cart
 Route::middleware(['auth'])->group(function () {

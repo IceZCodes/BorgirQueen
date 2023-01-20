@@ -105,7 +105,7 @@
                                                             class="flex flex-row gap-2 text-[#F2F2F2]">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <a href="admin/food/edit/{{ $food->id }}"
+                                                            <a href="admin/food/edit/{{ $food->slug }}"
                                                                 class="font-semibold bg-[#2D9CDB] hover:bg-[#134e70] ease-in-out duration-300 border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Edit</a>
                                                             <button onclick="deleteFood({{ $food->id }})"
                                                                 class="font-semibold bg-[#EB5757] hover:bg-[#8f1111] ease-in-out duration-300 border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Delete</button>

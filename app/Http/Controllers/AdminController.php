@@ -79,10 +79,10 @@ class AdminController extends Controller
         return redirect()->route('admin')->with('success', 'Food created successfully');
     }
 
-    public function editFoodPage($id)
+    public function editFoodPage($slug)
     {
         $categories = Category::all();
-        $food = Food::find($id);
+        $food = Food::where('slug', $slug)->first();
         return view('page.admin.edit-food', [
             'title' => 'Edit Food',
             'active' => 'editFood',

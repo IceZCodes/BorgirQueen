@@ -34,7 +34,7 @@
                     </div>
                     <div class="flex px-6 pb-4 justify-between items-center">
                         <p class="text-2xl text-[#FF8906]">${{ $food->price }}</p>
-                        <a href="{{ route('item', $food->id) }}"><button
+                        <a href="{{ route('item', $food->slug) }}"><button
                                 class="inline-block bg-[#D72300] rounded-xl px-3 py-1 text-base mr-2" type="submit"><img
                                     src="{{ asset('assets/menu/cartMenu.png') }}" alt="" srcset="">
                             </button></a>
