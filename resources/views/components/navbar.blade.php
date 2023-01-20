@@ -6,6 +6,7 @@
         <div class="flex md:order-2">
             @auth
             <li class="font-sans block mt-10 lg:inline-block lg:mt-0 lg:mr-6 align-middle text-gray hover:text-gray-700">
+                @if (auth()->user()->is_admin == 0)
                 <a href="{{ route('cart') }}" role="button" class="relative flex">
                     <svg class="flex-1 w-8 h-8 fill-current" viewbox="0 0 24 24">
                         <path
@@ -15,6 +16,7 @@
                         class="absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center">4
                     </span> --}}
                 </a>
+                @endif
             </li>
             @endauth
             @auth
