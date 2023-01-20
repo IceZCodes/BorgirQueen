@@ -15,7 +15,11 @@
                         <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
                             <div class="flex w-full">
                                 <div class="w-48">
-                                    <img class="h-27" src="{{ asset('assets/menu/' . $food->image) }}" alt="">
+                                    @if (str_contains($food->image, 'placeholder'))
+                                    <img class="h-27" src="{{ asset('assets/placeholder/' . $food->image) }}" alt="">
+                                    @else
+                                    <img class="h-27" src="{{ asset('storage/images/' . $food->image) }}" alt="">
+                                    @endif
                                 </div>
                                 <div class="flex flex-col justify-between ml-4 flex-grow">
                                     <span class="font-semibold text-4xl">{{ $food->name }}</span>

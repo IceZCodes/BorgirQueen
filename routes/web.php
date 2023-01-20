@@ -65,8 +65,13 @@ Route::get('/menu/extra', [FoodController::class, 'extra'])->name('extra');
 Route::get('/menu/{id}', [FoodController::class, 'item'])->name('item');
 
 //routes cart
-Route::get('/cart', [FoodController::class, 'show'])->name('cart')->middleware('auth');
-Route::post('/cart/update/{id}', [FoodController::class, 'update'])->name('updateCart')->middleware('auth');
-Route::delete('/cart/delete/{id}', [FoodController::class, 'delete'])->name('deleteCart')->middleware('auth');
-Route::post('/cart/order', [FoodController::class, 'orderUser'])->name('orderCart')->middleware('auth');
-Route::post('/cart/{id}', [FoodController::class, 'store'])->name('addCart')->middleware('auth');
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('/cart')->group(function () {
+        Route::get('/', [FoodController::class, 'show'])->name('cart');
+        Route::post('/update/{id}', [FoodController::class, 'update'])->name('updateCart');
+        Route::delete('/delete/{id}', [FoodController::class, 'delete'])->name('deleteCart');
+        Route::post('/order', [FoodController::class, 'orderUser'])->name('orderCart');
+        Route::post('/{id}', [FoodController::class, 'store'])->name('addCart');
+    });
+});
+
