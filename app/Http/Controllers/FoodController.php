@@ -60,6 +60,10 @@ class FoodController extends Controller
         $itemsPrice = Food::findOrFail($id)->price * $req->foodQty;
         $checkIfExist = FoodCart::where('cart_id', $cart->id)->where('food_id', $id)->first();
 
+        $req->validate([
+            'foodQty' => ['required', 'integer'],
+        ]);
+
         if ($checkIfExist) {
             $checkIfExist->update([
                 'qty' => $checkIfExist->qty + $req->foodQty,
@@ -73,14 +77,15 @@ class FoodController extends Controller
                 'price' => $itemsPrice,
             ]);
         }
-        return back();
+        return redirect()->route('menu')->with('success', 'Item added successfully');
     }
 
     public function update($id, Request $req)
     {
         $req->validate([
-            'food_Qty' => ['required', 'integer'],
+            'foodQty' => ['required', 'integer'],
         ]);
+
         $cart = Cart::where('user_id', Auth::user()->id)->first();
 
         $itemsPrice = Food::findOrFail($id)->price * $req->foodQty;
@@ -88,14 +93,16 @@ class FoodController extends Controller
             'qty' => $req->foodQty,
             'price' => $itemsPrice,
         ]);
-        return back();
+
+        return redirect()->route('cart')->with('success', 'Item updated successfully');
     }
 
     public function delete($id)
     {
         $cart = Cart::where('user_id', Auth::user()->id)->first();
         FoodCart::where('cart_id', $cart->id)->where('food_id', $id)->delete();
-        return back();
+
+        return redirect()->route('cart')->with('success', 'Item deleted successfully');
     }
 
     public function show()
@@ -111,6 +118,12 @@ class FoodController extends Controller
 
     public function orderUser(Request $req)
     {
+
+        $req->validate([
+            'address' => ['required', 'string', 'min:10'],
+            'shipping' => ['required'],
+        ]);
+
         $user = Auth::user();
         $carts = Cart::where('user_id', Auth::user()->id)->first();
         $cartItems = $carts->foods;
@@ -140,6 +153,7 @@ class FoodController extends Controller
             ]);
         }
         FoodCart::where('cart_id', $carts->id)->delete();
-        return back();
+
+        return redirect()->route('menu')->with('success', 'Order successful');
     }
 }
