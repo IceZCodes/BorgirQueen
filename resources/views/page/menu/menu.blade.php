@@ -44,7 +44,7 @@
                 <p> isEmpty</p>
             @endforelse
         </div>
-        <div class="float-right mt-2 ml-44 mb-10">
+        <div class="flex mt-2 mr-44 mb-10 justify-end">
             {{ $foods->links('pagination::default') }}
         </div>
     </div>

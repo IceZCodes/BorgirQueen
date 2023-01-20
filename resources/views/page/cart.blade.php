@@ -3,7 +3,7 @@
 @section('content')
 
     <body class="bg-gray-100">
-        <div class="container mx-auto mt-10">
+        <div class="container mx-auto mt-10  min-h-screen">
             <div class="flex shadow-md my-10">
                 <div class="w-full bg-white px-10 py-10">
                     <div class="flex justify-between border-b pb-8">
@@ -16,9 +16,11 @@
                             <div class="flex w-full">
                                 <div class="w-48">
                                     @if (str_contains($food->image, 'placeholder'))
-                                    <img class="h-27" src="{{ asset('assets/placeholder/' . $food->image) }}" alt="">
+                                        <img class="h-27" src="{{ asset('assets/placeholder/' . $food->image) }}"
+                                            alt="">
                                     @else
-                                    <img class="h-27" src="{{ asset('storage/images/' . $food->image) }}" alt="">
+                                        <img class="h-27" src="{{ asset('storage/images/' . $food->image) }}"
+                                            alt="">
                                     @endif
                                 </div>
                                 <div class="flex flex-col justify-between ml-4 flex-grow">
@@ -100,4 +102,5 @@
                 </div>
             </div>
         </div>
-    @endsection
+    </body>
+@endsection
