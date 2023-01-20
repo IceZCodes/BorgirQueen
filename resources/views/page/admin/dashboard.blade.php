@@ -72,9 +72,9 @@
                                                     class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                                                     <td
                                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                            @if($food->image == "cheeseBurger.jpg")
+                                                            @if(str_contains($food->image, 'placeholder'))
                                                             <img class="w-12"
-                                                            src="{{ asset('assets/menu/cheeseBurger.jpg') }}"
+                                                            src="{{ asset('assets/placeholder/'. $food->image) }}"
                                                             alt="">
                                                             @else
                                                             <img class="w-12"

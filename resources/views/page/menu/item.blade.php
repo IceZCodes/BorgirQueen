@@ -16,7 +16,7 @@
                 </div>
             </form>
         </div>
-        @if ($item->image == 'cheeseBurger.jpg')
+        @if (str_contains($item->image, 'placeholder'))
             <img class=" w-[800px]" src="{{ asset('assets/placeholder/' . $item->image) }}">
         @else
             <img class="w-[800px] h-[400px]"

@@ -20,7 +20,7 @@
         <div class="ml-44 mr-44 gap-24 justify-center mt-12 mb-12 grid grid-cols-4">
             @forelse ($foods as $food)
                 <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                    @if ($food->image == 'cheeseBurger.jpg')
+                    @if (str_contains($food->image, 'placeholder'))
                         <img class="w-full" src="{{ asset('assets/placeholder/' . $food->image) }}" alt="BorgirQueen Item">
                     @else
                         <img class="w-full h-[200px]" src="{{ asset('storage/images/' . $food->image) }}"
