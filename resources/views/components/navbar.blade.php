@@ -34,6 +34,13 @@
                         <a href="/admin" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
                     </li>
                     </ul>
+
+                    @else
+                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                        <li>
+                            <a href="/orders" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Orders</a>
+                        </li>
+                    </ul>
                     @endif
                     <div class="py-1">
                         <form action="/logout" method="post" class="mb-0">
