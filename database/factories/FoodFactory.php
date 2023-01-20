@@ -15,6 +15,9 @@ class FoodFactory extends Factory
     {
         $name = $this->faker->sentence(2);
         $category = random_int(1, 3);
+        //Category == 1 -> Food
+        //Category == 2 -> Drink
+        //Category == 3 -> Extra
         if ($category == 1) {
             $image = 'placeholder1.jpg';
         } else if ($category == 2) {
