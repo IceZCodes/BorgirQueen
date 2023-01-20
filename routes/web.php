@@ -68,10 +68,10 @@ Route::get('/menu/{id}', [FoodController::class, 'item'])->name('item');
 Route::middleware(['auth'])->group(function () {
     Route::prefix('/cart')->group(function () {
         Route::get('/', [FoodController::class, 'show'])->name('cart');
+        Route::post('/', [FoodController::class, 'store'])->name('addCart');
         Route::post('/update/{id}', [FoodController::class, 'update'])->name('updateCart');
         Route::delete('/delete/{id}', [FoodController::class, 'delete'])->name('deleteCart');
         Route::post('/order', [FoodController::class, 'orderUser'])->name('orderCart');
-        Route::post('/{id}', [FoodController::class, 'store'])->name('addCart');
     });
 });
 

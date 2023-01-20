@@ -53,12 +53,12 @@ class FoodController extends Controller
         ], compact('item'));
     }
 
-    public function store($id, Request $req)
+    public function store(Request $req)
     {
         $cart = Cart::where('user_id', Auth::user()->id)->first();
 
-        $itemsPrice = Food::findOrFail($id)->price * $req->foodQty;
-        $checkIfExist = FoodCart::where('cart_id', $cart->id)->where('food_id', $id)->first();
+        $itemsPrice = Food::findOrFail($req->id)->price * $req->foodQty;
+        $checkIfExist = FoodCart::where('cart_id', $cart->id)->where('food_id', $req->id)->first();
 
         $req->validate([
             'foodQty' => ['required', 'integer'],
@@ -71,13 +71,13 @@ class FoodController extends Controller
             ]);
         } else {
             FoodCart::create([
-                'food_id' => $id,
+                'food_id' => $req->id,
                 'cart_id' => $cart->id,
                 'qty' => $req->foodQty,
                 'price' => $itemsPrice,
             ]);
         }
-        return redirect()->route('menu')->with('success', 'Item added successfully');
+        return redirect()->back()->with('success', 'Item added successfully');
     }
 
     public function update($id, Request $req)
