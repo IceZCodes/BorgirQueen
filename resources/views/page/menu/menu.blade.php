@@ -21,7 +21,7 @@
             @forelse ($foods as $food)
                 <div class="max-w-sm rounded overflow-hidden shadow-lg">
                     @if ($food->image == 'cheeseBurger.jpg')
-                        <img class="w-full" src="{{ asset('assets/menu/' . $food->image) }}" alt="BorgirQueen Item">
+                        <img class="w-full" src="{{ asset('assets/placeholder/' . $food->image) }}" alt="BorgirQueen Item">
                     @else
                         <img class="w-full h-[200px]" src="{{ asset('storage/images/' . $food->image) }}"
                             alt="BorgirQueen Item">

@@ -1,6 +1,6 @@
 @extends('master.master')
 @section('content')
-    <div class="grid grid-cols-12 bg-[#F9FAFB]">
+    <div class="grid grid-cols-12 min-h-screen bg-[#F9FAFB]">
         <div class="bg-[#FFFFFF] col-span-2 border">
             @include('page.admin.components.sidebar')
         </div>

@@ -17,8 +17,7 @@
             </form>
         </div>
         @if ($item->image == 'cheeseBurger.jpg')
-            <img class=" w-[800px]" src="{{ asset('assets/menu/' . $item->image) }}">
-
+            <img class=" w-[800px]" src="{{ asset('assets/placeholder/' . $item->image) }}">
         @else
             <img class="w-[800px] h-[400px]"
             src="{{ asset('storage/images/' . $item->image) }}"
