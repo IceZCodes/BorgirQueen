@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Category;
 use App\Models\Food;
 use App\Models\FoodCart;
 use App\Models\FoodOrder;
@@ -14,39 +15,21 @@ use Illuminate\Support\Facades\Auth;
 class FoodController extends Controller
 {
 
-    public function index()
+    public function index($slug)
     {
-        $foods = Food::where('category_id', '=', 1)->paginate(12);
+        $category = Category::where('slug', $slug)->first();
+        $foods = Food::where('category_id', $category->id)->with('category')->paginate(12);
+
         return view('page.menu.menu', [
             'title' => 'Menu',
             'active' => 'menu',
-            'food' => 'food'
+            'food' => $slug
         ], compact('foods'));
     }
 
-    public function drink()
+    public function item($product, $slug)
     {
-        $foods = Food::where('category_id', '=', 2)->paginate(12);
-        return view('page.menu.menu', [
-            'title' => 'Menu',
-            'active' => 'menu',
-            'food' => 'drink'
-        ], compact('foods'));
-    }
-
-    public function extra()
-    {
-        $foods = Food::where('category_id', '=', 3)->paginate(12);
-        return view('page.menu.menu', [
-            'title' => 'Menu',
-            'active' => 'menu',
-            'food' => 'extra'
-        ], compact('foods'));
-    }
-
-    public function item($id)
-    {
-        $item = Food::findOrFail($id);
+        $item = Food::where('slug', $slug)->first();
         return view('page.menu.item', [
             'title' => $item->name,
             'active' => 'menu',
