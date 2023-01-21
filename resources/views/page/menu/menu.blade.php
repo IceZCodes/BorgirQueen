@@ -7,13 +7,13 @@
             <p class="text-8xl font-black text-white">Our Menu</p>
         </div>
         <div class="flex justify-center items-center bg-[#9ED4D4] gap-40" style="height:92px">
-            <a href="{{ route('menu') }}">
+            <a href="{{ route('menu', 'food') }}">
                 <p class="{{ $food === 'food' ? 'font-bold' : '' }} text-white text-4xl hover:font-bold">Food</p>
             </a>
-            <a href="{{ route('drink') }}">
+            <a href="{{ route('menu', 'drink') }}">
                 <p class="{{ $food === 'drink' ? 'font-bold' : '' }} text-white text-4xl hover:font-bold">Drinks</p>
             </a>
-            <a href="{{ route('extra') }}">
+            <a href="{{ route('menu', 'extra') }}">
                 <p class="{{ $food === 'extra' ? 'font-bold' : '' }} text-white text-4xl hover:font-bold">Extra</p>
             </a>
         </div>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="flex px-6 pb-4 justify-between items-center">
                         <p class="text-2xl text-[#FF8906]">${{ $food->price }}</p>
-                        <a href="{{ route('item', $food->slug) }}"><button
+                        <a href="{{ route('item', [$food->category->slug, $food->slug]) }}"><button
                                 class="inline-block bg-[#D72300] rounded-xl px-3 py-1 text-base mr-2" type="submit"><img
                                     src="{{ asset('assets/menu/cartMenu.png') }}" alt="" srcset="">
                             </button></a>

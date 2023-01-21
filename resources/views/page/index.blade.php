@@ -9,7 +9,7 @@
                     Mind-Blowing
                     <span class="text-[#F9AA54]">Bites</span>
                 </h1>
-                <a href="{{ route('menu') }}"><button
+                <a href="{{ route('menu', 'food') }}"><button
                         class="font-black tracking-wide rounded-full bg-[#005BAA] text-[#FFFFFF] mt-8 px-12 py-2">
                         Order Now
                     </button></a>
@@ -63,7 +63,7 @@
                             peppercorn sauce, Applewood smoked bacon, perfectly melted Sharp American and
                             crunchy onion rings. Served on a soft and toasted bun.
                         </p>
-                        <a href="{{ route('menu') }}"><button
+                        <a href="{{ route('menu', 'food') }}"><button
                                 class="font-black tracking-wide rounded-full bg-[#005BAA] text-[#FFFFFF] mt-8 px-8 py-2">
                                 Order Now
                             </button></a>
@@ -87,7 +87,7 @@
                             beef patties, topped with perfectly melted Sharp American and White Cheddar,
                             tomato, onion, lettuce, pickles, ketchup and mayo on a soft and toasted bun.
                         </p>
-                        <a href="{{ route('menu') }}"><button
+                        <a href="{{ route('menu', 'food') }}"><button
                                 class="font-black tracking-wide rounded-full bg-[#005BAA] text-[#FFFFFF] mt-8 px-8 py-2">
                                 Order Now
                             </button></a>
@@ -111,7 +111,7 @@
                             seasoned real beef patties, topped with fiery FlameThrower sauce, perfectly melted
                             Pepper Jack, Jalapeno bacon, tomato and lettuce on a soft and toasted bun.
                         </p>
-                        <a href="{{ route('menu') }}"><button
+                        <a href="{{ route('menu', 'food') }}"><button
                                 class="font-black tracking-wide rounded-full bg-[#005BAA] text-[#FFFFFF] mt-8 px-8 py-2">
                                 Order Now
                             </button></a>

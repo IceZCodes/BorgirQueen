@@ -59,10 +59,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 //routes menu
-Route::get('/menu', [FoodController::class, 'index'])->name('menu');
-Route::get('/menu/drink', [FoodController::class, 'drink'])->name('drink');
-Route::get('/menu/extra', [FoodController::class, 'extra'])->name('extra');
-Route::get('/menu/{slug}', [FoodController::class, 'item'])->name('item');
+Route::get('/menu/{slug}', [FoodController::class, 'index'])->name('menu');
+Route::get('/menu/{slug}/{product}', [FoodController::class, 'item'])->name('item');
 
 //routes cart
 Route::middleware(['auth'])->group(function () {
@@ -74,4 +72,3 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/order', [FoodController::class, 'orderUser'])->name('orderCart');
     });
 });
-

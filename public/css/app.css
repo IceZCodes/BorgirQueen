@@ -1039,9 +1039,6 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(245 243 255 / var(--tw-bg-opacity));
 }
-.bg-\[\#FFFFF\] {
-  background-color: #FFFFF;
-}
 .fill-current {
   fill: currentColor;
 }
