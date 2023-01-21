@@ -30,7 +30,7 @@
                     </p>
                 </div>
                 <div class="mt-16 flex text-white font-bold">
-                    <form action={{ route('menu') }}>
+                    <form>
                         @csrf
                         <button class="bg-[#FA8305] rounded-3xl px-5 py-2">
                             <div class="flex">
@@ -48,9 +48,19 @@
                 </div>
             </div>
         </div>
-        <div class="flex slider bg-gray-50" style="width: 50rem;">
-            <img class="" src="{{ asset('assets/about/about-burger-1.png') }}" alt="">
-            <img class="" src="{{ asset('assets/about/about-burger-2.png') }}" alt="">
+        <div>
+            <div class="flex slider bg-gray-50" style="width: 50rem;">
+                <img class="" src="{{ asset('assets/about/about-burger-1.png') }}" alt="">
+                <img class="" src="{{ asset('assets/about/about-burger-2.png') }}" alt="">
+            </div>
+            <div style="position: absolute; top: 105%;">
+                <div class=>
+                    <button class="fa fa-arrow-left top-prev px-4 py-4" style="color: white; background-color: #333333">
+                    </button>
+                    <button class="fa fa-arrow-right top-next px-4 py-4" style="color: white; background-color: #333333">
+                    </button>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -85,14 +95,19 @@
         <div class=" text-center font-bold text-4xl" style="margin-left: 35rem; margin-right: 35rem; padding-top: 4rem;">
             Trusted by Thousands of Happy Customer
         </div>
-        <div class="mt-24" style="margin-bottom: 10rem;">
-            <div class="flex justify-center">
+        <div class="mt-24" style="margin-bottom: 5rem;">
+            <div class="flex slider-bottom" style=" width: 84%; margin: 0px 9rem;">
                 <div class="border border-[#DC7000] rounded-lg" style="width: 24rem; height: 12rem; font-size: 0.7rem; margin-right: 3rem;">
                     <div style="margin-top: 2rem; margin-left: 2rem; margin-right: 2rem; margin-bottom: 2rem;">
                         <div class="flex justify-between">
-                            <div>
-                                <p class="font-bold">Borgir Boi</p>
-                                <p>Ohio, United States</p>
+                            <div class="flex">
+                                <div style="width: 15%;">
+                                    <img class="" src="{{ asset('assets/about/about-pp1.png') }}">
+                                </div>
+                                <div class="ml-4">
+                                    <p class="font-bold">Borgir Boi</p>
+                                    <p>Ohio, United States</p>
+                                </div>
                             </div>
                             <div class="flex">
                                 <p>4.8</p>
@@ -111,9 +126,14 @@
                 <div class="border border-[#DC7000] rounded-lg" style="width: 24rem; height: 12rem; font-size: 0.7rem; margin-right: 3rem;">
                     <div style="margin-top: 2rem; margin-left: 2rem; margin-right: 2rem; margin-bottom: 2rem;">
                         <div class="flex justify-between">
-                            <div>
-                                <p class="font-bold">Hasbulla</p>
-                                <p>Domrémy-la-Pucelle, France</p>
+                            <div class="flex">
+                                <div style="width: 15%;">
+                                    <img class="" src="{{ asset('assets/about/about-pp2.png') }}">
+                                </div>
+                                <div class="ml-4">
+                                    <p class="font-bold">Hasbulla</p>
+                                    <p>Domrémy-la-Pucelle, France</p>
+                                </div>
                             </div>
                             <div class="flex">
                                 <p>4.5</p>
@@ -128,12 +148,168 @@
                     </div>
                 </div>
 
-                <div class="border border-[#DC7000] rounded-lg" style="width: 24rem; height: 12rem; font-size: 0.7rem;">
+                <div class="border border-[#DC7000] rounded-lg" style="width: 24rem; height: 12rem; font-size: 0.7rem; margin-right: 3rem;">
                     <div style="margin-top: 2rem; margin-left: 2rem; margin-right: 2rem; margin-bottom: 2rem;">
                         <div class="flex justify-between">
-                            <div>
-                                <p class="font-bold">Darren Watkins Jr.</p>
-                                <p>North Carolina, United States</p>
+                            <div class="flex">
+                                <div style="width: 15%;">
+                                    <img class="" src="{{ asset('assets/about/about-pp3.png') }}">
+                                </div>
+                                <div class="ml-4">
+                                    <p class="font-bold">Darren Watkins Jr.</p>
+                                    <p>North Carolina, United States</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <p>4.4</p>
+                                <p class="ml-4">
+                                    <svg aria-hidden="true" class="w-5 h-5" fill="orange" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            The french fries I'm so glad I'm not gonna get all my gosh put the kids meal with those toys they're so fun to play with that's a wrap.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-[#DC7000] rounded-lg" style="width: 24rem; height: 12rem; font-size: 0.7rem; margin-right: 3rem;">
+                    <div style="margin-top: 2rem; margin-left: 2rem; margin-right: 2rem; margin-bottom: 2rem;">
+                        <div class="flex justify-between">
+                            <div class="flex">
+                                <div style="width: 15%;">
+                                    <img class="" src="{{ asset('assets/about/emptyPP1.png') }}">
+                                </div>
+                                <div class="ml-4">
+                                    <p class="font-bold">Borgir Boi</p>
+                                    <p>Ohio, United States</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <p>4.8</p>
+                                <p class="ml-4">
+                                    <svg aria-hidden="true" class="w-5 h-5" fill="orange" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            Oh my goodness, I can't believe the horror that I experienced when I ordered the fish burger combo at that restaurant. The fish patty was so overcooked that it was practically burnt to a crisp, and the bun was stale and dry.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="border border-[#DC7000] rounded-lg" style="width: 24rem; height: 12rem; font-size: 0.7rem; margin-right: 3rem;">
+                    <div style="margin-top: 2rem; margin-left: 2rem; margin-right: 2rem; margin-bottom: 2rem;">
+                        <div class="flex justify-between">
+                            <div class="flex">
+                                <div style="width: 15%;">
+                                    <img class="" src="{{ asset('assets/about/emptyPP1.png') }}">
+                                </div>
+                                <div class="ml-4">
+                                    <p class="font-bold">Hasbulla</p>
+                                    <p>Domrémy-la-Pucelle, France</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <p>4.5</p>
+                                <p class="ml-4">
+                                    <svg aria-hidden="true" class="w-5 h-5" fill="orange" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            I am writing Review for store# 3549. Centreville RD, Manassas VA. Jose was on the first window and he was so pleasant with a big smile and professional! Sandra gave us our food very pleasant! We will return Borgir Queen!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-[#DC7000] rounded-lg" style="width: 24rem; height: 12rem; font-size: 0.7rem; margin-right: 3rem;">
+                    <div style="margin-top: 2rem; margin-left: 2rem; margin-right: 2rem; margin-bottom: 2rem;">
+                        <div class="flex justify-between">
+                            <div class="flex">
+                                <div style="width: 15%;">
+                                    <img class="" src="{{ asset('assets/about/emptyPP1.png') }}">
+                                </div>
+                                <div class="ml-4">
+                                    <p class="font-bold">Darren Watkins Jr.</p>
+                                    <p>North Carolina, United States</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <p>4.4</p>
+                                <p class="ml-4">
+                                    <svg aria-hidden="true" class="w-5 h-5" fill="orange" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            The french fries I'm so glad I'm not gonna get all my gosh put the kids meal with those toys they're so fun to play with that's a wrap.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-[#DC7000] rounded-lg" style="width: 24rem; height: 12rem; font-size: 0.7rem; margin-right: 3rem;">
+                    <div style="margin-top: 2rem; margin-left: 2rem; margin-right: 2rem; margin-bottom: 2rem;">
+                        <div class="flex justify-between">
+                            <div class="flex">
+                                <div style="width: 15%;">
+                                    <img class="" src="{{ asset('assets/about/emptyPP2.png') }}">
+                                </div>
+                                <div class="ml-4">
+                                    <p class="font-bold">Darren Watkins Jr.</p>
+                                    <p>North Carolina, United States</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <p>4.4</p>
+                                <p class="ml-4">
+                                    <svg aria-hidden="true" class="w-5 h-5" fill="orange" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            The french fries I'm so glad I'm not gonna get all my gosh put the kids meal with those toys they're so fun to play with that's a wrap.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-[#DC7000] rounded-lg" style="width: 24rem; height: 12rem; font-size: 0.7rem; margin-right: 3rem;">
+                    <div style="margin-top: 2rem; margin-left: 2rem; margin-right: 2rem; margin-bottom: 2rem;">
+                        <div class="flex justify-between">
+                            <div class="flex">
+                                <div style="width: 15%;">
+                                    <img class="" src="{{ asset('assets/about/emptyPP2.png') }}">
+                                </div>
+                                <div class="ml-4">
+                                    <p class="font-bold">Darren Watkins Jr.</p>
+                                    <p>North Carolina, United States</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <p>4.4</p>
+                                <p class="ml-4">
+                                    <svg aria-hidden="true" class="w-5 h-5" fill="orange" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem;">
+                            The french fries I'm so glad I'm not gonna get all my gosh put the kids meal with those toys they're so fun to play with that's a wrap.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border border-[#DC7000] rounded-lg" style="width: 24rem; height: 12rem; font-size: 0.7rem; margin-right: 3rem;">
+                    <div style="margin-top: 2rem; margin-left: 2rem; margin-right: 2rem; margin-bottom: 2rem;">
+                        <div class="flex justify-between">
+                            <div class="flex">
+                                <div style="width: 15%;">
+                                    <img class="" src="{{ asset('assets/about/emptyPP2.png') }}">
+                                </div>
+                                <div class="ml-4">
+                                    <p class="font-bold">Darren Watkins Jr.</p>
+                                    <p>North Carolina, United States</p>
+                                </div>
                             </div>
                             <div class="flex">
                                 <p>4.4</p>
@@ -148,22 +324,47 @@
                     </div>
                 </div>
             </div>
-        </div>     
+        </div> 
+        <div class="flex justify-end" style="width: 84%; margin: 0px 9rem; margin-bottom: 5rem; margin-right:">
+            <div class="flex " style="margin-right: 2.5rem;">
+                <button>
+                    <i class="button-bottom fa fa-arrow-left bottom-prev border rounded-full px-4 py-4"></i>
+                </button>
+                <button>
+                    <i class="button-bottom fa fa-arrow-right bottom-next border rounded-full px-4 py-4" style="margin-left: 1rem;"></i>  
+                </button>
+            </div>
+        </div>
     </div>
-
-    {{-- <div class="your-class">
-        <img class="h-full w-full" src="{{ asset('assets/about/about-burger-1.png') }}" alt="">
-        <img class="h-full w-full" src="{{ asset('assets/about/about-burger-1.png') }}" alt="">
-    </div> --}}
 
     <script>
         $(document).ready(function(){
             $('.slider').slick({
-                prevArrow: '<i class="fa fa-arrow-left"></i>',
-                nextArrow: '<i class="fa fa-arrow-right"></i>'
+                prevArrow: $('.top-prev'),
+                nextArrow: $('.top-next'),
+            });
+
+            $('.slider-bottom').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                prevArrow: $('.bottom-prev'),
+                nextArrow: $('.bottom-next'),
             });
         });
     </script>
+
+    <style>
+        .button-bottom{
+            border-color: orange; 
+            color: orange;
+        }
+
+        .button-bottom:hover{
+            background-color: orange;        
+            color: white;
+        }
+    </style>
     
 @endsection
 
