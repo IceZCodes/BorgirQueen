@@ -147,7 +147,7 @@ class AdminController extends Controller
 
     public function allCustomer(Request $request)
     {
-        $search = $request->search;
+        $search = $request->input('search');
         if ($search) {
             $customers = User::where('name', 'like', "%$search%")->where('is_admin', 0)->paginate(10);
             $customers->appends(['search' => $search]);

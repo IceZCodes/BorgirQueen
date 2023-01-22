@@ -5,13 +5,12 @@
             @include('page.admin.components.sidebar')
         </div>
         <div class="col-start-3 px-8 py-12" style="grid-column-end: 13">
-            <div class="bg-[#FFFFFF] p-4 rounded-lg border border-[1px] border-[#E5E7EB]">
+            <div class="overflow-x-auto bg-[#FFFFFF] p-4 rounded-lg border border-[1px] border-[#E5E7EB]">
                 <div class="flex justify-between">
                     <div class="font-semibold">All Customers</div>
                 </div>
                 <div class="flex justify-end mr-8">
                     <form action={{ route('allCustomer') }}>
-                        @csrf
                         <button class="mr-2 text-gray-700" type="button" id="button-addon2">
                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4"
                                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -26,7 +25,7 @@
                 </div>
                 <div class="flex flex-col">
                     <div class="flex flex-col">
-                        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="sm:-mx-6 lg:-mx-8">
                             <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                                 <div class="">
                                     <table class="min-w-full">
@@ -97,14 +96,6 @@
                                         {{ $customers->total() }}
                                         results
                                     </div>
-                                    <div class="flex text-sm">
-                                        <div class="mr-10">
-                                            {{ $customers->currentPage() }}
-                                            of
-                                            {{ $customers->lastPage() }}
-                                        </div>
-                                        {{ $customers->links() }}
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +103,38 @@
                 </div>
 
             </div>
-
+            <div class="float-right mt-2">
+                {{ $customers->links('pagination::default') }}
+            </div>
         </div>
     </div>
 @endsection
+
+<style>
+    .pagination {
+        display: flex;
+    }
+
+    .pagination li {
+        background: #FFFFFF;
+        list-style: none;
+        padding: 0.5rem;
+    }
+
+    .pagination li a {
+        text-decoration: none;
+        color: #6B7280;
+    }
+
+    .pagination li.active a {
+        color: #2D9CDB;
+    }
+
+    .pagination li.active span {
+        color: #2D9CDB;
+    }
+
+    .pagination li a:hover {
+        color: #2D9CDB;
+    }
+</style>
