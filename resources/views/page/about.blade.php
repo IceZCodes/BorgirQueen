@@ -32,7 +32,7 @@
                 <div class="mt-16 flex text-white font-bold">
                     <form>
                         @csrf
-                        <button class="bg-[#FA8305] rounded-3xl px-5 py-2">
+                        <button class="bg-[#FA8305] hover:bg-[#d46f04] rounded-3xl px-5 py-2">
                             <div class="flex">
                                 <div>
                                     View Menu
@@ -298,7 +298,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="border border-[#DC7000] rounded-lg" style="width: 24rem; height: 12rem; font-size: 0.7rem; margin-right: 3rem;">
                     <div style="margin-top: 2rem; margin-left: 2rem; margin-right: 2rem; margin-bottom: 2rem;">
                         <div class="flex justify-between">
@@ -324,14 +324,14 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         <div class="flex justify-end" style="width: 84%; margin: 0px 9rem; margin-bottom: 5rem; margin-right:">
             <div class="flex " style="margin-right: 2.5rem;">
                 <button>
                     <i class="button-bottom fa fa-arrow-left bottom-prev border rounded-full px-4 py-4"></i>
                 </button>
                 <button>
-                    <i class="button-bottom fa fa-arrow-right bottom-next border rounded-full px-4 py-4" style="margin-left: 1rem;"></i>  
+                    <i class="button-bottom fa fa-arrow-right bottom-next border rounded-full px-4 py-4" style="margin-left: 1rem;"></i>
                 </button>
             </div>
         </div>
@@ -356,16 +356,16 @@
 
     <style>
         .button-bottom{
-            border-color: orange; 
+            border-color: orange;
             color: orange;
         }
 
         .button-bottom:hover{
-            background-color: orange;        
+            background-color: orange;
             color: white;
         }
     </style>
-    
+
 @endsection
 
 

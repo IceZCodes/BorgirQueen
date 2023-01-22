@@ -19,7 +19,7 @@
                 <div class="flex justify-between">
                     <div class="font-semibold">All Products</div>
                     <a href="{{ route('addFood') }}"
-                        class="font-semibold bg-[#6FCF97] hover:bg-[#277748] ease-in-out duration-300 text-[#F2F2F2] flex flex-row items-center rounded-lg border border-[1px] border-[#E5E7EB] py-1 px-3">
+                        class="font-semibold bg-[#6FCF97] hover:bg-[#339b5e] ease-in-out duration-300 text-[#F2F2F2] flex flex-row items-center rounded-lg border border-[1px] border-[#E5E7EB] py-1 px-3">
                         <span class="text-3xl">
                             <svg class="svg-icon mr-2"
                                 style="width: 1.25rem; height: 1em;vertical-align: middle;fill: #F2F2F2;overflow: hidden;"
@@ -106,9 +106,9 @@
                                                             @csrf
                                                             @method('DELETE')
                                                             <a href="admin/food/edit/{{ $food->slug }}"
-                                                                class="font-semibold bg-[#2D9CDB] hover:bg-[#134e70] ease-in-out duration-300 border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Edit</a>
+                                                                class="font-semibold bg-[#2D9CDB] hover:bg-[#196692] ease-in-out duration-300 border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Edit</a>
                                                             <button onclick="deleteFood({{ $food->id }})"
-                                                                class="font-semibold bg-[#EB5757] hover:bg-[#8f1111] ease-in-out duration-300 border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Delete</button>
+                                                                class="font-semibold bg-[#EB5757] hover:bg-[#bb1616] ease-in-out duration-300 border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Delete</button>
                                                         </form>
                                                     </td>
                                                 </tr>

@@ -10,7 +10,7 @@
                     <span class="text-[#F9AA54]">Bites</span>
                 </h1>
                 <a href="{{ route('menu', 'food') }}"><button
-                        class="font-black tracking-wide rounded-full bg-[#005BAA] text-[#FFFFFF] mt-8 px-12 py-2">
+                        class="font-black tracking-wide rounded-full bg-[#005BAA] hover:bg-[#00447f] text-[#FFFFFF] mt-8 px-12 py-2">
                         Order Now
                     </button></a>
             </div>
@@ -36,7 +36,7 @@
                             to the schedule, and we provide quality ingredients in each of our dishes
                         </p>
                         <a href="/about"
-                            class="font-black tracking-wide rounded-full bg-[#005BAA] text-[#FFFFFF] mt-8 px-8 py-2">
+                            class="font-black tracking-wide rounded-full bg-[#005BAA] hover:bg-[#00447f] text-[#FFFFFF] mt-8 px-8 py-2">
                             Read More
                         </a>
                     </div>
@@ -64,7 +64,7 @@
                             crunchy onion rings. Served on a soft and toasted bun.
                         </p>
                         <a href="{{ route('menu', 'food') }}"><button
-                                class="font-black tracking-wide rounded-full bg-[#005BAA] text-[#FFFFFF] mt-8 px-8 py-2">
+                                class="font-black tracking-wide rounded-full bg-[#005BAA] hover:bg-[#00447f] text-[#FFFFFF] mt-8 px-8 py-2">
                                 Order Now
                             </button></a>
                     </div>
@@ -88,7 +88,7 @@
                             tomato, onion, lettuce, pickles, ketchup and mayo on a soft and toasted bun.
                         </p>
                         <a href="{{ route('menu', 'food') }}"><button
-                                class="font-black tracking-wide rounded-full bg-[#005BAA] text-[#FFFFFF] mt-8 px-8 py-2">
+                                class="font-black tracking-wide rounded-full bg-[#005BAA] hover:bg-[#00447f] text-[#FFFFFF] mt-8 px-8 py-2">
                                 Order Now
                             </button></a>
                     </div>
@@ -112,7 +112,7 @@
                             Pepper Jack, Jalapeno bacon, tomato and lettuce on a soft and toasted bun.
                         </p>
                         <a href="{{ route('menu', 'food') }}"><button
-                                class="font-black tracking-wide rounded-full bg-[#005BAA] text-[#FFFFFF] mt-8 px-8 py-2">
+                                class="font-black tracking-wide rounded-full bg-[#005BAA] hover:bg-[#00447f] text-[#FFFFFF] mt-8 px-8 py-2">
                                 Order Now
                             </button></a>
                     </div>

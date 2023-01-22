@@ -19,11 +19,18 @@
                 <form action="{{ route('addCart', $item->id) }}" method="POST">
                     @csrf
                     <div class="flex flex-col gap-9">
-                        <input type="number" name="foodQty"
+                        <div class="flex flex-col">
+                            <input type="number" name="foodQty"
                             class="rounded-xl py-1 w-36 text-2xl justify-center text-center" placeholder="Quantity"
                             min="1" style="outline: none">
+                            @error('foodQty')
+                            <span class="text-red-600 ml-2 mt-2">
+                                {{ $message }}
+                            </span>
+                            @enderror
+                        </div>
                         <input type="hidden" name="id" value="{{ $item->id }}">
-                        <button class="bg-[#005BAA] rounded-3xl py-3 text-white px-16 w-60" type="submit">Add to
+                        <button class="bg-[#005BAA] hover:bg-[#00447f] rounded-3xl py-3 text-white px-16 w-60" type="submit">Add to
                             Cart</button>
                         {{-- onclick="alert('Added ' + $item->name)" --}}
                     </div>

@@ -61,7 +61,11 @@ class FoodController extends Controller
         $checkIfExist = FoodCart::where('cart_id', $cart->id)->where('food_id', $req->id)->first();
 
         $req->validate([
-            'foodQty' => ['required', 'integer'],
+            'foodQty' => 'required|integer|min:1',
+        ], [
+            'foodQty.required' => 'Quantity is required',
+            'foodQty.integer' => 'Quantity is not valid',
+            'foodQty.min' => 'You need to atleast add 1 item',
         ]);
 
         if ($checkIfExist) {
