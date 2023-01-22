@@ -10,8 +10,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $carts = Cart::where('user_id', Auth::user()->id)->first();
-        $countCartItems = count($carts->foods);
+        if (Auth::check()) {
+            $carts = Cart::where('user_id', Auth::user()->id)->first();
+            $countCartItems = count($carts->foods);
+        } else {
+            $countCartItems = 0;
+        }
 
         return view('page.index', [
             'title' => 'Home',
@@ -22,8 +26,12 @@ class HomeController extends Controller
 
     public function orders()
     {
-        $carts = Cart::where('user_id', Auth::user()->id)->first();
-        $countCartItems = count($carts->foods);
+        if (Auth::check()) {
+            $carts = Cart::where('user_id', Auth::user()->id)->first();
+            $countCartItems = count($carts->foods);
+        } else {
+            $countCartItems = 0;
+        }
 
         return view('page.order', [
             'title' => 'Order',
@@ -34,8 +42,12 @@ class HomeController extends Controller
 
     public function about()
     {
-        $carts = Cart::where('user_id', Auth::user()->id)->first();
-        $countCartItems = count($carts->foods);
+        if (Auth::check()) {
+            $carts = Cart::where('user_id', Auth::user()->id)->first();
+            $countCartItems = count($carts->foods);
+        } else {
+            $countCartItems = 0;
+        }
 
         return view('page.about', [
             'title' => 'About Us',
