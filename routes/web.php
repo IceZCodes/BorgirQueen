@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,26 +18,9 @@ use App\Http\Controllers\FoodController;
 |
 */
 
-Route::get('/', function () {
-    return view('page.index', [
-        'title' => 'Home',
-        'active' => 'home',
-    ]);
-})->name('index');
-
-Route::get('/orders', function () {
-    return view('page.order', [
-        'title' => 'Order',
-        'active' => 'order'
-    ]);
-})->name('orders');
-
-Route::get('/about', function () {
-    return view('page.about', [
-        'title' => 'About Us',
-        'active' => 'about',
-    ]);
-})->name('about');
+Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/orders', [HomeController::class, 'orders'])->name('orders');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

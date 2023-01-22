@@ -20,19 +20,28 @@ class FoodController extends Controller
         $category = Category::where('slug', $slug)->first();
         $foods = Food::where('category_id', $category->id)->with('category')->paginate(12);
 
+        $carts = Cart::where('user_id', Auth::user()->id)->first();
+        $countCartItems = count($carts->foods);
+
         return view('page.menu.menu', [
             'title' => 'Menu',
             'active' => 'menu',
-            'food' => $slug
+            'food' => $slug,
+            'countCartItems' => $countCartItems
         ], compact('foods'));
     }
 
     public function item($product, $slug)
     {
         $item = Food::where('slug', $slug)->first();
+
+        $carts = Cart::where('user_id', Auth::user()->id)->first();
+        $countCartItems = count($carts->foods);
+
         return view('page.menu.item', [
             'title' => $item->name,
             'active' => 'menu',
+            'countCartItems' => $countCartItems
         ], compact('item'));
     }
 
@@ -95,7 +104,8 @@ class FoodController extends Controller
 
         return view('page.cart', [
             'title' => 'Cart',
-            'active' => 'cart'
+            'active' => 'cart',
+            'countCartItems' => count($cartItems)
         ], compact('cartItems'));
     }
 
