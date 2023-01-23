@@ -42,7 +42,12 @@ class Food extends Model
     }
     public function orders()
     {
-        return $this->belongsToMany(Order::class, 'food_orders');
+        return $this->belongsToMany(Order::class, 'food_orders')->withPivot(
+            'food_id',
+            'order_id',
+            'qty',
+            'price'
+        );
     }
     public function carts()
     {

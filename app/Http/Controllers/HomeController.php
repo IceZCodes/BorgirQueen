@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,6 +29,7 @@ class HomeController extends Controller
     {
         if (Auth::check()) {
             $carts = Cart::where('user_id', Auth::user()->id)->first();
+            $orders = Order::where('user_id', Auth::user()->id)->with('foods')->orderBy('time', 'DESC')->paginate(10);
             $countCartItems = count($carts->foods);
         } else {
             $countCartItems = 0;
@@ -35,9 +37,9 @@ class HomeController extends Controller
 
         return view('page.order', [
             'title' => 'Order',
-            'active' => 'order',
+            'active' => 'orders',
             'countCartItems' => $countCartItems
-        ]);
+        ], compact('orders'));
     }
 
     public function about()

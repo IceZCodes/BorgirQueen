@@ -19,6 +19,7 @@ class Order extends Model
         'time',
         'address',
         'shipping',
+        'notes',
         'status',
         'total_price'
     ];
@@ -29,6 +30,11 @@ class Order extends Model
     }
     public function foods()
     {
-        return $this->belongsToMany(Food::class, 'food_orders');
+        return $this->belongsToMany(Food::class, 'food_orders')->withPivot(
+            'food_id',
+            'order_id',
+            'qty',
+            'price'
+        );
     }
 }

@@ -127,6 +127,7 @@ class FoodController extends Controller
         $req->validate([
             'address' => ['required', 'string', 'min:10'],
             'shipping' => ['required'],
+            'notes' => ['required', 'string', 'min:5'],
         ]);
 
         $user = Auth::user();
@@ -145,6 +146,7 @@ class FoodController extends Controller
             'time' => Carbon::now(),
             'address' => $req->address,
             'shipping' => $req->shipping,
+            'notes' => $req->notes,
             'status' => 'Preparing',
             'total_price' => $sumPrice,
         ]);
