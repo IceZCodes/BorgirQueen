@@ -30,7 +30,7 @@
                     </p>
                 </div>
                 <div class="mt-16 flex text-white font-bold">
-                    <form>
+                    <form action="/menu/food">
                         @csrf
                         <button class="bg-[#FA8305] hover:bg-[#d46f04] rounded-3xl px-5 py-2">
                             <div class="flex">
@@ -48,12 +48,12 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div style="position: relative;">
             <div class="flex slider bg-gray-50" style="width: 50rem;">
                 <img class="" src="{{ asset('assets/about/about-burger-1.png') }}" alt="">
                 <img class="" src="{{ asset('assets/about/about-burger-2.png') }}" alt="">
             </div>
-            <div style="position: absolute; top: 105%;">
+            <div style="position: absolute; bottom: 0;">
                 <div class=>
                     <button class="fa fa-arrow-left top-prev px-4 py-4" style="color: white; background-color: #333333">
                     </button>
