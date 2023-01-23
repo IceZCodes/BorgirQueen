@@ -159,6 +159,6 @@ class FoodController extends Controller
         }
         FoodCart::where('cart_id', $carts->id)->delete();
 
-        return redirect()->route('menu')->with('success', 'Order successful');
+        return redirect()->route('menu', 'food')->with('success', 'Order successful');
     }
 }

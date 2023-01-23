@@ -51,7 +51,7 @@
                         <h1 class="mt-2 font-black text-3xl"> No item(s) in Cart</h1>
                     @endforelse
 
-                    <a href="{{ route('menu') }}" class="flex font-semibold text-indigo-600 text-sm mt-10">
+                    <a href="{{ route('menu', 'food') }}" class="flex font-semibold text-indigo-600 text-sm mt-10">
                         <button data-collapse-toggle="navbar-cta" type="button"
                             class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
                             aria-controls="navbar-cta" aria-expanded="false">
