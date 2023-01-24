@@ -23,10 +23,10 @@
                                             alt="">
                                     @endif
                                 </div>
-                                <div class="flex flex-col justify-between ml-4 flex-grow">
+                                <div class="flex flex-col justify-between ml-4 flex-grow mr-3">
                                     <span class="font-semibold text-4xl">{{ $food->name }}</span>
                                     <span
-                                        class="text-black font-semibold text-sm">{{ Str::limit($food->description, 100) }}</span>
+                                        class="text-black font-semibold text-sm mt-2">{{ Str::limit($food->description, 100) }}</span>
 
                                     <form action="{{ route('deleteCart', $food->id) }}" method="POST">
                                         @csrf
@@ -64,43 +64,74 @@
                     </a>
                 </div>
 
-                <div class="sticky w-1/4 px-8 py-10">
+                <div class="sticky w-2/5 px-8 py-10 bg-blue-200">
+                    <h1 class="sticky font-semibold text-2xl border-b border-black pb-8 text-center">Billing Details</h1>
+                    <div class="flex justify-between mt-10">
+                    </div>
                     <form method="POST" action="{{ route('orderCart') }}">
                         @csrf
-
-                        <h1 class="sticky font-semibold text-2xl border-b pb-8">Order Summary</h1>
-                        <div class="flex justify-between mt-10 mb-5">
-                        </div>
                         <div>
-                            <label class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-                            <select name="shipping" class="block p-2 text-gray-600 w-full text-sm">
-                                <option value="3.99">Gojek - $3.99</option>
-                                <option value="2.99">Grab - $2.99</option>
-                                <option value="0">Pick Up</option>
-                            </select>
-                        </div>
-                        <div class="py-5">
-                            <label for="address" class="font-semibold inline-block mb-3 text-sm uppercase">Address</label>
-                            <input type="text" id="address" name="address" placeholder="Enter your address...."
-                                class="p-2 text-sm w-full" value="{{$address}}">
-                        </div>
-                        <div class="mb-5">
-                            <label for="notes" class="font-semibold inline-block mb-3 text-sm uppercase">Notes</label>
+                            <label class="font-medium inline-block mb-3 text-sm uppercase">Notes</label>
                             <input type="text" id="notes" name="notes" placeholder="Enter your notes...."
-                                class="p-2 text-sm w-full">
+                    class="p-2 text-sm w-full">
                         </div>
-                        <div class="border-t mt-8">
-                            <div class="flex font-semibold justify-between py-6 text-sm uppercase">
-                                <span>Total cost</span>
-                                <span name="sumPrice">${{ $sumPrice }}</span>
+                    <div>
+                        <label class="font-medium inline-block mb-3 mt-3 text-sm uppercase">Deliver To</label>
+                        <input type="text" id="address" name="address" placeholder="Enter your address...."
+                class="p-2 text-sm w-full" value="{{$address}}">
+                    </div>
+                    {{-- <div class="mb-5">
+                        <label for="promo" class="font-semibold inline-block mb-3 mt-3 text-sm uppercase">Coupon Code</label>
+                        <input type="text" id="promo" placeholder="Enter your coupon code..." class="p-2 text-sm w-full">
+                    </div>
+                    <button type="button"
+                        class="text-white bg-[#005BAA] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Apply</button> --}}
+                    <div class="border-t mt-8 border-black">
+                        <div class="flex flex-col font-semibold justify-between py-6 text-sm uppercase">
+                            <span>Pay With</span>
+                            <div class="flex flex-row mt-5">
+                                <a class="mr-3 hover: hover:bg-indigo-600 focus:ring-4 focus:outline-1" href="#"><img style="width: 650px;" src="/assets/OVO.png" alt=""></a>
+                                <a class="mr-3 hover: hover:bg-indigo-600 focus:ring-4 focus:outline-1" href="#"><img style="width: 650px;" src="/assets/Dana.jpg" alt=""></a>
+                                <a class="mr-3 hover: hover:bg-indigo-600 focus:ring-4 focus:outline-1" href="#"><img style="width: 650px;" src="/assets/GOPAY.png" alt=""></a>
                             </div>
-                            <button
-                                class=" bg-[#005BAA] font-bold hover:bg-blue-800 py-3 text-xl text-white uppercase w-full rounded-lg"
-                                type="submit">Checkout</button>
                         </div>
+                        <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+                            <span>Total cost</span>
+                            <span>${{ $sumPrice }}</span>
+                        </div>
+                        <button id="checkout-button" type="button"
+                            class=" bg-[#005BAA] font-bold hover:bg-blue-800 py-3 text-xl text-white uppercase w-full rounded-lg ">Checkout</button>
+                    </div>
                     </form>
                 </div>
             </div>
         </div>
+                    <dialog class="popup" id="popup" style="position: absolute; top: 50%; left: 30%; transform: translate(-50%, -50%); width: 600px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0px 2px 2px 2px; margin-top: -25px; padding-top: 50px; padding-bottom: 75px; ">
+                        <div class="text-3xl font-bold text-center mb-5">Your Payment is Sucessful!!</div>
+                        <div class="text-xl text-gray-500 text-center ">Thank You for your payment.</div>
+                        <div class="text-xl text-gray-500 text-center ">Amount Paid</div>
+                        <div class="text-xl text-gray-500 text-center ">${{ $sumPrice }}</div>
+                        <button id="backHomeButton" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800" style="position: absolute; bottom: 10px; right: 220px;">Back to Home</button>
+                    </dialog>
+            
+                    <script>
+                        const modal = document.querySelector("#popup");
+                        const openModal = document.querySelector("#checkout-button");
+                        const closeModal = document.querySelector("#backHomeButton");
+                        // pas di closemodal ini harusnya back to home, trus cartnya kosongin, masukin ke dalam history purchase.....
+            
+                        openModal.addEventListener("click", () => {
+                            modal.showModal();
+                        })
+                        closeModal.addEventListener("click", () => {
+                            modal.close();
+                        })
+                    </script>
     </body>
 @endsection
+
+
+
+
+
+
