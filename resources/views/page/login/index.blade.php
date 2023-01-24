@@ -2,6 +2,15 @@
 
 @section('content')
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        @if (Session::has('success'))
+            {{-- Success --}}
+            <div id="modalPopup"
+                class="fixed top-10 right-4 w-fit drop-shadow-xl text-black bg-[#F5F3FF] p-3 px-4 rounded-lg border border-2 border-[#7C3AED] mb-4">
+                {{ Session::get('success') }}
+                <button type="button" class="btn-close float-right text-black ml-8"
+                    onclick="getElementById('modalPopup').classList.add('hidden')">X</button>
+            </div>
+        @endif
         <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900">
             <img class="w-15 h-20" src="{{ asset('assets/BorgirQueen.png') }}" alt="logo">
         </a>
@@ -44,9 +53,9 @@
                               <label for="remember" class="text-gray-500">Remember me</label>
                             </div>
                         </div>
-                        <a href="#" class="text-sm font-medium text-blue-500 hover:underline">Forgot password?</a>
+                        {{-- <a href="#" class="text-sm font-medium text-blue-500 hover:underline">Forgot password?</a> --}}
                     </div>
-                    
+
                     <button type="submit" class="w-full text-white bg-[#005BAA] hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
 
                     <p class="text-sm font-light text-gray-500">

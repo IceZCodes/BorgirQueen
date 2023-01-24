@@ -30,30 +30,27 @@
                     </p>
                 </div>
                 <div class="mt-16 flex text-white font-bold">
-                    <form>
-                        @csrf
-                        <button class="bg-[#FA8305] hover:bg-[#d46f04] rounded-3xl px-5 py-2">
-                            <div class="flex">
-                                <div>
-                                    View Menu
-                                </div>
-                                <div class="ml-3" style="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 15 10">
-                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                                      </svg>
-                                </div>
+                    <a href="/menu/food" class="bg-[#FA8305] hover:bg-[#d46f04] rounded-3xl px-5 py-2">
+                        <div class="flex">
+                            <div>
+                                View Menu
                             </div>
-                        </button>
-                    </form>
+                            <div class="ml-3" style="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 15 10">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                    </svg>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-        <div>
+        <div style="position: relative;">
             <div class="flex slider bg-gray-50" style="width: 50rem;">
                 <img class="" src="{{ asset('assets/about/about-burger-1.png') }}" alt="">
                 <img class="" src="{{ asset('assets/about/about-burger-2.png') }}" alt="">
             </div>
-            <div style="position: absolute; top: 105%;">
+            <div style="position: absolute; bottom: 0;">
                 <div class=>
                     <button class="fa fa-arrow-left top-prev px-4 py-4" style="color: white; background-color: #333333">
                     </button>

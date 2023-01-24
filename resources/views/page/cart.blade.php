@@ -82,7 +82,7 @@
                         <div class="py-5">
                             <label for="address" class="font-semibold inline-block mb-3 text-sm uppercase">Address</label>
                             <input type="text" id="address" name="address" placeholder="Enter your address...."
-                                class="p-2 text-sm w-full">
+                                class="p-2 text-sm w-full" value="{{$address}}">
                         </div>
                         <div class="mb-5">
                             <label for="notes" class="font-semibold inline-block mb-3 text-sm uppercase">Notes</label>

@@ -4,12 +4,21 @@
         <div class="bg-[#FFFFFF] col-span-2 border">
             @include('page.admin.components.sidebarCustomer')
         </div>
-        <div class="col-start-3 px-8 py-12" style="grid-column-end: 13">
-            <div class="bg-[#FFFFFF] px-7 py-4 rounded-lg border border-[1px] border-[#E5E7EB]">
+        <div class="relative min-h-screen col-start-3 px-8 py-12" style="grid-column-end: 13">
+            @if (Session::has('success'))
+                {{-- Success --}}
+                <div id="modalPopup"
+                    class="fixed top-10 right-4 w-fit drop-shadow-xl text-black bg-[#F5F3FF] p-3 px-4 rounded-lg border border-2 border-[#7C3AED] mb-4">
+                    {{ Session::get('success') }}
+                    <button type="button" class="btn-close float-right text-black ml-8"
+                        onclick="getElementById('modalPopup').style.display = 'none'">X</button>
+                </div>
+            @endif
+            <div class="overflow-x-auto bg-[#FFFFFF] px-7 py-4 rounded-lg border border-[1px] border-[#E5E7EB]">
                 <div class="flex justify-between">
                     <div class="font-semibold text-lg">My Orders</div>
                 </div>
-                <div class="flex justify-end mr-8">
+                <div class="flex justify-start mr-8 mt-4">
                     <button class="mr-2 text-gray-700" type="button" id="button-addon2">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4"
                             role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -22,7 +31,7 @@
                 </div>
                 <div class="flex flex-col">
                     <div class="flex flex-col">
-                        <div class="overflow-x-auto sm:-mx-8 lg:-mx-10">
+                        <div class="sm:-mx-8 lg:-mx-10">
                             <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                                 <div class="">
                                     <table class="min-w-full">
