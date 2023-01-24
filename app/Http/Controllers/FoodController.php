@@ -132,9 +132,10 @@ class FoodController extends Controller
     {
 
         $req->validate([
-            'address' => ['required', 'string', 'min:10'],
-            'shipping' => ['required'],
             'notes' => ['required', 'string', 'min:5'],
+            'address' => ['required', 'string', 'min:10'],
+            'shipping_type' => ['required'],
+            'payment_type' => ['required'],
         ]);
 
         $user = Auth::user();
@@ -142,17 +143,22 @@ class FoodController extends Controller
         $cartItems = $carts->foods;
 
         $sumPrice = 0;
+        $shippingPrice = ($req->shipping_type == 'Gojek' ? '3.99' : ($req->shipping_type == 'Grab' ? '2.99' : '0'));
 
         foreach ($cartItems as $item) {
-            $sumPrice = $sumPrice + $item->pivot->price + $req->shipping;
+            $sumPrice = $sumPrice + $item->pivot->price;
         }
+
+        $sumPrice += $shippingPrice;
 
         $order = Order::create([
             'user_id' => $user->id,
             'date' => Carbon::today()->toDateString(),
             'time' => Carbon::now(),
             'address' => $req->address,
-            'shipping' => $req->shipping,
+            'shipping_type' => $req->shipping_type,
+            'shipping_price' => $shippingPrice,
+            'payment_type' => $req->payment_type,
             'notes' => $req->notes,
             'status' => 'Unconfirmed',
             'total_price' => $sumPrice,

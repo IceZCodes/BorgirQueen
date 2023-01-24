@@ -19,7 +19,9 @@ class CreateOrdersTable extends Migration
             $table->date('date');
             $table->timestamp('time');
             $table->string('address');
-            $table->string('shipping');
+            $table->string('shipping_type');
+            $table->string('shipping_price');
+            $table->string('payment_type');
             $table->string('notes');
             $table->string('status');
             $table->decimal('total_price', 8, 2);
