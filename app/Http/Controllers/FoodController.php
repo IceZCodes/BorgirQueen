@@ -147,7 +147,7 @@ class FoodController extends Controller
             'address' => $req->address,
             'shipping' => $req->shipping,
             'notes' => $req->notes,
-            'status' => 'Preparing',
+            'status' => 'Unconfirmed',
             'total_price' => $sumPrice,
         ]);
 

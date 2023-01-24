@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Food;
 use App\Models\Order;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -166,13 +167,44 @@ class AdminController extends Controller
         ]);
     }
 
-    public function customerOrders()
+    public function customerOrders(Request $req)
     {
-        $orders = Order::all();
+        $search = $req->input('search');
+        if ($search) {
+            $orders = Order::join('users', 'users.id', '=', 'orders.user_id')->where('users.name', 'like', "%$search%")->where('is_admin', 0)->paginate(10);
+            return view('page.admin.customerOrder', [
+                'title' => 'Orders',
+                'active' => 'orders',
+            ], compact('orders'));
+        }
+
+        $orders = Order::orderBy('updated_at', 'DESC')->paginate(10);
 
         return view('page.admin.customerOrder', [
             'title' => 'Orders',
             'active' => 'orders'
         ], compact('orders'));
+    }
+
+    public function editOrder($id, Request $req)
+    {
+        $order = Order::findOrFail($id);
+        if ($req->action == 'accept') {
+            $order->update([
+                'status' => 'Preparing',
+                'updated_at' => Carbon::now(),
+            ]);
+        } elseif ($req->action == 'onDelivery') {
+            $order->update([
+                'status' => 'OnDelivery',
+                'updated_at' => Carbon::now(),
+            ]);
+        } else {
+            $order->update([
+                'status' => 'Completed',
+                'updated_at' => Carbon::now(),
+            ]);
+        }
+        return redirect()->route('customerOrder')->with('success', 'Order updated successfully');
     }
 }

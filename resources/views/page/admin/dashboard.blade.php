@@ -72,15 +72,15 @@
                                                     class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                                                     <td
                                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                            @if(str_contains($food->image, 'placeholder'))
+                                                        @if (str_contains($food->image, 'placeholder'))
                                                             <img class="w-12"
-                                                            src="{{ asset('assets/placeholder/'. $food->image) }}"
-                                                            alt="">
-                                                            @else
+                                                                src="{{ asset('assets/placeholder/' . $food->image) }}"
+                                                                alt="">
+                                                        @else
                                                             <img class="w-12"
-                                                            src="{{ asset('storage/images/' . $food->image) }}"
-                                                            alt="">
-                                                            @endif
+                                                                src="{{ asset('storage/images/' . $food->image) }}"
+                                                                alt="">
+                                                        @endif
                                                     </td>
                                                     <td
                                                         class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
@@ -119,19 +119,19 @@
                                 <div class="flex justify-between pt-6">
                                     <div class="text-sm" style="">
                                         @if ($foods->firstItem())
-                                        {{$foods->firstItem()}}
-                                        -
-                                        {{$foods->lastItem()}}
-                                        of
+                                            {{ $foods->firstItem() }}
+                                            -
+                                            {{ $foods->lastItem() }}
+                                            of
                                         @endif
-                                        {{$foods->total()}}
+                                        {{ $foods->total() }}
                                         results
                                     </div>
                                     <div class="flex text-sm">
                                         <div class="mr-10">
-                                            {{$foods->currentPage()}}
+                                            {{ $foods->currentPage() }}
                                             of
-                                            {{$foods->lastPage()}}
+                                            {{ $foods->lastPage() }}
                                         </div>
                                     </div>
                                 </div>

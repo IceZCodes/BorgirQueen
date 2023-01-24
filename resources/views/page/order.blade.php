@@ -93,7 +93,10 @@
                                                     <td
                                                         class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap ">
                                                         <div class="flex flex-row gap-2 text-[#F2F2F2]">
-                                                            @if ($order->status == 'Preparing')
+                                                            @if ($order->status == 'Unconfirmed')
+                                                                <button
+                                                                    class="font-semibold bg-[#733338] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">{{ $order->status }}</button>
+                                                            @elseif ($order->status == 'Preparing')
                                                                 <button
                                                                     class="font-semibold bg-[#6FCF97] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">{{ $order->status }}</button>
                                                             @elseif ($order->status == 'OnDelivery')
