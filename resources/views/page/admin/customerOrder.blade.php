@@ -5,14 +5,14 @@
             @include('page.admin.components.sidebar')
         </div>
         <div class="col-start-3 px-8 py-12" style="grid-column-end: 13">
-            <div class="bg-[#FFFFFF] p-4 rounded-lg border border-[1px] border-[#E5E7EB]">
+            <div class="overflow-x-auto bg-[#FFFFFF] p-4 rounded-lg border border-[1px] border-[#E5E7EB]">
                 @if (Session::has('success'))
+                    {{-- Success --}}
                     <div id="modalPopup"
-                        class="w-3/5 text-green-600 bg-green-100 p-4 rounded-lg border border-2 border-green-600 mb-4"
-                        role="alert">
+                        class="fixed top-10 right-4 w-fit drop-shadow-xl text-black bg-[#F5F3FF] p-3 px-4 rounded-lg border border-2 border-[#7C3AED] mb-4">
                         {{ Session::get('success') }}
-                        <button type="button" class="btn-close float-right text-black"
-                            onclick="getElementById('modalPopup').style.display = 'none'">X</button>
+                        <button type="button" class="btn-close float-right text-black ml-8"
+                            onclick="getElementById('modalPopup').classList.add('hidden')">X</button>
                     </div>
                 @endif
                 <div class="flex justify-between">
@@ -34,7 +34,7 @@
                 </form>
                 <div class="flex flex-col">
                     <div class="flex flex-col">
-                        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="sm:-mx-6 lg:-mx-8">
                             <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                                 <div class="">
                                     <table class="min-w-full">
