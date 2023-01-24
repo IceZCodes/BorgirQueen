@@ -8,11 +8,10 @@
             @if (Session::has('success'))
                 {{-- Success --}}
                 <div id="modalPopup"
-                    class="w-3/5 text-green-600 bg-green-100 p-4 rounded-lg border border-2 border-green-600 mb-4"
-                    role="alert">
+                    class="fixed top-10 right-4 w-fit drop-shadow-xl text-black bg-[#F5F3FF] p-3 px-4 rounded-lg border border-2 border-[#7C3AED] mb-4">
                     {{ Session::get('success') }}
-                    <button type="button" class="btn-close float-right text-black"
-                        onclick="getElementById('modalPopup').style.display = 'none'">X</button>
+                    <button type="button" class="btn-close float-right text-black ml-8"
+                        onclick="getElementById('modalPopup').classList.add('hidden')">X</button>
                 </div>
             @endif
             <div class="bg-[#FFFFFF] p-4 rounded-lg border border-[1px] border-[#E5E7EB]">
@@ -72,15 +71,15 @@
                                                     class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                                                     <td
                                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                            @if(str_contains($food->image, 'placeholder'))
+                                                        @if (str_contains($food->image, 'placeholder'))
                                                             <img class="w-12"
-                                                            src="{{ asset('assets/placeholder/'. $food->image) }}"
-                                                            alt="">
-                                                            @else
+                                                                src="{{ asset('assets/placeholder/' . $food->image) }}"
+                                                                alt="">
+                                                        @else
                                                             <img class="w-12"
-                                                            src="{{ asset('storage/images/' . $food->image) }}"
-                                                            alt="">
-                                                            @endif
+                                                                src="{{ asset('storage/images/' . $food->image) }}"
+                                                                alt="">
+                                                        @endif
                                                     </td>
                                                     <td
                                                         class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
@@ -119,19 +118,19 @@
                                 <div class="flex justify-between pt-6">
                                     <div class="text-sm" style="">
                                         @if ($foods->firstItem())
-                                        {{$foods->firstItem()}}
-                                        -
-                                        {{$foods->lastItem()}}
-                                        of
+                                            {{ $foods->firstItem() }}
+                                            -
+                                            {{ $foods->lastItem() }}
+                                            of
                                         @endif
-                                        {{$foods->total()}}
+                                        {{ $foods->total() }}
                                         results
                                     </div>
                                     <div class="flex text-sm">
                                         <div class="mr-10">
-                                            {{$foods->currentPage()}}
+                                            {{ $foods->currentPage() }}
                                             of
-                                            {{$foods->lastPage()}}
+                                            {{ $foods->lastPage() }}
                                         </div>
                                     </div>
                                 </div>

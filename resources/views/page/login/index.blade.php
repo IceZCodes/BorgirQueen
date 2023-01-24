@@ -2,6 +2,15 @@
 
 @section('content')
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        @if (Session::has('success'))
+            {{-- Success --}}
+            <div id="modalPopup"
+                class="fixed top-10 right-4 w-fit drop-shadow-xl text-black bg-[#F5F3FF] p-3 px-4 rounded-lg border border-2 border-[#7C3AED] mb-4">
+                {{ Session::get('success') }}
+                <button type="button" class="btn-close float-right text-black ml-8"
+                    onclick="getElementById('modalPopup').classList.add('hidden')">X</button>
+            </div>
+        @endif
         <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900">
             <img class="w-15 h-20" src="{{ asset('assets/BorgirQueen.png') }}" alt="logo">
         </a>
@@ -31,13 +40,18 @@
 
                         <input type="password" name="password" id="password" placeholder="••••••••" class="form-control @error('password') is-invalid @enderror bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
 
-                        @error('password')
+                        {{-- @error('password')
                             <span class="text-red-700 invalid-feedback" role="alert">
                                 <strong>
                                     {{ $message }}
                                 </strong>
                             </span>
-                        @enderror
+                        @enderror --}}
+                        @if (Session::has('error'))
+                            <div class="text-red-500 text-sm">
+                                {{ Session::get('error') }}
+                            </div>
+                        @endif
                     </div>
 
                     <div class="flex items-center justify-between">
@@ -52,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <button type="submit" class="w-full text-white bg-[#005BAA] hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
 
                     <p class="text-sm font-light text-gray-500">

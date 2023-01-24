@@ -8,6 +8,7 @@ use App\Models\Food;
 use App\Models\FoodCart;
 use App\Models\FoodOrder;
 use App\Models\Order;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -81,7 +82,7 @@ class FoodController extends Controller
                 'price' => $itemsPrice,
             ]);
         }
-        return redirect()->back()->with('success', 'Item added successfully');
+        return back()->with('success', 'Item added successfully');
     }
 
     public function update($id, Request $req)
@@ -114,10 +115,13 @@ class FoodController extends Controller
         $carts = Cart::where('user_id', Auth::user()->id)->first();
         $cartItems = $carts->foods;
 
+        $user = User::where('id', Auth::user()->id)->first();
+
         return view('page.cart', [
             'title' => 'Cart',
             'active' => 'cart',
-            'countCartItems' => count($cartItems)
+            'countCartItems' => count($cartItems),
+            'address' => $user->address,
         ], compact('cartItems'));
     }
 
@@ -147,7 +151,7 @@ class FoodController extends Controller
             'address' => $req->address,
             'shipping' => $req->shipping,
             'notes' => $req->notes,
-            'status' => 'Preparing',
+            'status' => 'Unconfirmed',
             'total_price' => $sumPrice,
         ]);
 
@@ -161,6 +165,6 @@ class FoodController extends Controller
         }
         FoodCart::where('cart_id', $carts->id)->delete();
 
-        return redirect()->route('menu', 'food')->with('success', 'Order successful');
+        return redirect()->route('orders')->with('success', 'We got your order! We will notify you when your order are made.');
     }
 }
