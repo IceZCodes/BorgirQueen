@@ -18,7 +18,9 @@ class Order extends Model
         'date',
         'time',
         'address',
-        'shipping',
+        'shipping_type',
+        'shipping_price',
+        'payment_type',
         'notes',
         'status',
         'total_price'

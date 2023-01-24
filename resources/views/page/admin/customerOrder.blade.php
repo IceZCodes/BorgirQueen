@@ -54,6 +54,14 @@
                                                 </th>
                                                 <th scope="col"
                                                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                    Shipping Type
+                                                </th>
+                                                <th scope="col"
+                                                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                    Payment Type
+                                                </th>
+                                                <th scope="col"
+                                                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                     Price
                                                 </th>
                                                 <th scope="col"
@@ -93,6 +101,14 @@
                                                             {{ $food->name }} {{ $food->pivot->qty }} piece(s)
                                                             <br>
                                                         @endforeach
+                                                    </td>
+                                                    <td
+                                                        class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                                        {{ $order->shipping_type }}
+                                                    </td>
+                                                    <td
+                                                        class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                                        {{ $order->payment_type }}
                                                     </td>
                                                     <td
                                                         class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
