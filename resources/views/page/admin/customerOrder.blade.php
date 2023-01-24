@@ -18,7 +18,62 @@
                 <div class="flex justify-between">
                     <div class="font-semibold">All Product</div>
                 </div>
-                <form action="{{ route('customerOrder') }}">
+                <div class="flex flex-row gap-x-4 mt-4">
+                    @if($filter == "priority")
+                        <a href="/admin/orders"
+                            class="font-semibold border border-2 border-[#3bb26d] bg-[#6FCF97]
+                            text-white
+                            rounded-lg px-3 py-1"
+                            >Priority
+                        </a>
+                    @else
+                        <a href="/admin/orders"
+                            class="font-semibold border border-2 border-[#6FCF97] hover:bg-[#6FCF97]
+                            text-[#6FCF97] hover:text-white
+                            rounded-lg px-3 py-1"
+                            >Priority
+                        </a>
+                    @endif
+
+                    @if($filter == "delivery")
+                        <a href="/admin/orders/filter/delivery"
+                            class="font-semibold border border-2 border-[#7522c2] bg-[#9B51E0]
+                            text-white
+                            rounded-lg px-3 py-1"
+                            >On Delivery
+                        </a>
+                    @else
+                        <a href="/admin/orders/filter/delivery"
+                            class="font-semibold border border-2 border-[#7522c2] hover:bg-[#9B51E0]
+                            text-[#9B51E0] hover:text-white
+                            rounded-lg px-3 py-1"
+                            >On Delivery
+                        </a>
+                    @endif
+
+                    @if($filter == "complete")
+                    <a href="/admin/orders/filter/complete"
+                        class="font-semibold border border-2 border-[#1c76a9] bg-[#2D9CDB]
+                        text-white
+                        rounded-lg px-3 py-1"
+                        >Complete
+                    </a>
+                    @else
+                    <a href="/admin/orders/filter/complete"
+                        class="font-semibold border border-2 border-[#1c76a9] hover:bg-[#2D9CDB]
+                        text-[#2D9CDB] hover:text-white
+                        rounded-lg px-3 py-1"
+                        >Complete
+                    </a>
+                    @endif
+                </div>
+                @if($filter == "delivery")
+                    <form action="{{ route('customerOrderFilter', 'delivery') }}">
+                @elseif ($filter == "complete")
+                    <form action="{{ route('customerOrderFilter', 'complete') }}">
+                @else
+                    <form action="{{ route('customerOrder') }}">
+                @endif
                     <div class="flex justify-end mr-8">
                         <button class="mr-2 text-gray-700" type="button" id="button-addon2">
                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4"
@@ -125,12 +180,15 @@
                                                             @csrf
                                                             <div class="flex flex-row gap-2 text-[#F2F2F2]">
                                                                 <button
+                                                                    type="submit"
                                                                     class="font-semibold bg-[#6FCF97] hover:bg-[#3bb26d] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2"
                                                                     name="action" value="accept">Accept</button>
                                                                 <button
+                                                                    type="submit"
                                                                     class="font-semibold bg-[#9B51E0] hover:bg-[#7522c2] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2"
                                                                     name="action" value="onDelivery">OnDelivery</button>
                                                                 <button
+                                                                    type="submit"
                                                                     class="font-semibold bg-[#2D9CDB] hover:bg-[#1c76a9] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2"
                                                                     name="action" value="complete">Complete</button>
                                                             </div>

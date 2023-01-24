@@ -39,6 +39,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::delete('/food/delete/{id}', [AdminController::class, 'deletefood'])->name('deleteFood');
         Route::get('/customers', [AdminController::class, 'allCustomer'])->name('allCustomer');
         Route::get('/orders', [AdminController::class, 'customerOrders'])->name('customerOrder');
+        Route::get('/orders/filter/{status}', [AdminController::class, 'customerOrdersFilter'])->name('customerOrderFilter');
         Route::post('/orders/{id}', [AdminController::class, 'editOrder'])->name('editOrder');
     });
 });

@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         if (Auth::check()) {
             $carts = Cart::where('user_id', Auth::user()->id)->first();
-            $orders = Order::where('user_id', Auth::user()->id)->with('foods')->orderBy('time', 'DESC')->paginate(10);
+            $orders = Order::where('user_id', Auth::user()->id)->with('foods')->orderBy('updated_at', 'DESC')->paginate(10);
             $countCartItems = count($carts->foods);
         } else {
             $countCartItems = 0;

@@ -106,8 +106,8 @@
                                                             @method('DELETE')
                                                             <a href="admin/food/edit/{{ $food->slug }}"
                                                                 class="font-semibold bg-[#2D9CDB] hover:bg-[#196692] ease-in-out duration-300 border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Edit</a>
-                                                            <button onclick="deleteFood({{ $food->id }})"
-                                                                class="font-semibold bg-[#EB5757] hover:bg-[#bb1616] ease-in-out duration-300 border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Delete</button>
+                                                            <div onclick="deleteFood({{ $food->id }})"
+                                                                class="font-semibold bg-[#EB5757] hover:bg-[#bb1616] ease-in-out duration-300 border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">Delete</div>
                                                         </form>
                                                     </td>
                                                 </tr>
@@ -149,7 +149,7 @@
         function deleteFood(id) {
             var deleteFood = document.getElementById('deleteFood');
             if (confirm('Are you sure you want to delete this food?')) {
-                deleteFood.action = '/admin/food/delete/' + id;
+                deleteFood.submit();
             }
         }
     </script>

@@ -172,17 +172,57 @@ class AdminController extends Controller
         $search = $req->input('search');
         if ($search) {
             $orders = Order::join('users', 'users.id', '=', 'orders.user_id')->where('users.name', 'like', "%$search%")->where('is_admin', 0)->paginate(10);
+            $orders->appends(['search' => $search]);
             return view('page.admin.customerOrder', [
                 'title' => 'Orders',
                 'active' => 'orders',
+                'filter' => 'priority'
             ], compact('orders'));
         }
 
-        $orders = Order::orderBy('updated_at', 'DESC')->paginate(10);
+        $orders1 = Order::where('status', 'Preparing') ->orderBy('updated_at', 'DESC');
+        $orders2 = Order::where('status', 'Unconfirmed') ->orderBy('updated_at', 'DESC');
+        $orders = $orders2->union($orders1)->paginate(10);
 
         return view('page.admin.customerOrder', [
             'title' => 'Orders',
-            'active' => 'orders'
+            'active' => 'orders',
+            'filter' => 'priority'
+        ], compact('orders'));
+    }
+
+    public function customerOrdersFilter(Request $req)
+    {
+        $status = $req->status;
+
+        if($status == 'complete') {
+            $orders = Order::where('status', 'Completed')->orderBy('updated_at', 'DESC')->paginate(10);
+            $filter = 'complete';
+        } else if ($status == 'delivery') {
+            $orders = Order::where('status', 'OnDelivery')->orderBy('updated_at', 'DESC')->paginate(10);
+            $filter = 'delivery';
+        }
+
+        $search = $req->input('search');
+        if ($search) {
+            if($status == 'complete') {
+                $orders = Order::join('users', 'users.id', '=', 'orders.user_id')->where('users.name', 'like', "%$search%")->where('is_admin', 0)->where('status', 'Completed')->paginate(10);
+            } else if ($status == 'delivery') {
+                $orders = Order::join('users', 'users.id', '=', 'orders.user_id')->where('users.name', 'like', "%$search%")->where('is_admin', 0)->where('status', 'OnDelivery')->paginate(10);
+            }
+
+            $orders->appends(['search' => $search]);
+            return view('page.admin.customerOrder', [
+                'title' => 'Orders',
+                'active' => 'orders',
+                'filter' => $filter
+            ], compact('orders'));
+        }
+
+        return view('page.admin.customerOrder', [
+            'title' => 'Orders',
+            'active' => 'orders',
+            'filter' => $filter
         ], compact('orders'));
     }
 
