@@ -24,24 +24,18 @@
 
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 @error('email') is-invalid @enderror" placeholder="armaniferrante@gmail.com" required autocomplete="email" autofocus>
-
-                        @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                {{ $message }}
-                            </span>
-                        @enderror
+                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="armaniferrante@gmail.com" required autocomplete="email" autofocus>
                     </div>
 
                     <div>
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
                         <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
 
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                {{ $message }}
-                            </span>
-                        @enderror
+                        @if (Session::has('error'))
+                            <div class="text-red-500 text-sm">
+                                {{ Session::get('error') }}
+                            </div>
+                        @endif
                     </div>
 
                     <div class="flex items-center justify-between">

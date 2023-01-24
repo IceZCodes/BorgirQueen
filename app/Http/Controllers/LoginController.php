@@ -27,7 +27,7 @@ class LoginController extends Controller
             return redirect()->intended('/');
         }
 
-        return back()->with('loginError', 'Login failed!');
+        return back()->with('error', 'Your credentials don\'t match our records.');
     }
 
     public function logout(Request $request)
