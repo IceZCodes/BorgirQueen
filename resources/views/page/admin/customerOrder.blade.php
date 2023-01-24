@@ -125,13 +125,13 @@
                                                             @csrf
                                                             <div class="flex flex-row gap-2 text-[#F2F2F2]">
                                                                 <button
-                                                                    class="font-semibold bg-[#6FCF97] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2"
+                                                                    class="font-semibold bg-[#6FCF97] hover:bg-[#3bb26d] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2"
                                                                     name="action" value="accept">Accept</button>
                                                                 <button
-                                                                    class="font-semibold bg-[#9B51E0] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2"
+                                                                    class="font-semibold bg-[#9B51E0] hover:bg-[#7522c2] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2"
                                                                     name="action" value="onDelivery">OnDelivery</button>
                                                                 <button
-                                                                    class="font-semibold bg-[#2D9CDB] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2"
+                                                                    class="font-semibold bg-[#2D9CDB] hover:bg-[#1c76a9] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2"
                                                                     name="action" value="complete">Complete</button>
                                                             </div>
                                                         </form>
