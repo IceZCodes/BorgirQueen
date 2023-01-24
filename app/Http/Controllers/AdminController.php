@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CustomerOrder;
+use App\Mail\OrderStatus;
 use App\Models\Category;
 use App\Models\Food;
 use App\Models\Order;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
@@ -180,8 +183,8 @@ class AdminController extends Controller
             ], compact('orders'));
         }
 
-        $orders1 = Order::where('status', 'Preparing') ->orderBy('updated_at', 'DESC');
-        $orders2 = Order::where('status', 'Unconfirmed') ->orderBy('updated_at', 'DESC');
+        $orders1 = Order::where('status', 'Preparing')->orderBy('updated_at', 'DESC');
+        $orders2 = Order::where('status', 'Unconfirmed')->orderBy('updated_at', 'DESC');
         $orders = $orders2->union($orders1)->paginate(10);
 
         return view('page.admin.customerOrder', [
@@ -195,7 +198,7 @@ class AdminController extends Controller
     {
         $status = $req->status;
 
-        if($status == 'complete') {
+        if ($status == 'complete') {
             $orders = Order::where('status', 'Completed')->orderBy('updated_at', 'DESC')->paginate(10);
             $filter = 'complete';
         } else if ($status == 'delivery') {
@@ -205,7 +208,7 @@ class AdminController extends Controller
 
         $search = $req->input('search');
         if ($search) {
-            if($status == 'complete') {
+            if ($status == 'complete') {
                 $orders = Order::join('users', 'users.id', '=', 'orders.user_id')->where('users.name', 'like', "%$search%")->where('is_admin', 0)->where('status', 'Completed')->paginate(10);
             } else if ($status == 'delivery') {
                 $orders = Order::join('users', 'users.id', '=', 'orders.user_id')->where('users.name', 'like', "%$search%")->where('is_admin', 0)->where('status', 'OnDelivery')->paginate(10);
@@ -245,6 +248,7 @@ class AdminController extends Controller
                 'updated_at' => Carbon::now(),
             ]);
         }
+        Mail::to($order->user->email)->send(new OrderStatus($order));
         return redirect()->route('customerOrder')->with('success', 'Order updated successfully');
     }
 }
