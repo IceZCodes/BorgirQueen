@@ -169,7 +169,9 @@ class AdminController extends Controller
     {
         $search = $req->input('search');
         if ($search) {
-            $orders = Order::join('users', 'users.id', '=', 'orders.user_id')->where('users.name', 'like', "%$search%")->where('is_admin', 0)->paginate(10);
+            $orders = Order::whereHas('user', function ($q) use ($search) {
+                $q->where('users.name', 'like', "%$search%")->where('is_admin', 0);
+            })->paginate(10);
             $orders->appends(['search' => $search]);
             return view('page.admin.customerOrder', [
                 'title' => 'Orders',
@@ -204,9 +206,13 @@ class AdminController extends Controller
         $search = $req->input('search');
         if ($search) {
             if ($status == 'complete') {
-                $orders = Order::join('users', 'users.id', '=', 'orders.user_id')->where('users.name', 'like', "%$search%")->where('is_admin', 0)->where('status', 'Completed')->paginate(10);
+                $orders = Order::whereHas('user', function ($q) use ($search) {
+                    $q->where('users.name', 'like', "%$search%")->where('is_admin', 0)->where('status', 'Completed');
+                })->paginate(10);
             } else if ($status == 'delivery') {
-                $orders = Order::join('users', 'users.id', '=', 'orders.user_id')->where('users.name', 'like', "%$search%")->where('is_admin', 0)->where('status', 'OnDelivery')->paginate(10);
+                $orders = Order::whereHas('user', function ($q) use ($search) {
+                    $q->where('users.name', 'like', "%$search%")->where('is_admin', 0)->where('status', 'OnDelivery');
+                })->paginate(10);
             }
 
             $orders->appends(['search' => $search]);
