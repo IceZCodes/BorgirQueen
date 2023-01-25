@@ -138,7 +138,7 @@ class AdminController extends Controller
             ]);
         }
 
-        return redirect()->route('admin')->with('success', 'Product updated successfully');
+        return redirect()->back()->with('success', 'Product updated successfully');
     }
 
     public function deleteFood($id)
