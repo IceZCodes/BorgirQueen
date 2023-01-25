@@ -146,7 +146,7 @@ class AdminController extends Controller
         $food = Food::FindorFail($id);
         Storage::delete('public/images/' . $food->image);
         $food->delete();
-        return redirect()->route('admin')->with('success', 'Product deleted successfully');
+        return redirect()->back()->with('success', 'Product deleted successfully');
     }
 
     public function allCustomer(Request $request)
