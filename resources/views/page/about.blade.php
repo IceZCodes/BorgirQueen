@@ -17,7 +17,7 @@
                 </div>
                 <div class="pr-5 mt-2">
                     <p class="pt-4">
-                        Once upon a time, there were two sisters a you traveling through many countries and cities, in
+                        Once upon a time, there were two sisters traveling through many countries and cities, in
                         search of a secret burger recipe. They traveled far and wide to find the perfect set of flavours
                         that would make the best burger.
                     </p>
@@ -114,7 +114,7 @@
                             </div>
                         </div>
                         <div style="margin-top: 1.5rem;">
-                            Oh my goodness, I can't believe the horror that I experienced when I ordered the fish burger combo at that restaurant. The fish patty was so overcooked that it was practically burnt to a crisp, and the bun was stale and dry.
+                            Their burgers and french fries are super delicious that I can’t even resist them cause of it taste/smell. I admire their workers and how hard they work. I love it. I wish to come back someday to buy more of their fabulous, delicious, tasty food.
                         </div>
                     </div>
                 </div>
@@ -190,7 +190,7 @@
                             </div>
                         </div>
                         <div style="margin-top: 1.5rem;">
-                            Oh my goodness, I can't believe the horror that I experienced when I ordered the fish burger combo at that restaurant. The fish patty was so overcooked that it was practically burnt to a crisp, and the bun was stale and dry.
+                            Their burgers and french fries are super delicious that I can’t even resist them cause of it taste/smell. I admire their workers and how hard they work. I love it. I wish to come back someday to buy more of their fabulous, delicious, tasty food.
                         </div>
                     </div>
                 </div>
