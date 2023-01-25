@@ -9,7 +9,7 @@
                 <div class="flex justify-between">
                     <div class="font-semibold">All Customers</div>
                 </div>
-                <div class="flex justify-end mr-8">
+                <div class="flex mt-4 mr-8">
                     <form action={{ route('allCustomer') }}>
                         <button class="mr-2 text-gray-700" type="button" id="button-addon2">
                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4"

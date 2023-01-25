@@ -11,7 +11,7 @@
                         onclick="getElementById('modalPopup').classList.add('hidden')">X</button>
                 </div>
         @endif
-        <div class="flex flex-row py-20 bg-[#F3F0E7] justify-center items-center gap-16 px-8">
+        <div class="h-screen flex flex-row py-20 bg-[#F3F0E7] justify-center items-center gap-16 px-8">
             <div class="flex flex-col w-[680px] gap-4">
                 <p class="font-black text-4xl">{{ $item->name }}</p>
                 <p class="text-2xl text-[#FF8906]">${{ $item->price }}</p>
