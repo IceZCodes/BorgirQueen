@@ -136,6 +136,7 @@ class FoodController extends Controller
             'address' => ['required', 'string', 'min:10'],
             'shipping_type' => ['required'],
             'payment_type' => ['required'],
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:10000'
         ]);
 
         $user = Auth::user();
@@ -151,6 +152,10 @@ class FoodController extends Controller
 
         $sumPrice += $shippingPrice;
 
+        $image = $req->file('image');
+        $imageName = time() . '-' . $image->getClientOriginalName();
+        $image->storeAs('public/images', $imageName);
+
         $order = Order::create([
             'user_id' => $user->id,
             'date' => Carbon::today()->toDateString(),
@@ -159,6 +164,7 @@ class FoodController extends Controller
             'shipping_type' => $req->shipping_type,
             'shipping_price' => $shippingPrice,
             'payment_type' => $req->payment_type,
+            'image' => $imageName,
             'notes' => $req->notes,
             'status' => 'Unconfirmed',
             'total_price' => $sumPrice,

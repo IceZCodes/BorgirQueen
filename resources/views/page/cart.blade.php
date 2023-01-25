@@ -68,7 +68,7 @@
                     <h1 class="sticky font-semibold text-2xl border-b border-black pb-8 text-center">Billing Details</h1>
                     <div class="flex justify-between mt-10">
                     </div>
-                    <form method="POST" action="{{ route('orderCart') }}">
+                    <form method="POST" action="{{ route('orderCart') }}" enctype="multipart/form-data">
                         @csrf
                         <div>
                             <label class="font-medium inline-block mb-3 text-sm uppercase">Notes</label>
@@ -97,6 +97,17 @@
                                     <a class="pay mr-3 hover:bg-indigo-600" href="#"><img style="width: 650px;" src="/assets/Dana.jpg" alt="" data-value="DANA"></a>
                                     <a class="pay mr-3 hover:bg-indigo-600" href="#"><img style="width: 650px;" src="/assets/GOPAY.png" alt="" data-value="GOPAY"></a>
                                 </div>
+                            </div>
+                            <div class="flex flex-col">
+                                <h2 class="font-medium inline-block mb-3 mt-3 text-sm uppercase">Upload Transfer Proof</h2>
+                                <label id="label_image" for="image" class="font-semibold text-center bg-white py-2 rounded-lg">+ Choose Image</label>
+                                <input id="image" class="mt-2 hidden"type="file" type="image" name="image" onchange="getImage(this);" required>
+                                @error('image')
+                                    <span class="text-red-600">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                                <img id="preview_image" class="w-2/3 h-2/3 mt-2 hidden" src="#" alt="preview_image">
                             </div>
                             <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                                 <span>Total cost</span>
@@ -152,6 +163,22 @@
                     e.classList.add("ring-4");
                 })
             });
+
+            function getImage(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload
+                    let preview = document.getElementById("preview_image");
+                    let label = document.getElementById("label_image");
+                    reader.onload = function (e) {
+                        preview.src = e.target.result;
+                        preview.classList.remove("hidden");
+                        label.innerHTML = input.files[0].name;
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
         </script>
     </body>
 @endsection

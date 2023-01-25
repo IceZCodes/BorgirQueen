@@ -21,6 +21,7 @@ class Order extends Model
         'shipping_type',
         'shipping_price',
         'payment_type',
+        'image',
         'notes',
         'status',
         'total_price'

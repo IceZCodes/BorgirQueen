@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->string('shipping_type');
             $table->string('shipping_price');
             $table->string('payment_type');
+            $table->string('image');
             $table->string('notes');
             $table->string('status');
             $table->decimal('total_price', 8, 2);
