@@ -130,51 +130,54 @@ class FoodController extends Controller
 
     public function orderUser(Request $req)
     {
-
-        $req->validate([
-            'notes' => ['required', 'string', 'min:5'],
-            'address' => ['required', 'string', 'min:10'],
-            'shipping_type' => ['required'],
-            'payment_type' => ['required'],
-        ]);
-
         $user = Auth::user();
         $carts = Cart::where('user_id', Auth::user()->id)->first();
         $cartItems = $carts->foods;
 
-        $sumPrice = 0;
-        $shippingPrice = ($req->shipping_type == 'Gojek' ? '3.99' : ($req->shipping_type == 'Grab' ? '2.99' : '0'));
-
-        foreach ($cartItems as $item) {
-            $sumPrice = $sumPrice + $item->pivot->price;
-        }
-
-        $sumPrice += $shippingPrice;
-
-        $order = Order::create([
-            'user_id' => $user->id,
-            'date' => Carbon::today()->toDateString(),
-            'time' => Carbon::now(),
-            'address' => $req->address,
-            'shipping_type' => $req->shipping_type,
-            'shipping_price' => $shippingPrice,
-            'payment_type' => $req->payment_type,
-            'notes' => $req->notes,
-            'status' => 'Unconfirmed',
-            'total_price' => $sumPrice,
-        ]);
-
-        foreach ($cartItems as $item) {
-            FoodOrder::create([
-                'food_id' => $item->id,
-                'order_id' => $order->id,
-                'qty' => $item->pivot->qty,
-                'price' => $item->pivot->price
+        if ($cartItems->count() > 0) {
+            $req->validate([
+                'notes' => ['required', 'string', 'min:5'],
+                'address' => ['required', 'string', 'min:10'],
+                'shipping_type' => ['required'],
+                'payment_type' => ['required'],
             ]);
-        }
-        FoodCart::where('cart_id', $carts->id)->delete();
-        Mail::to($user->email)->send(new CustomerOrder($order));
 
-        return redirect()->route('orders')->with('success', 'We got your order! We will notify you when your order are made.');
+            $sumPrice = 0;
+            $shippingPrice = ($req->shipping_type == 'Gojek' ? '3.99' : ($req->shipping_type == 'Grab' ? '2.99' : '0'));
+
+            foreach ($cartItems as $item) {
+                $sumPrice = $sumPrice + $item->pivot->price;
+            }
+
+            $sumPrice += $shippingPrice;
+
+            $order = Order::create([
+                'user_id' => $user->id,
+                'date' => Carbon::today()->toDateString(),
+                'time' => Carbon::now(),
+                'address' => $req->address,
+                'shipping_type' => $req->shipping_type,
+                'shipping_price' => $shippingPrice,
+                'payment_type' => $req->payment_type,
+                'notes' => $req->notes,
+                'status' => 'Unconfirmed',
+                'total_price' => $sumPrice,
+            ]);
+
+            foreach ($cartItems as $item) {
+                FoodOrder::create([
+                    'food_id' => $item->id,
+                    'order_id' => $order->id,
+                    'qty' => $item->pivot->qty,
+                    'price' => $item->pivot->price
+                ]);
+            }
+            FoodCart::where('cart_id', $carts->id)->delete();
+            Mail::to($user->email)->send(new CustomerOrder($order));
+
+            return redirect()->route('orders')->with('success', 'We got your order! We will notify you when your order are made.');
+        } else {
+            return redirect()->route('cart');
+        }
     }
 }

@@ -93,9 +93,12 @@
                                 <span>Pay With</span>
                                 <input type="hidden" name="payment_type" id="payment_type">
                                 <div class="flex flex-row mt-5">
-                                    <a class="pay mr-3 hover:bg-indigo-600" href="#"><img style="width: 650px;" src="/assets/OVO.png" alt="" data-value="OVO"></a>
-                                    <a class="pay mr-3 hover:bg-indigo-600" href="#"><img style="width: 650px;" src="/assets/Dana.jpg" alt="" data-value="DANA"></a>
-                                    <a class="pay mr-3 hover:bg-indigo-600" href="#"><img style="width: 650px;" src="/assets/GOPAY.png" alt="" data-value="GOPAY"></a>
+                                    <a class="pay mr-3 hover:bg-indigo-600" href="#"><img style="width: 650px;"
+                                            src="/assets/OVO.png" alt="" data-value="OVO"></a>
+                                    <a class="pay mr-3 hover:bg-indigo-600" href="#"><img style="width: 650px;"
+                                            src="/assets/Dana.jpg" alt="" data-value="DANA"></a>
+                                    <a class="pay mr-3 hover:bg-indigo-600" href="#"><img style="width: 650px;"
+                                            src="/assets/GOPAY.png" alt="" data-value="GOPAY"></a>
                                 </div>
                             </div>
                             <div class="flex font-semibold justify-between py-6 text-sm uppercase">
@@ -107,10 +110,14 @@
                         </div>
                         <dialog class="popup" id="popup"
                             style="position: absolute; top: 50%; left: 30%; transform: translate(-50%, -50%); width: 600px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0px 2px 2px 2px; margin-top: -25px; padding-top: 50px; padding-bottom: 75px; ">
-                            <div class="text-3xl font-bold text-center mb-5">Your Payment is Sucessful!!</div>
-                            <div class="text-xl text-gray-500 text-center ">Thank You for your payment.</div>
-                            <div class="text-xl text-gray-500 text-center ">Amount Paid</div>
-                            <div class="text-xl text-gray-500 text-center ">${{ $sumPrice }}</div>
+                            @if ($cartItems->count() > 0)
+                                <div class="text-3xl font-bold text-center mb-5">Your Payment is Sucessful!!</div>
+                                <div class="text-xl text-gray-500 text-center ">Thank You for your payment.</div>
+                                <div class="text-xl text-gray-500 text-center ">Amount Paid</div>
+                                <div class="text-xl text-gray-500 text-center ">${{ $sumPrice }}</div>
+                            @else
+                                <div class="text-3xl font-bold text-center mb-5">Cart is Empty!!</div>
+                            @endif
                             <button type="submit" id="backHomeButton"
                                 class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800"
                                 style="position: absolute; bottom: 10px; right: 220px;">Back to Home</button>
