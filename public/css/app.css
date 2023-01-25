@@ -723,11 +723,11 @@ video {
 .h-4 {
   height: 1rem;
 }
-.h-2\/5 {
-  height: 40%;
-}
 .h-2\/3 {
   height: 66.666667%;
+}
+.h-2\/5 {
+  height: 40%;
 }
 .h-screen {
   height: 100vh;
@@ -771,6 +771,9 @@ video {
 .w-2\/5 {
   width: 40%;
 }
+.w-2\/3 {
+  width: 66.666667%;
+}
 .w-3\/6 {
   width: 50%;
 }
@@ -780,9 +783,6 @@ video {
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
-}
-.w-2\/3 {
-  width: 66.666667%;
 }
 .w-screen {
   width: 100vw;
@@ -1546,14 +1546,6 @@ video {
 .hover\:bg-\[\#F5F3FF\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(245 243 255 / var(--tw-bg-opacity));
-}
-.hover\:bg-\[\#bfbfbf\]:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(191 191 191 / var(--tw-bg-opacity));
-}
-.hover\:bg-\[\#d8d8d8\]:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(216 216 216 / var(--tw-bg-opacity));
 }
 .hover\:font-bold:hover {
   font-weight: 700;

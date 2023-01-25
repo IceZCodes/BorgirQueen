@@ -16,7 +16,7 @@ class CreateFoodsTable extends Migration
         Schema::create('foods', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->longText('description');
             $table->string('image');
