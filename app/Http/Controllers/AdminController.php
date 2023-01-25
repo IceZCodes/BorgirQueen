@@ -22,11 +22,6 @@ class AdminController extends Controller
         if ($search) {
             $foods = Food::where('name', 'like', "%$search%")->with('category')->paginate(10);
             $foods->appends(['search' => $search]);
-            return view('page.admin.dashboard', [
-                'title' => 'Admin Dashboard',
-                'active' => 'dashboard',
-                'foods' => $foods,
-            ]);
         }
 
         return view('page.admin.dashboard', [
@@ -72,7 +67,7 @@ class AdminController extends Controller
         $imageName = time() . '-' . $image->getClientOriginalName();
         $image->storeAs('public/images', $imageName);
 
-        $food = Food::create([
+        Food::create([
             'name' => $request->name,
             'price' => $request->price,
             'category_id' => $request->category,
