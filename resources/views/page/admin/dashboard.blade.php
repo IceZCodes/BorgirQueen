@@ -99,7 +99,7 @@
                                                     </td>
                                                     <td
                                                         class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
-                                                        <form id="deleteFood"
+                                                        <form id="deleteFood{{ $food->id }}"
                                                             action="/admin/food/delete/{{ $food->id }}" method="POST"
                                                             class="flex flex-row gap-2 text-[#F2F2F2]">
                                                             @csrf
@@ -146,8 +146,9 @@
     </div>
 
     <script>
+
         function deleteFood(id) {
-            var deleteFood = document.getElementById('deleteFood');
+            var deleteFood = document.getElementById('deleteFood'+id);
             if (confirm('Are you sure you want to delete this food?')) {
                 deleteFood.submit();
             }

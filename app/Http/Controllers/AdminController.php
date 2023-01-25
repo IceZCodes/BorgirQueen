@@ -140,9 +140,9 @@ class AdminController extends Controller
 
     public function deleteFood($id)
     {
-        $foods = Food::find($id);
-        Storage::delete('public/images/' . $foods->image);
-        $foods->delete();
+        $food = Food::FindorFail($id);
+        Storage::delete('public/images/' . $food->image);
+        $food->delete();
         return redirect()->route('admin')->with('success', 'Product deleted successfully');
     }
 

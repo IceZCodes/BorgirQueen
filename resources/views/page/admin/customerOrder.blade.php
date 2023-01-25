@@ -123,6 +123,10 @@
                                                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                     Address
                                                 </th>
+                                                {{-- <th scope="col"
+                                                    class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                    Proof of Payment
+                                                </th> --}}
                                                 <th scope="col"
                                                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                     Action
@@ -167,18 +171,13 @@
                                                     </td>
                                                     {{-- <td
                                                         class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap ">
-                                                        <div class="flex flex-row gap-2 text-[#F2F2F2] ">
-                                                            <button
-                                                                class="font-semibold bg-[#9B51E0] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2"
-                                                                data-modal-target="staticModal"
-                                                                data-modal-toggle="staticModal">{{ $item->address }}</button>
-                                                        </div>
+                                                        <button class="">Show Proof</button>
                                                     </td> --}}
                                                     <td
-                                                        class="flex flex-row text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap ">
-                                                        <form action="{{ route('editOrder', $order->id) }}" method="post">
+                                                        class="text-sm text-gray-900 font-normal px-6 py-4">
+                                                        <form action="{{ route('editOrder', $order->id) }}" method="post" style="margin: 0">
                                                             @csrf
-                                                            <div class="flex flex-row gap-2 text-[#F2F2F2]">
+                                                            <div class="flex flex-row items-center gap-x-2 text-[#F2F2F2]">
                                                                 <button
                                                                     type="submit"
                                                                     class="font-semibold bg-[#6FCF97] hover:bg-[#3bb26d] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2"
