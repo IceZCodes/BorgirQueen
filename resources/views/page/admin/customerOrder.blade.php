@@ -1,5 +1,12 @@
 @extends('master.master')
 @section('content')
+    {{-- Proof Modal --}}
+    <div id="proofModal" class="hidden flex-col items-center justify-center fixed top-0 w-screen h-screen bg-[#44403C80]">
+        <div class="relative flex flex-col bg-[rgb(255,255,255)] p-4 rounded-lg border border-[1px] border-[#E5E7EB]">
+            <div onclick="closeModal()" class="absolute right-2 top-0 cursor-pointer">X</div>
+            <img id="proofImage" class="mt-2" src="{{ asset('assets/placeholder/placeholder1.jpg') }}" alt="" style="width: 500px;">
+        </div>
+    </div>
     <div class="grid grid-cols-12 min-h-screen bg-[#F9FAFB]">
         <div class="bg-[#FFFFFF] col-span-2 border">
             @include('page.admin.components.sidebar')
@@ -131,10 +138,10 @@
                                                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                     Address
                                                 </th>
-                                                {{-- <th scope="col"
+                                                <th scope="col"
                                                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                     Proof of Payment
-                                                </th> --}}
+                                                </th>
                                                 <th scope="col"
                                                     class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                     Action
@@ -185,10 +192,12 @@
                                                         class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                                         {{ $order->address }}
                                                     </td>
-                                                    {{-- <td
+                                                    <td
                                                         class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap ">
-                                                        <button class="">Show Proof</button>
-                                                    </td> --}}
+                                                        <button onclick="showModal('{{ null }}')"
+                                                        class="font-semibold text-[#F2F2F2] bg-[#2D9CDB] hover:bg-[#1c76a9] border border-[1px] border-[#E5E7EB] rounded-lg px-3 py-2">
+                                                        Show Proof</button>
+                                                    </td>
                                                     <td
                                                         class="text-sm text-gray-900 font-normal px-6 py-4">
                                                         <form action="{{ route('editOrder', $order->id) }}" method="post" style="margin: 0">
@@ -247,6 +256,22 @@
     </div>
 @endsection
 
+<script>
+    function closeModal() {
+        const modal = document.getElementById('proofModal');
+        modal.classList.toggle('hidden');
+        modal.classList.toggle('flex');
+    }
+
+    function showModal(image) {
+        const modal = document.getElementById('proofModal');
+        const proofImage = document.getElementById('proofImage');
+        image = '1674118728-koboasdas.jpg'; //remove this
+        proofImage.src="../../../storage/images/" + image;
+        modal.classList.toggle('hidden');
+        modal.classList.toggle('flex');
+    }
+</script>
 
 <style>
     .pagination {
