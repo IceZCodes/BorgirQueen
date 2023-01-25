@@ -62,7 +62,7 @@
             <div class="mb-2">
                 <div class="flex flex-col">
                     <h2 class="text-lg font-semibold">Image</h2>
-                    <label id="label_image" for="image" class="font-semibold text-center border border-[#E5E7EB] py-2 rounded-lg">{{$food->image}}</label>
+                    <label id="label_image" for="image" class="font-semibold text-center border border-[#E5E7EB] cursor-pointer py-2 rounded-lg">{{$food->image}}</label>
                     <input id="image" class="mt-2 hidden"type="file" type="image" name="image" onchange="getImage(this);">
                     @error('image')
                         <span class="text-red-600">
